@@ -280,8 +280,7 @@ CREATE TABLE `mus_usuarios` (
   `USR_CONTRA` varchar(100) NOT NULL,
   `USR_TIPO` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`USR_NOMBREUSUARIO`),
-  KEY `mus_usuarios_FK` (`USR_ESTACION`),
-  CONSTRAINT `mus_usuarios_FK` FOREIGN KEY (`USR_ESTACION`) REFERENCES `mus_usuarios` (`USR_NOMBREUSUARIO`)
+  KEY `mus_usuarios_FK` (`USR_ESTACION`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -291,6 +290,7 @@ CREATE TABLE `mus_usuarios` (
 
 LOCK TABLES `mus_usuarios` WRITE;
 /*!40000 ALTER TABLE `mus_usuarios` DISABLE KEYS */;
+INSERT INTO `mus_usuarios` VALUES ('EL PATRON','capi','1234','Creativo');
 /*!40000 ALTER TABLE `mus_usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -303,4 +303,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-10-17 17:25:17
+-- Dump completed on 2021-10-18 17:46:01

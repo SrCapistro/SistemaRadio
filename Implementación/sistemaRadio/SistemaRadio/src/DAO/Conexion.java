@@ -14,9 +14,9 @@ import java.util.logging.Logger;
  * @author josuecg
  */
 public class Conexion {
-    public static final String URL = "jdbc:mysql://localhost:3306/musica";
-    public static final String USUARIO = "capi";
-    public static final String CONTRA = "Contraseña1";
+    public static final String URL = "jdbc:mysql://sql5.freemysqlhosting.net/sql5445262";
+    public static final String USUARIO = "sql5445262";
+    public static final String CONTRA = "QKCdFxTjMq";
     
     public Connection getConexion(){
         Connection conn = null;
