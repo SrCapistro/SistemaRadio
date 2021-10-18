@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="312.0" prefWidth="600.0" stylesheets="@../Style/StyleClass.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sistemaradio.FXMLLoginController">
+   <children>
+      <Pane prefHeight="414.0" prefWidth="281.0">
+         <children>
+            <ImageView fx:id="imgBG" fitHeight="420.0" fitWidth="382.0" layoutY="-5.0" opacity="0.87" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Recursos/login.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutX="280.0" prefHeight="414.0" prefWidth="321.0" style="-fx-background-color: white; -fx-border-radius: 100px;" stylesheets="@../Style/StyleClass.css">
+         <children>
+            <PasswordField fx:id="tbContraseña" layoutX="64.0" layoutY="189.0" prefHeight="37.0" prefWidth="214.0" style="-fx-background-radius: 30px; -fx-border-radius: 30px;">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </PasswordField>
+            <TextField fx:id="tbUsuario" layoutX="64.0" layoutY="126.0" prefHeight="37.0" prefWidth="214.0" style="-fx-background-radius: 30px; -fx-border-radius: 30px;" styleClass="textBox">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </TextField>
+            <Label layoutX="70.0" layoutY="50.0" text="INICIAR SESIÓN">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="imgUsr" fitHeight="31.0" fitWidth="41.0" layoutX="14.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Recursos/usr.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="imgPass" fitHeight="37.0" fitWidth="35.0" layoutX="14.0" layoutY="190.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Recursos/pass.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="btnIniciarSesion" layoutX="101.0" layoutY="257.0" mnemonicParsing="false" onAction="#iniciarSesion" prefHeight="37.0" prefWidth="141.0" style="-fx-border-radius: 30px; -fx-background-radius: 30px;" text="Iniciar sesión">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Button>
+            <Label fx:id="lbComprobar" layoutX="95.0" layoutY="366.0" text="¡DATOS FALTANTES!" textFill="RED">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
