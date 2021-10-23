@@ -1,0 +1,5 @@
+.Button{
+   -fx-graphic: url(/Recursos/musicicon.png);
+   -fx-content-display: bottom;
+   -fx-background-color: red;
+}
