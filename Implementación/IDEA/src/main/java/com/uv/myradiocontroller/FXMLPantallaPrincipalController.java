@@ -45,7 +45,19 @@ public class FXMLPantallaPrincipalController implements Initializable {
     }
     
     @FXML public void btnPatronesClick(){
-        //Cargar respectiva ventana
+        try{
+            Stage thisStage = (Stage) btnPatrones.getScene().getWindow();
+            Stage stage = new Stage();
+            Parent root = FXMLLoader.load(getClass().getResource("FXMLPatrones.fxml"));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.setTitle("Patrones músicales");
+            thisStage.close();
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     
     @FXML public void btnAgendaClick(){
@@ -64,6 +76,7 @@ public class FXMLPantallaPrincipalController implements Initializable {
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.setResizable(false);
+            stage.setTitle("Bienvenido");
             thisStage.close();
             stage.show();
         } catch (IOException ex) {
