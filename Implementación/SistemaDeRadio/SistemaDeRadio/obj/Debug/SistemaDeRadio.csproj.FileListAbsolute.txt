@@ -1,0 +1,58 @@
+C:\Users\brand\Documents\UVDocs\7mosemestre\Desarrollo de software\Proyecto\SistemaDeRadio\bin\Debug\SistemaDeRadio.exe.config
+C:\Users\brand\Documents\UVDocs\7mosemestre\Desarrollo de software\Proyecto\SistemaDeRadio\bin\Debug\SistemaDeRadio.exe
+C:\Users\brand\Documents\UVDocs\7mosemestre\Desarrollo de software\Proyecto\SistemaDeRadio\bin\Debug\SistemaDeRadio.pdb
+C:\Users\brand\Documents\UVDocs\7mosemestre\Desarrollo de software\Proyecto\SistemaDeRadio\obj\Debug\SistemaDeRadio.csproj.AssemblyReference.cache
+C:\Users\brand\Documents\UVDocs\7mosemestre\Desarrollo de software\Proyecto\SistemaDeRadio\obj\Debug\App.g.cs
+C:\Users\brand\Documents\UVDocs\7mosemestre\Desarrollo de software\Proyecto\SistemaDeRadio\obj\Debug\SistemaDeRadio_MarkupCompile.cache
+C:\Users\brand\Documents\UVDocs\7mosemestre\Desarrollo de software\Proyecto\SistemaDeRadio\obj\Debug\SistemaDeRadio_MarkupCompile.lref
+C:\Users\brand\Documents\UVDocs\7mosemestre\Desarrollo de software\Proyecto\SistemaDeRadio\obj\Debug\SistemaDeRadio.g.resources
+C:\Users\brand\Documents\UVDocs\7mosemestre\Desarrollo de software\Proyecto\SistemaDeRadio\obj\Debug\SistemaDeRadio.Properties.Resources.resources
+C:\Users\brand\Documents\UVDocs\7mosemestre\Desarrollo de software\Proyecto\SistemaDeRadio\obj\Debug\SistemaDeRadio.csproj.GenerateResource.cache
+C:\Users\brand\Documents\UVDocs\7mosemestre\Desarrollo de software\Proyecto\SistemaDeRadio\obj\Debug\SistemaDeRadio.csproj.CoreCompileInputs.cache
+C:\Users\brand\Documents\UVDocs\7mosemestre\Desarrollo de software\Proyecto\SistemaDeRadio\obj\Debug\SistemaDeRadio.exe
+C:\Users\brand\Documents\UVDocs\7mosemestre\Desarrollo de software\Proyecto\SistemaDeRadio\obj\Debug\SistemaDeRadio.pdb
+C:\Users\brand\Documents\UVDocs\7mosemestre\Desarrollo de software\Proyecto\SistemaDeRadio\bin\Debug\MySql.Data.dll
+C:\Users\brand\Documents\UVDocs\7mosemestre\Desarrollo de software\Proyecto\SistemaDeRadio\bin\Debug\Google.Protobuf.dll
+C:\Users\brand\Documents\UVDocs\7mosemestre\Desarrollo de software\Proyecto\SistemaDeRadio\bin\Debug\ZstdNet.dll
+C:\Users\brand\Documents\UVDocs\7mosemestre\Desarrollo de software\Proyecto\SistemaDeRadio\bin\Debug\K4os.Compression.LZ4.Streams.dll
+C:\Users\brand\Documents\UVDocs\7mosemestre\Desarrollo de software\Proyecto\SistemaDeRadio\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\brand\Documents\UVDocs\7mosemestre\Desarrollo de software\Proyecto\SistemaDeRadio\bin\Debug\Ubiety.Dns.Core.dll
+C:\Users\brand\Documents\UVDocs\7mosemestre\Desarrollo de software\Proyecto\SistemaDeRadio\bin\Debug\System.Memory.dll
+C:\Users\brand\Documents\UVDocs\7mosemestre\Desarrollo de software\Proyecto\SistemaDeRadio\bin\Debug\System.Buffers.dll
+C:\Users\brand\Documents\UVDocs\7mosemestre\Desarrollo de software\Proyecto\SistemaDeRadio\bin\Debug\K4os.Compression.LZ4.dll
+C:\Users\brand\Documents\UVDocs\7mosemestre\Desarrollo de software\Proyecto\SistemaDeRadio\bin\Debug\K4os.Hash.xxHash.dll
+C:\Users\brand\Documents\UVDocs\7mosemestre\Desarrollo de software\Proyecto\SistemaDeRadio\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\brand\Documents\UVDocs\7mosemestre\Desarrollo de software\Proyecto\SistemaDeRadio\bin\Debug\MySql.Data.xml
+C:\Users\brand\Documents\UVDocs\7mosemestre\Desarrollo de software\Proyecto\SistemaDeRadio\obj\Debug\SistemaDeRadio.exe.config
+C:\Users\brand\Documents\UVDocs\7mosemestre\Desarrollo de software\Proyecto\SistemaDeRadio\obj\Debug\SistemaDeRadio.csproj.CopyComplete
+C:\Users\brand\Documents\UVDocs\7mosemestre\Desarrollo de software\Proyecto\SistemaDeRadio\obj\Debug\Ventanas\Login.g.cs
+C:\Users\brand\Documents\UVDocs\7mosemestre\Desarrollo de software\Proyecto\SistemaDeRadio\obj\Debug\Ventanas\Login.baml
+C:\Users\Mrcap\Documents\Repositorios\SistemaRadio\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\bin\Debug\SistemaDeRadio.exe.config
+C:\Users\Mrcap\Documents\Repositorios\SistemaRadio\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\bin\Debug\SistemaDeRadio.exe
+C:\Users\Mrcap\Documents\Repositorios\SistemaRadio\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\bin\Debug\SistemaDeRadio.pdb
+C:\Users\Mrcap\Documents\Repositorios\SistemaRadio\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\bin\Debug\Google.Protobuf.dll
+C:\Users\Mrcap\Documents\Repositorios\SistemaRadio\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\bin\Debug\ZstdNet.dll
+C:\Users\Mrcap\Documents\Repositorios\SistemaRadio\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\bin\Debug\K4os.Compression.LZ4.Streams.dll
+C:\Users\Mrcap\Documents\Repositorios\SistemaRadio\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\Mrcap\Documents\Repositorios\SistemaRadio\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\bin\Debug\Ubiety.Dns.Core.dll
+C:\Users\Mrcap\Documents\Repositorios\SistemaRadio\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\bin\Debug\System.Memory.dll
+C:\Users\Mrcap\Documents\Repositorios\SistemaRadio\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\bin\Debug\System.Buffers.dll
+C:\Users\Mrcap\Documents\Repositorios\SistemaRadio\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\bin\Debug\K4os.Compression.LZ4.dll
+C:\Users\Mrcap\Documents\Repositorios\SistemaRadio\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\bin\Debug\K4os.Hash.xxHash.dll
+C:\Users\Mrcap\Documents\Repositorios\SistemaRadio\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\Mrcap\Documents\Repositorios\SistemaRadio\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\bin\Debug\MySql.Data.xml
+C:\Users\Mrcap\Documents\Repositorios\SistemaRadio\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\SistemaDeRadio.csproj.AssemblyReference.cache
+C:\Users\Mrcap\Documents\Repositorios\SistemaRadio\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\SistemaDeRadio.csproj.SuggestedBindingRedirects.cache
+C:\Users\Mrcap\Documents\Repositorios\SistemaRadio\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\SistemaDeRadio.exe.config
+C:\Users\Mrcap\Documents\Repositorios\SistemaRadio\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\Ventanas\Login.g.cs
+C:\Users\Mrcap\Documents\Repositorios\SistemaRadio\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\App.g.cs
+C:\Users\Mrcap\Documents\Repositorios\SistemaRadio\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\SistemaDeRadio_MarkupCompile.cache
+C:\Users\Mrcap\Documents\Repositorios\SistemaRadio\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\SistemaDeRadio_MarkupCompile.lref
+C:\Users\Mrcap\Documents\Repositorios\SistemaRadio\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\Ventanas\Login.baml
+C:\Users\Mrcap\Documents\Repositorios\SistemaRadio\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\SistemaDeRadio.g.resources
+C:\Users\Mrcap\Documents\Repositorios\SistemaRadio\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\SistemaDeRadio.Properties.Resources.resources
+C:\Users\Mrcap\Documents\Repositorios\SistemaRadio\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\SistemaDeRadio.csproj.GenerateResource.cache
+C:\Users\Mrcap\Documents\Repositorios\SistemaRadio\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\SistemaDeRadio.csproj.CoreCompileInputs.cache
+C:\Users\Mrcap\Documents\Repositorios\SistemaRadio\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\SistemaDeRadio.csproj.CopyComplete
+C:\Users\Mrcap\Documents\Repositorios\SistemaRadio\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\SistemaDeRadio.exe
+C:\Users\Mrcap\Documents\Repositorios\SistemaRadio\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\SistemaDeRadio.pdb
