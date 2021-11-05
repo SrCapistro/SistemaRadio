@@ -1,4 +1,6 @@
 ﻿using SistemaDeRadio.DAO;
+using SistemaDeRadio.POCO;
+using SistemaDeRadio.Ventanas;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,8 +30,36 @@ namespace SistemaDeRadio
 
         private void btnConectar_Click(object sender, RoutedEventArgs e)
         {
-            ConexionBD conectar = new ConexionBD();
-            conectar.conectarBD();
+        }
+
+        private void btn_iniciarSesion_Click(object sender, RoutedEventArgs e)
+        {
+            String nombreUsuario = txt_usuario.Text;
+            String contraseñaUsuario = txt_contraseña.Password;
+
+            if(nombreUsuario.Length > 0 && contraseñaUsuario.Length > 0)
+            {
+                Usuario userRespuesta = UsuarioDAO.obtenerLogin(nombreUsuario, contraseñaUsuario);
+                if(userRespuesta != null)
+                {
+                    abrirVentanaPrincipal();
+                }
+                else
+                {
+                    MessageBox.Show("Datos incorrectos, favor de verificarlos", "Error");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Usuario y contraseña obligatorios", "Campos vacios");
+            }
+        }
+
+        public void abrirVentanaPrincipal()
+        {
+            PantallaPrincipal pantallaPrincipal = new PantallaPrincipal();
+            pantallaPrincipal.Show();
+            this.Close();
         }
     }
 }

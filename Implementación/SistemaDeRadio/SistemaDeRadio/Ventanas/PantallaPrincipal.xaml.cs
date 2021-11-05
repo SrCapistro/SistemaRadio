@@ -23,5 +23,12 @@ namespace SistemaDeRadio.Ventanas
         {
             InitializeComponent();
         }
+
+        private void btnPatrones_Click(object sender, RoutedEventArgs e)
+        {
+            PatronesRegistrados pantallaPatrones = new PatronesRegistrados();
+            pantallaPatrones.Show();
+            this.Close();
+        }
     }
 }
