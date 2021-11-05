@@ -1,0 +1,40 @@
+﻿<Window x:Class="SistemaDeRadio.Ventanas.Agenda"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SistemaDeRadio.Ventanas"
+        mc:Ignorable="d"
+        Title="Agenda" Height="577.83" Width="884.066">
+    <Grid Margin="0,0,-0.4,1">
+        <StackPanel HorizontalAlignment="Left" Height="102" VerticalAlignment="Top" Width="878" Background="#FF14213D">
+            <Label Content="Agenda" Margin="290,0,289.6,0" Foreground="White" FontSize="50" HorizontalAlignment="Center" Padding="13" FontWeight="ExtraBold" Height="96"/>
+        </StackPanel>
+        <Label Content="Agenda del día: " HorizontalAlignment="Left" Margin="29,165,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="18"/>
+        <DatePicker HorizontalAlignment="Left" Margin="29,121,0,0" VerticalAlignment="Top" Width="275"/>
+        <Label x:Name="lbDiaSeleccionado" Content="Aquí va el día seleccionado" HorizontalAlignment="Left" Margin="170,165,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.002,0.552" FontFamily="Arial" FontSize="18" FontWeight="Bold"/>
+        <DataGrid x:Name="dgProgramasAgendados" HorizontalAlignment="Left" Height="272" Margin="29,208,0,0" VerticalAlignment="Top" Width="804"/>
+        <Button x:Name="btnRegresar" Content="Regresar" HorizontalAlignment="Left" Margin="29,507,0,0" VerticalAlignment="Top" Width="125" Background="#FF8C0000" Foreground="White" FontFamily="Arial" FontSize="18" FontWeight="Bold" Height="30">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="7"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button x:Name="btnGestionarPrograma" Content="Gestionar programa" HorizontalAlignment="Left" Margin="418,507,0,0" VerticalAlignment="Top" Width="186" Height="30" Background="#FF14213D" Foreground="White" FontFamily="Arial" FontWeight="Bold" FontSize="18">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="7"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button Content="Agendar programa" HorizontalAlignment="Left" Margin="645,507,0,0" VerticalAlignment="Top" Width="188" Height="30" Background="#FF14213D" Foreground="White" FontFamily="Arial" FontWeight="Bold" FontSize="18">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="7"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+    </Grid>
+</Window>

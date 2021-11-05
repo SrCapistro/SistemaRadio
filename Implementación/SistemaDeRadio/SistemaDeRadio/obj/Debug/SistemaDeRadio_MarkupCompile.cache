@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Mrcap\Documents\Repositorios\SistemaRadio\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\
+C:\Users\brand\Source\Repos\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\
 SistemaDeRadio
 none
 false
 DEBUG;TRACE
-C:\Users\Mrcap\Documents\Repositorios\SistemaRadio\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\App.xaml
-3-1702205365
+C:\Users\brand\Source\Repos\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\App.xaml
+51182628733
 
-10-1105707291
-118-2070094167
-Ventanas\Login.xaml;Ventanas\PantallaPrincipal.xaml;Ventanas\PatronesRegistrados.xaml;
+12-1223544328
+14634765203
+Ventanas\Agenda.xaml;Ventanas\AgendarPrograma.xaml;Ventanas\Login.xaml;Ventanas\PantallaPrincipal.xaml;Ventanas\PatronesRegistrados.xaml;
 
-False
+True
 

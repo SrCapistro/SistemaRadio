@@ -61,12 +61,26 @@
     </ApplicationDefinition>
     <Compile Include="DAO\UsuarioDAO.cs" />
     <Compile Include="POCO\Usuario.cs" />
+    <Compile Include="Ventanas\Agenda.xaml.cs">
+      <DependentUpon>Agenda.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\AgendarPrograma.xaml.cs">
+      <DependentUpon>AgendarPrograma.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Ventanas\PantallaPrincipal.xaml.cs">
       <DependentUpon>PantallaPrincipal.xaml</DependentUpon>
     </Compile>
     <Compile Include="Ventanas\PatronesRegistrados.xaml.cs">
       <DependentUpon>PatronesRegistrados.xaml</DependentUpon>
     </Compile>
+    <Page Include="Ventanas\Agenda.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ventanas\AgendarPrograma.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Ventanas\Login.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
