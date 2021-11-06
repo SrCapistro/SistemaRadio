@@ -5,18 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SistemaDeRadio.Ventanas"
         mc:Ignorable="d"
-        Title="Patrones musicales" Height="480" Width="720">
+        Title="Patrones musicales" Height="500" Width="716">
     <Grid>
-        <StackPanel Background="#FF14213D" Margin="0,0,0,369">
+        <StackPanel Background="#FF14213D" Margin="0,0,0,364">
             <Label Content="PATRONES MUSICALES" Foreground="White" FontSize="50" HorizontalAlignment="Center" Padding="14" FontWeight="ExtraBold" Height="91"/>
         </StackPanel>
 
         <StackPanel Margin="0,95,0,0">
             <DataGrid FontSize="18" Height="244" d:ItemsSource="{d:SampleData ItemCount=5}"/>
 
-            <Grid Height="81">
-                
-                <Button x:Name="btnCrearPatron" Margin="10,5,542,5">
+            <Grid Height="78">
+
+                <Button x:Name="btnCrearPatron" Margin="10,5,542,5" Click="btnCrearPatron_Click">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="40"/>
@@ -59,12 +59,12 @@
                         <Image Stretch="Fill"  Source="/Ventanas/reporte.png" Height="50" Width="53"/>
                     </StackPanel>
                 </Button>
-                
+
             </Grid>
-            <StackPanel Background="#FF14213D" Height="46">
-                <Button Content="Regresar" Background="#FF8C0000" FontSize="18" Margin="10" FontWeight="Bold" Foreground="White" Width="150">
+            <StackPanel Background="#FF14213D" Height="48">
+                <Button Content="Regresar" Background="#FF8C0000" FontSize="18" Margin="10" FontWeight="Bold" Foreground="White" Width="150" Click="Button_Click">
                     <Button.Resources>
-                        <Style TargetType="Border">
+                        <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="10"/>
                         </Style>
                     </Button.Resources>

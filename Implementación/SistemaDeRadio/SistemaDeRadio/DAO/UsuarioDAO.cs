@@ -13,7 +13,6 @@ namespace SistemaDeRadio.DAO
         public static Usuario obtenerLogin(String nombreUsuario, String contraseña)
         {
             Usuario usr = null;
-
             MySqlConnection conn = null;
             try
             {
@@ -29,10 +28,10 @@ namespace SistemaDeRadio.DAO
                     if (reader.Read())
                     {
                         usr = new Usuario();
-                        usr.EstacionUsr = (!reader.IsDBNull(0)) ? reader.GetString(0) : "";
-                        usr.NombreUsr = (reader.IsDBNull(1)) ? reader.GetString(1) : "";
-                        usr.ContraUsr = (reader.IsDBNull(2)) ? reader.GetString(2) : "";
-                        usr.TipoUsr = (reader.IsDBNull(3)) ? reader.GetString(3) : "";
+                        usr.EstacionUsr = Convert.ToString(reader["USR_ESTACION"]);
+                        usr.NombreUsr = Convert.ToString(reader["USR_NOMBREUSUARIO"]);
+                        usr.ContraUsr = contraseña;
+                        usr.TipoUsr = Convert.ToString(reader["USR_TIPO"]);
                     }
                     reader.Close();
                     command.Dispose();
