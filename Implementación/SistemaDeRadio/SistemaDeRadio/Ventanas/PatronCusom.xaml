@@ -7,18 +7,18 @@
         mc:Ignorable="d"
         Title="PatronCusom" Height="450" Width="800">
     <Grid>
-        <StackPanel Background="#FF14213D" Margin="0,0,0,352">
+        <StackPanel Background="#FF14213D" Margin="0,0,0,341">
             <Label Content="Registrar patrón" Foreground="White" FontSize="50" HorizontalAlignment="Center" Padding="5" FontWeight="ExtraBold" Height="83"/>
         </StackPanel>
         <TextBox x:Name="tbNombrePatron" HorizontalAlignment="Left" FontSize="20"  Margin="10,100,0,0" TextWrapping="Wrap" Text="Nombre del patrón" VerticalAlignment="Top" Width="190" Height="32"/>
-        <DataGrid x:Name="tablaLineas" FontSize="18" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,150,0,125"/>
+        <DataGrid x:Name="tablaLineas" FontSize="18" Margin="0,150,0,125" FrozenColumnCount="3" IsReadOnly="True"/>
         <Label Content="Añade lineas del patrón:" FontSize="18" HorizontalAlignment="Left" Margin="214,99,0,0" VerticalAlignment="Top" Height="32" Width="237"/>
 
-        <ComboBox x:Name="cbCategorias" FontSize="18" HorizontalAlignment="Left" Margin="430,100,0,0" VerticalAlignment="Top" Width="128" Height="32"/>
+        <ComboBox x:Name="cbCategorias" FontSize="18" HorizontalAlignment="Left" Margin="430,100,0,0" VerticalAlignment="Top" Width="128" Height="32" SelectionChanged="cbCategoriasSelectionChanged"/>
 
-        <ComboBox x:Name="cbGeneros" FontSize="18"  HorizontalAlignment="Left" Margin="577,100,0,0" VerticalAlignment="Top" Width="127" Height="32"/>
+        <ComboBox x:Name="cbGeneros" FontSize="18"  HorizontalAlignment="Left" Margin="577,100,0,0" VerticalAlignment="Top" Width="127" Height="32" SelectionChanged="cbGenerosSelectionChanged"/>
 
-        <Button x:Name="btnAñadirLinea" HorizontalAlignment="Left" Margin="713,101,0,0" VerticalAlignment="Top" Height="30" Width="39">
+        <Button x:Name="btnAñadirLinea" HorizontalAlignment="Left" Margin="713,101,0,0" VerticalAlignment="Top" Height="30" Width="39" Click="btnAñadirLinea_Click">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="10"/>

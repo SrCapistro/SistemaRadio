@@ -8,20 +8,20 @@ namespace SistemaDeRadio.POCO
 {
     class Cancion
     {
-        private int cancionID;
+        private long cancionID;
         private String cancionTitulo;
-        private int cancionCategoria;
-        private int cancionGenero;
+        private long cancionCategoria;
+        private long cancionGenero;
         private String cancionClave;
         private String cancionDias;
-        private int cancionAutor;
+        private long cancionAutor;
 
-        public int CancionID { get => cancionID; set => cancionID = value; }
+        public long CancionID { get => cancionID; set => cancionID = value; }
         public string CancionTitulo { get => cancionTitulo; set => cancionTitulo = value; }
-        public int CancionCategoria { get => cancionCategoria; set => cancionCategoria = value; }
-        public int CancionGenero { get => cancionGenero; set => cancionGenero = value; }
+        public long CancionCategoria { get => cancionCategoria; set => cancionCategoria = value; }
+        public long CancionGenero { get => cancionGenero; set => cancionGenero = value; }
         public string CancionClave { get => cancionClave; set => cancionClave = value; }
         public string CancionDias { get => cancionDias; set => cancionDias = value; }
-        public int CancionAutor { get => cancionAutor; set => cancionAutor = value; }
+        public long CancionAutor { get => cancionAutor; set => cancionAutor = value; }
     }
 }

@@ -59,6 +59,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DAO\CancionDAO.cs" />
     <Compile Include="DAO\CategoriaDAO.cs" />
     <Compile Include="DAO\GeneroDAO.cs" />
     <Compile Include="DAO\PatronDAO.cs" />
@@ -66,6 +67,7 @@
     <Compile Include="POCO\Cancion.cs" />
     <Compile Include="POCO\Categoria.cs" />
     <Compile Include="POCO\Genero.cs" />
+    <Compile Include="POCO\LineaPatron.cs" />
     <Compile Include="POCO\Patron.cs" />
     <Compile Include="POCO\Usuario.cs" />
     <Compile Include="Ventanas\PantallaPrincipal.xaml.cs">

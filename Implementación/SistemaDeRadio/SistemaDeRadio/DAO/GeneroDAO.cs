@@ -28,7 +28,6 @@ namespace SistemaDeRadio.DAO
                         Genero genero = new Genero();
                         genero.GeneroID = (long)reader["GNR_ID"];
                         genero.GeneroNombre = reader.GetString(1);
-                        Console.WriteLine(genero.GeneroNombre);
                         generosRegistrados.Add(genero);
                     }
                     command.Dispose();
