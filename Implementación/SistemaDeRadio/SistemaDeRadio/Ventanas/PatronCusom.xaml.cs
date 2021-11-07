@@ -52,7 +52,7 @@ namespace SistemaDeRadio.Ventanas
                 }
             }
         }
-
+        
         private void cargarGenerosCombo()
         {
             List<Genero> listaGeneros = null;
@@ -61,12 +61,13 @@ namespace SistemaDeRadio.Ventanas
                 listaGeneros = GeneroDAO.obtenerGeneros();
                 foreach (Genero genero in listaGeneros)
                 {
-                    cbGeneros.Items.Add(genero);
+                    cbGeneros.Items.Add(genero.GeneroNombre);
                 }
             }catch (NullReferenceException ex)
             {
                 MessageBox.Show("Ocurrio un error de conexión, intentélo de nuevo más tarde", "Error al cargar los datos");
             }
         }
+        
     }
 }

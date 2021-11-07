@@ -12,7 +12,7 @@ namespace SistemaDeRadio.DAO
     {
         public static List<Genero> obtenerGeneros()
         {
-            List <Genero> generosRegistrados = null;
+            List <Genero> generosRegistrados = new List<Genero> ();
             MySqlConnection conn = null;
             MySqlDataReader reader = null;
             try
@@ -26,8 +26,9 @@ namespace SistemaDeRadio.DAO
                     while (reader.Read())
                     {
                         Genero genero = new Genero();
-                        genero.GeneroID = reader.GetInt32(1);
-                        genero.GeneroNombre = reader.GetString(2);
+                        genero.GeneroID = (long)reader["GNR_ID"];
+                        genero.GeneroNombre = reader.GetString(1);
+                        Console.WriteLine(genero.GeneroNombre);
                         generosRegistrados.Add(genero);
                     }
                     command.Dispose();

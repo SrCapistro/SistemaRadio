@@ -8,10 +8,10 @@ namespace SistemaDeRadio.POCO
 {
     class Genero
     {
-        private int generoID;
+        private long generoID;
         private String generoNombre;
 
-        public int GeneroID { get => generoID; set => generoID = value; }
+        public long GeneroID { get => generoID; set => generoID = value; }
         public string GeneroNombre { get => generoNombre; set => generoNombre = value; }
     }
 }
