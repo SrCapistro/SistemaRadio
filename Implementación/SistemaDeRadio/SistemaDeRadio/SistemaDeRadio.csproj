@@ -59,6 +59,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DAO\CategoriaDAO.cs" />
     <Compile Include="DAO\GeneroDAO.cs" />
     <Compile Include="DAO\PatronDAO.cs" />
     <Compile Include="DAO\UsuarioDAO.cs" />

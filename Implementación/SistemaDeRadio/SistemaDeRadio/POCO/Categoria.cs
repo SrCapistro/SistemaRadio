@@ -8,10 +8,10 @@ namespace SistemaDeRadio.POCO
 {
     class Categoria
     {
-        private int categoriaID;
+        private long categoriaID;
         private String categoriaNombre;
 
-        public int CategoriaID { get => categoriaID; set => categoriaID = value; }
+        public long CategoriaID { get => categoriaID; set => categoriaID = value; }
         public string CategoriaNombre { get => categoriaNombre; set => categoriaNombre = value; }
     }
 }

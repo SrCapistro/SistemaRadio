@@ -14,9 +14,9 @@
         <DataGrid x:Name="tablaLineas" FontSize="18" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,150,0,125"/>
         <Label Content="Añade lineas del patrón:" FontSize="18" HorizontalAlignment="Left" Margin="214,99,0,0" VerticalAlignment="Top" Height="32" Width="237"/>
 
-        <ComboBox x:Name="cbCategorias" HorizontalAlignment="Left" Margin="430,100,0,0" VerticalAlignment="Top" Width="128" Height="32"/>
+        <ComboBox x:Name="cbCategorias" FontSize="18" HorizontalAlignment="Left" Margin="430,100,0,0" VerticalAlignment="Top" Width="128" Height="32"/>
 
-        <ComboBox x:Name="cbGeneros" HorizontalAlignment="Left" Margin="577,100,0,0" VerticalAlignment="Top" Width="127" Height="32"/>
+        <ComboBox x:Name="cbGeneros" FontSize="18"  HorizontalAlignment="Left" Margin="577,100,0,0" VerticalAlignment="Top" Width="127" Height="32"/>
 
         <Button x:Name="btnAñadirLinea" HorizontalAlignment="Left" Margin="713,101,0,0" VerticalAlignment="Top" Height="30" Width="39">
             <Button.Resources>

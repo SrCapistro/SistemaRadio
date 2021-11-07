@@ -25,6 +25,7 @@ namespace SistemaDeRadio.Ventanas
         {
             InitializeComponent();
             cargarGenerosCombo();
+            cargarCategoriasCombo();
         }
 
         private void btnCancelar_Click(object sender, RoutedEventArgs e)
@@ -66,6 +67,22 @@ namespace SistemaDeRadio.Ventanas
             }catch (NullReferenceException ex)
             {
                 MessageBox.Show("Ocurrio un error de conexión, intentélo de nuevo más tarde", "Error al cargar los datos");
+            }
+        }
+
+        public void cargarCategoriasCombo()
+        {
+            List<Categoria> listaCategorias = null;
+            try
+            {
+                listaCategorias = CategoriaDAO.obtenerCategorias();
+                foreach (Categoria categoria in listaCategorias)
+                {
+                    cbCategorias.Items.Add(categoria.CategoriaNombre);
+                }
+            }catch(NullReferenceException ex)
+            {
+                MessageBox.Show("Ocurrio un error de conexión, inténtelo de nuevo más tarde", "Error al cargar los datos");
             }
         }
         
