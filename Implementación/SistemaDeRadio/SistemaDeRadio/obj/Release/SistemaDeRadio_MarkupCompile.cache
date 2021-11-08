@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\brand\Source\Repos\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Release\
+C:\Users\mario\source\repos\SrCapistro\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Release\
 SistemaDeRadio
 none
 false
 TRACE
-C:\Users\brand\Source\Repos\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\App.xaml
-51182628733
+C:\Users\mario\source\repos\SrCapistro\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\App.xaml
+6-154586418
 
-12-1223544328
-14634765203
-Ventanas\Agenda.xaml;Ventanas\AgendarPrograma.xaml;Ventanas\Login.xaml;Ventanas\PantallaPrincipal.xaml;Ventanas\PatronesRegistrados.xaml;
+22-1806056972
+14-430030424
+Ventanas\Agenda.xaml;Ventanas\AgendarPrograma.xaml;Ventanas\Login.xaml;Ventanas\PantallaPrincipal.xaml;Ventanas\PatronCusom.xaml;Ventanas\PatronesRegistrados.xaml;
 
 True
 
