@@ -42,6 +42,7 @@ namespace SistemaDeRadio
                 Usuario userRespuesta = UsuarioDAO.obtenerLogin(nombreUsuario, contraseñaUsuario);
                 if(userRespuesta != null)
                 {
+                    MessageBox.Show("Bienvenido al sistema " + userRespuesta.NombreUsr + " Tipo: " + userRespuesta.TipoUsr);
                     abrirVentanaPrincipal();
                 }
                 else

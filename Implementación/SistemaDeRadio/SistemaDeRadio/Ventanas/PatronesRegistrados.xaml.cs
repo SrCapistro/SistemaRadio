@@ -23,5 +23,19 @@ namespace SistemaDeRadio.Ventanas
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            PantallaPrincipal pantallaPrincipal = new PantallaPrincipal();
+            pantallaPrincipal.Show();
+            this.Close();
+        }
+
+        private void btnCrearPatron_Click(object sender, RoutedEventArgs e)
+        {
+            PatronCusom patronCusom = new PatronCusom();
+            patronCusom.Show();
+            this.Close();
+        }
     }
 }

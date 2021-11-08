@@ -59,7 +59,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DAO\CancionDAO.cs" />
+    <Compile Include="DAO\CategoriaDAO.cs" />
+    <Compile Include="DAO\GeneroDAO.cs" />
+    <Compile Include="DAO\PatronDAO.cs" />
     <Compile Include="DAO\UsuarioDAO.cs" />
+    <Compile Include="POCO\Cancion.cs" />
+    <Compile Include="POCO\Categoria.cs" />
+    <Compile Include="POCO\Genero.cs" />
+    <Compile Include="POCO\LineaPatron.cs" />
+    <Compile Include="POCO\Patron.cs" />
     <Compile Include="POCO\Usuario.cs" />
     <Compile Include="Ventanas\Agenda.xaml.cs">
       <DependentUpon>Agenda.xaml</DependentUpon>
@@ -69,6 +78,9 @@
     </Compile>
     <Compile Include="Ventanas\PantallaPrincipal.xaml.cs">
       <DependentUpon>PantallaPrincipal.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ventanas\PatronCusom.xaml.cs">
+      <DependentUpon>PatronCusom.xaml</DependentUpon>
     </Compile>
     <Compile Include="Ventanas\PatronesRegistrados.xaml.cs">
       <DependentUpon>PatronesRegistrados.xaml</DependentUpon>
@@ -95,6 +107,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Ventanas\PantallaPrincipal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ventanas\PatronCusom.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SistemaDeRadio.Ventanas"
         mc:Ignorable="d"
-        Title="My Radio Controller" Height="520" Width="816">
+        Title="My Radio Controller"  Height="520" Width="716">
     <Grid>
-        <StackPanel Margin="0,0,0,369" Background="#FF14213D">
+        <StackPanel Margin="0,0,0,396" Background="#FF14213D">
             <Label Content="MY RADIO CONTROLLER" Foreground="White" FontSize="50" HorizontalAlignment="Center" Padding="13" FontWeight="ExtraBold" Height="96"/>
         </StackPanel>
-        <StackPanel Margin="0,451,0,0" Background="#FF14213D" RenderTransformOrigin="0.5,0.5">
+        <StackPanel Margin="0,434,0,0" Background="#FF14213D" RenderTransformOrigin="0.5,0.5">
             <StackPanel.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleY="1"/>
@@ -20,7 +20,7 @@
                 </TransformGroup>
             </StackPanel.RenderTransform>
 
-            <Button x:Name="btnCerrarSesion"  Margin="0,10,0,0" Foreground="White" FontWeight="Bold" FontSize="16" Content="Cerrar sesión"  Width="188" Background="#FF8C0000">
+            <Button x:Name="btnCerrarSesion"  Margin="0,10,0,0" Foreground="White" FontWeight="Bold" FontSize="16" Content="Cerrar sesión"  Width="188" Background="#FF8C0000" Height="34">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="10"/>
@@ -40,7 +40,7 @@
                 <Image Stretch="Fill"  Source="/Ventanas/calendario.png" Height="113" Width="129"/>
             </StackPanel>
         </Button>
-        <Button x:Name="btnPatrones" Margin="260,125,260,0" VerticalAlignment="Top" Height="180" Width="200" Background="#FF14213D" Click="btnPatrones_Click">
+        <Button x:Name="btnPatrones" Margin="254,125,254,0" VerticalAlignment="Top" Height="180" Background="#FF14213D" Click="btnPatrones_Click">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="20"/>
@@ -52,7 +52,7 @@
             </StackPanel>
         </Button>
 
-        <Button Background="#FF14213D" HorizontalAlignment="Left" Margin="577,125,0,0" VerticalAlignment="Top" Height="180" Width="200">
+        <Button Background="#FF14213D" HorizontalAlignment="Left" Margin="486,125,0,0" VerticalAlignment="Top" Height="180" Width="200">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="20"/>
@@ -65,7 +65,7 @@
         </Button>
         <TextBox x:Name="txtInfoPrograma" IsEnabled="False" FontSize="20" FontWeight="Bold" Foreground="#FF7E7B7E" HorizontalAlignment="Center" Margin="0,331,0,0" TextWrapping="Wrap" Text="Aquí va la información del programa actual" VerticalAlignment="Top" Width="656" Height="32"/>
 
-        <Button x:Name="btnCronogramaCompleto" Background="#FF14213D" FontSize="18" Content="Ver cronograma completo" Foreground="White" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,378,0,68"  Width="272">
+        <Button x:Name="btnCronogramaCompleto" Background="#FF14213D" FontSize="18" Content="Ver cronograma completo" Foreground="White" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,378,0,69"  Width="272">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>

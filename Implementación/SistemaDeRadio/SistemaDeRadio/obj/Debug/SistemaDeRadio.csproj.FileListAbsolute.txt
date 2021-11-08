@@ -60,6 +60,7 @@ C:\Users\Mrcap\Documents\Repositorios\SistemaRadio\SistemaRadio\Implementación\
 C:\Users\Mrcap\Documents\Repositorios\SistemaRadio\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\Ventanas\PatronesRegistrados.g.cs
 C:\Users\Mrcap\Documents\Repositorios\SistemaRadio\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\Ventanas\PantallaPrincipal.baml
 C:\Users\Mrcap\Documents\Repositorios\SistemaRadio\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\Ventanas\PatronesRegistrados.baml
+<<<<<<< HEAD
 C:\Users\brand\Source\Repos\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\bin\Debug\SistemaDeRadio.exe.config
 C:\Users\brand\Source\Repos\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\bin\Debug\SistemaDeRadio.exe
 C:\Users\brand\Source\Repos\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\bin\Debug\SistemaDeRadio.pdb
@@ -95,3 +96,7 @@ C:\Users\brand\Source\Repos\SistemaRadio\Implementación\SistemaDeRadio\SistemaD
 C:\Users\brand\Source\Repos\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\SistemaDeRadio.csproj.CopyComplete
 C:\Users\brand\Source\Repos\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\SistemaDeRadio.exe
 C:\Users\brand\Source\Repos\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\SistemaDeRadio.pdb
+=======
+C:\Users\Mrcap\Documents\Repositorios\SistemaRadio\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\Ventanas\PatronCusom.g.cs
+C:\Users\Mrcap\Documents\Repositorios\SistemaRadio\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\Ventanas\PatronCusom.baml
+>>>>>>> Rama-Capi

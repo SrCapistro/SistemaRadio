@@ -9,12 +9,21 @@ SistemaDeRadio
 none
 false
 DEBUG;TRACE
+<<<<<<< HEAD
 C:\Users\brand\Source\Repos\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\App.xaml
 51182628733
 
 12-1223544328
 14634765203
 Ventanas\Agenda.xaml;Ventanas\AgendarPrograma.xaml;Ventanas\Login.xaml;Ventanas\PantallaPrincipal.xaml;Ventanas\PatronesRegistrados.xaml;
+=======
+C:\Users\Mrcap\Documents\Repositorios\SistemaRadio\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\App.xaml
+4455820386
+
+201206442916
+118-2070094167
+Ventanas\Login.xaml;Ventanas\PantallaPrincipal.xaml;Ventanas\PatronCusom.xaml;Ventanas\PatronesRegistrados.xaml;
+>>>>>>> Rama-Capi
 
 True
 
