@@ -60,10 +60,14 @@ namespace SistemaDeRadio.Ventanas
                     {
                         Console.WriteLine(cancionAñadida.CancionTitulo);
                     }
+                    MessageBox.Show("Se ha registrado el patrón correctamente", "Registro éxitoso");
+                    PatronesRegistrados patronesRegistrados = new PatronesRegistrados();
+                    patronesRegistrados.Show();
+                    this.Close();
                     //PatronDAO.registrarPatronNuevo(patronGuardar);
                 }catch (Exception ex)
                 {
-                    MessageBox.Show("Ocurrio un error al realizar el registro, inténtelo de nuevo", "Error de registro");
+                    Console.Write(ex.ToString());
                 }
             }
         }
@@ -125,9 +129,18 @@ namespace SistemaDeRadio.Ventanas
                 lineaNueva.CategoriaLineaID = listaCategorias[indexCategoria].CategoriaID;
                 lineaNueva.NumeroCanciones = CancionDAO.contarCancionesLinea(categoriaAñadirID, generoAñadirID);
                 if (lineaNueva.NumeroCanciones > 0)
-                { 
-                    listaLineasAñadidas.Add(lineaNueva);
-                    cargarDataGridLineas();
+                {
+                    if(lineaNueva.NumeroCanciones > contarRepeticionLinea(lineaNueva, listaLineasAñadidas))
+                    {
+                        listaLineasAñadidas.Add(lineaNueva);
+                        cargarDataGridLineas();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Se ha sobrepasado la cantidad de canciones disponibles para la linea seleccionada" +
+                            " , selecciona una linea diferente", "Canciones no disponibles");
+                    }
+                   
                 }
                 else
                 {
@@ -149,14 +162,14 @@ namespace SistemaDeRadio.Ventanas
             int indexLinea = 0;
             foreach(LineaPatron linea in lineaPatrones)
             {
-                if(listaCancionesPatron.Count == 0)
+                if(listaCancionesPatron.Count() == 0)
                 {
                     Cancion cancionLinea = CancionDAO.obtenerCancionesPatron(linea.CategoriaLineaID, linea.GenerolineaID, 0);
                     listaCancionesPatron.Add(cancionLinea);
                 }
                 else
                 {
-                    if (linea.Equals(lineaPatrones[indexLinea - 1]))
+                    if (linea.CategoriaLineaID == lineaPatrones[indexLinea - 1].CategoriaLineaID && linea.GenerolineaID == lineaPatrones[indexLinea - 1].GenerolineaID)
                     {
                         Cancion cancionLinea = CancionDAO.obtenerCancionesPatron(linea.CategoriaLineaID, linea.GenerolineaID, listaCancionesPatron[indexLinea - 1].CancionID);
                         listaCancionesPatron.Add(cancionLinea);
@@ -167,10 +180,10 @@ namespace SistemaDeRadio.Ventanas
                         Cancion cancionLinea = CancionDAO.obtenerCancionesPatron(linea.CategoriaLineaID, linea.GenerolineaID, ultimaCancionLinea.CancionID);
                         listaCancionesPatron.Add(cancionLinea);
                     }
-
-                    indexLinea++;
                 }
+                indexLinea++;
             }
+            indexLinea = 0;
         }
 
         private Cancion obtenerUltimaCancionLinea(List<LineaPatron> lineaPatrones) 
@@ -181,14 +194,26 @@ namespace SistemaDeRadio.Ventanas
             {
                 foreach (Cancion cancion in listaCancionesPatron)
                 {
-                    if (linea.CategoriaLineaID == cancion.CancionID && linea.GenerolineaID == cancion.CancionGenero)
+                    if (linea.CategoriaLineaID == cancion.CancionCategoria && linea.GenerolineaID == cancion.CancionGenero)
                     {
                         cancionEncontrada = cancion;
                     }
                 }
             }
-            
             return cancionEncontrada;
+        }
+
+        private int contarRepeticionLinea(LineaPatron linea, List<LineaPatron> lineas)
+        {
+            int contadorLinea = 0;
+            foreach(LineaPatron lineaContar in lineas)
+            {
+                if (lineaContar.CategoriaLineaID == linea.CategoriaLineaID && lineaContar.GenerolineaID == linea.GenerolineaID)
+                {
+                    contadorLinea++;
+                }
+            }
+            return contadorLinea;
         }
 
         private bool comprobarExistenciaEnLinea(List<Cancion> listaCancionLinea, Cancion cancion)

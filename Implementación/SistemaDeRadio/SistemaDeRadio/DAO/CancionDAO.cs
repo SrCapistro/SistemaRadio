@@ -63,7 +63,7 @@ namespace SistemaDeRadio.DAO
 
             }catch (Exception ex)
             {
-                throw new Exception();
+                Console.WriteLine(ex.Message);
             }
 
             return cancionObtenida;
