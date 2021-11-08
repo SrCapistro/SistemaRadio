@@ -54,8 +54,13 @@ namespace SistemaDeRadio.DAO
                     MySqlCommand command = new MySqlCommand(SQL, conn);
                     MySqlDataReader reader = command.ExecuteReader();
                     if (reader.Read())
-                    { 
-                        existe = true;
+                    {
+                        Patron patronObtenido = new Patron();
+                        patronObtenido.NombrePatron = Convert.ToString(reader["PTRN_NOMBRE"]);
+                        if (patronObtenido.NombrePatron.Equals(nombrePatron))
+                        {
+                            existe = true;
+                        }
                     }
                 }
             }catch (Exception ex)

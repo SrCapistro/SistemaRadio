@@ -100,3 +100,7 @@ C:\Users\brand\Source\Repos\SistemaRadio\Implementación\SistemaDeRadio\SistemaD
 C:\Users\Mrcap\Documents\Repositorios\SistemaRadio\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\Ventanas\PatronCusom.g.cs
 C:\Users\Mrcap\Documents\Repositorios\SistemaRadio\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\Ventanas\PatronCusom.baml
 >>>>>>> Rama-Capi
+C:\Users\Mrcap\Documents\Repositorios\SistemaRadio\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\Ventanas\Agenda.g.cs
+C:\Users\Mrcap\Documents\Repositorios\SistemaRadio\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\Ventanas\AgendarPrograma.g.cs
+C:\Users\Mrcap\Documents\Repositorios\SistemaRadio\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\Ventanas\Agenda.baml
+C:\Users\Mrcap\Documents\Repositorios\SistemaRadio\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\Ventanas\AgendarPrograma.baml
