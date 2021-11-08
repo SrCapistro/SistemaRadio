@@ -146,3 +146,5 @@ C:\Users\mario\Source\Repos\SrCapistro\SistemaRadio\Implementación\SistemaDeRad
 C:\Users\mario\Source\Repos\SrCapistro\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\SistemaDeRadio.csproj.CopyComplete
 C:\Users\mario\Source\Repos\SrCapistro\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\SistemaDeRadio.exe
 C:\Users\mario\Source\Repos\SrCapistro\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\SistemaDeRadio.pdb
+C:\Users\mario\source\repos\SrCapistro\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\Ventanas\VisualizarInfoProgramaActivo.g.cs
+C:\Users\mario\source\repos\SrCapistro\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\Ventanas\VisualizarInfoProgramaActivo.baml

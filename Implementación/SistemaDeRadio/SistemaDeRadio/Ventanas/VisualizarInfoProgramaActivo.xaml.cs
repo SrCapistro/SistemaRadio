@@ -23,5 +23,12 @@ namespace SistemaDeRadio.Ventanas
         {
             InitializeComponent();
         }
+
+        private void btnRegresar_Click(object sender, RoutedEventArgs e)
+        {
+            PantallaPrincipal regresarPrincipal = new PantallaPrincipal();
+            regresarPrincipal.Show();
+            this.Close();
+        }
     }
 }
