@@ -51,23 +51,28 @@ namespace SistemaDeRadio.Ventanas
             }
             else
             {
-                //Patron patronGuardar = new Patron();
-                //patronGuardar.NombrePatron = tbNombrePatron.Text;
-                try
+                Patron patronGuardar = new Patron();
+                patronGuardar.NombrePatron = tbNombrePatron.Text;
+                if (!PatronDAO.comprobarExistenciaPatron(patronGuardar.NombrePatron))
                 {
-                    generarCancionesPorLinea(listaLineasAñadidas);
-                    foreach(Cancion cancionAñadida in listaCancionesPatron)
+                    try
                     {
-                        Console.WriteLine(cancionAñadida.CancionTitulo);
+                        generarCancionesPorLinea(listaLineasAñadidas);
+                        PatronDAO.registrarPatronNuevo(patronGuardar);
+                        PatronDAO.registrarListaDePatron(listaCancionesPatron, patronGuardar.NombrePatron);
+                        MessageBox.Show("Se ha registrado el patrón correctamente", "Registro éxitoso");
+                        PatronesRegistrados patronesRegistrados = new PatronesRegistrados();
+                        patronesRegistrados.Show();
+                        this.Close();
                     }
-                    MessageBox.Show("Se ha registrado el patrón correctamente", "Registro éxitoso");
-                    PatronesRegistrados patronesRegistrados = new PatronesRegistrados();
-                    patronesRegistrados.Show();
-                    this.Close();
-                    //PatronDAO.registrarPatronNuevo(patronGuardar);
-                }catch (Exception ex)
+                    catch (Exception ex)
+                    {
+                        Console.Write(ex.ToString());
+                    }
+                }
+                else
                 {
-                    Console.Write(ex.ToString());
+                    MessageBox.Show("El patron con el nombre " + patronGuardar.NombrePatron + " ya esta registrado", "Registro duplicado");
                 }
             }
         }
@@ -186,20 +191,27 @@ namespace SistemaDeRadio.Ventanas
             indexLinea = 0;
         }
 
-        private Cancion obtenerUltimaCancionLinea(List<LineaPatron> lineaPatrones) 
-        { 
+        private Cancion obtenerUltimaCancionLinea(List<LineaPatron> lineaPatrones)
+        {
             Cancion cancionEncontrada = null;
-
-            foreach(LineaPatron linea in lineaPatrones)
+            try
             {
-                foreach (Cancion cancion in listaCancionesPatron)
+                foreach (LineaPatron linea in lineaPatrones)
                 {
-                    if (linea.CategoriaLineaID == cancion.CancionCategoria && linea.GenerolineaID == cancion.CancionGenero)
+                    foreach (Cancion cancion in listaCancionesPatron)
                     {
-                        cancionEncontrada = cancion;
+                        if (linea.CategoriaLineaID == cancion.CancionCategoria && linea.GenerolineaID == cancion.CancionGenero)
+                        {
+                            cancionEncontrada = cancion;
+                        }
                     }
                 }
+                Console.WriteLine(cancionEncontrada.CancionTitulo);
+            }catch (Exception ex)
+            {
+                MessageBox.Show("Occurrio un error de conexión con la base de datos, inténtelo de nuevo más tarde", "Error de conexión");
             }
+
             return cancionEncontrada;
         }
 
