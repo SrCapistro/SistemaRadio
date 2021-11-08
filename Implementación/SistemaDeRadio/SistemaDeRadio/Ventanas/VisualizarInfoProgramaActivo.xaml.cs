@@ -15,20 +15,13 @@ using System.Windows.Shapes;
 namespace SistemaDeRadio.Ventanas
 {
     /// <summary>
-    /// Lógica de interacción para VisualizarCronograma.xaml
+    /// Lógica de interacción para VisualizarInfoProgramaActivo.xaml
     /// </summary>
-    public partial class VisualizarCronograma : Window
+    public partial class VisualizarInfoProgramaActivo : Window
     {
-        public VisualizarCronograma()
+        public VisualizarInfoProgramaActivo()
         {
             InitializeComponent();
-        }
-
-        private void btnRegresar_Click(object sender, RoutedEventArgs e)
-        {
-            PantallaPrincipal regresarPrincipal = new PantallaPrincipal();
-            regresarPrincipal.Show();
-            this.Close();
         }
     }
 }

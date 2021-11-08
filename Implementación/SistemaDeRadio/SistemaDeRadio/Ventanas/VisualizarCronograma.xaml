@@ -5,8 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SistemaDeRadio.Ventanas"
         mc:Ignorable="d"
-        Title="VisualizarCronograma" Height="450" Width="800">
+        Title="VisualizarCronograma" Height="554" Width="891">
     <Grid>
-        
+        <StackPanel HorizontalAlignment="Left" Height="81" VerticalAlignment="Top" Width="886" Background="#FF14213D" Margin="0,0,-0.4,0">
+            <Label Content="Cronograma del Dia" FontSize="50" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center"/>
+        </StackPanel>
+        <Button x:Name="btnRegresar" Content="Regresar" HorizontalAlignment="Left" Margin="50,468,0,0" VerticalAlignment="Top" Width="125" Background="#FF8C0000" Foreground="White" FontFamily="Arial" FontSize="18" FontWeight="Bold" Height="30" Click="btnRegresar_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="7"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Label Content="Elementos por programa" HorizontalAlignment="Left" Margin="238,101,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <DataGrid HorizontalAlignment="Left" Height="249" Margin="238,159,0,0" VerticalAlignment="Top" Width="605">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Elemento" Binding="{Binding Elemento}"/>
+                <DataGridTextColumn Header="Comentarios" Binding="{Binding Comentarios}"/>
+                <DataGridTextColumn Header="Patrón" Binding="{Binding Patron}"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>

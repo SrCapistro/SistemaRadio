@@ -30,5 +30,19 @@ namespace SistemaDeRadio.Ventanas
             pantallaPatrones.Show();
             this.Close();
         }
+
+        private void btnCronograma_Click(object sender, RoutedEventArgs e)
+        {
+            VisualizarCronograma pantallaCronograma = new VisualizarCronograma();
+            pantallaCronograma.Show();
+            this.Close();
+        }
+
+        private void btnDetalles_Click(object sender, RoutedEventArgs e)
+        {
+            VisualizarInfoProgramaActivo pantallaDetalles = new VisualizarInfoProgramaActivo();
+            pantallaDetalles.Show();
+            this.Close();
+        }
     }
 }
