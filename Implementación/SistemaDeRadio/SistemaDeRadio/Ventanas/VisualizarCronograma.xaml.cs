@@ -22,6 +22,7 @@ namespace SistemaDeRadio.Ventanas
         public VisualizarCronograma()
         {
             InitializeComponent();
+            llamarFecha();
         }
 
         private void btnRegresar_Click(object sender, RoutedEventArgs e)
@@ -30,5 +31,12 @@ namespace SistemaDeRadio.Ventanas
             regresarPrincipal.Show();
             this.Close();
         }
+            
+        private void llamarFecha()
+        {
+            String fechaActual = DateTime.Now.ToString("dd-MM-yyyy");
+            lbFecha.Content = "Cronograma - " + fechaActual;
+        }
+
     }
 }

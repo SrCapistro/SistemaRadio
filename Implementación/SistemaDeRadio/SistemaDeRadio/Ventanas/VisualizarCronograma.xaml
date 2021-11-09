@@ -17,12 +17,18 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Label Content="Elementos por programa" HorizontalAlignment="Left" Margin="238,101,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <DataGrid HorizontalAlignment="Left" Height="249" Margin="238,159,0,0" VerticalAlignment="Top" Width="605">
+        <Label Content="Elementos por programa" HorizontalAlignment="Left" Margin="254,101,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <DataGrid x:Name="dgSegunPrograma" HorizontalAlignment="Left" Height="249" Margin="254,159,0,0" VerticalAlignment="Top" Width="589">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Elemento" Binding="{Binding Elemento}"/>
                 <DataGridTextColumn Header="Comentarios" Binding="{Binding Comentarios}"/>
                 <DataGridTextColumn Header="Patrón" Binding="{Binding Patron}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label x:Name="lbFecha" Content="" HorizontalAlignment="Left" Margin="10,101,0,0" VerticalAlignment="Top" FontSize="18" Width="225"/>
+        <DataGrid x:Name="dgProgramas" HorizontalAlignment="Left" Height="249" Margin="25,159,0,0" VerticalAlignment="Top" Width="172">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Programas" Binding="{Binding Programa}"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
