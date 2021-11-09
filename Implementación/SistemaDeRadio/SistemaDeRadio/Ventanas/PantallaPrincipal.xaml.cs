@@ -19,30 +19,46 @@ namespace SistemaDeRadio.Ventanas
     /// </summary>
     public partial class PantallaPrincipal : Window
     {
+
+        public static String estacion = "";
+
         public PantallaPrincipal()
         {
             InitializeComponent();
+            cargarEstacion();
         }
+
+        void cargarEstacion()
+        {
+             estacion = MainWindow.estacion;
+        }
+        
 
         private void btnPatrones_Click(object sender, RoutedEventArgs e)
         {
             PatronesRegistrados pantallaPatrones = new PatronesRegistrados();
             pantallaPatrones.Show();
-            this.Close();
+            
         }
 
         private void btnCronograma_Click(object sender, RoutedEventArgs e)
         {
             VisualizarCronograma pantallaCronograma = new VisualizarCronograma();
             pantallaCronograma.Show();
-            this.Close();
+            
         }
 
         private void btnDetalles_Click(object sender, RoutedEventArgs e)
         {
             VisualizarInfoProgramaActivo pantallaDetalles = new VisualizarInfoProgramaActivo();
             pantallaDetalles.Show();
-            this.Close();
+            
+        }
+
+        private void btnAgenda_Click(object sender, RoutedEventArgs e)
+        {
+            Agenda agenda = new Agenda();
+            agenda.Show();
         }
     }
 }

@@ -28,6 +28,8 @@ namespace SistemaDeRadio
             InitializeComponent();
         }
 
+        public static String estacion = "";
+
         private void btnConectar_Click(object sender, RoutedEventArgs e)
         {
         }
@@ -43,6 +45,7 @@ namespace SistemaDeRadio
                 if(userRespuesta != null)
                 {
                     MessageBox.Show("Bienvenido al sistema " + userRespuesta.NombreUsr + " Tipo: " + userRespuesta.TipoUsr);
+                    estacion = userRespuesta.EstacionUsr;
                     abrirVentanaPrincipal();
                 }
                 else

@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\mario\source\repos\SrCapistro\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\
+C:\Users\brand\source\repos\SistemaDeRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\
 SistemaDeRadio
 none
 false
 DEBUG;TRACE
-C:\Users\mario\source\repos\SrCapistro\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\App.xaml
+C:\Users\brand\source\repos\SistemaDeRadio\Implementación\SistemaDeRadio\SistemaDeRadio\App.xaml
 82101465626
 
-25-211267592
-14-430030424
+27-46257585
+14634765203
 Ventanas\Agenda.xaml;Ventanas\AgendarPrograma.xaml;Ventanas\Login.xaml;Ventanas\PantallaPrincipal.xaml;Ventanas\PatronCusom.xaml;Ventanas\PatronesRegistrados.xaml;Ventanas\VisualizarCronograma.xaml;Ventanas\VisualizarInfoProgramaActivo.xaml;
 
 True
