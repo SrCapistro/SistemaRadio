@@ -21,7 +21,8 @@ namespace SistemaDeRadio.DAO
             if(conn != null)
             {
                 String consulta = String.Format("SELECT p.idPrograma, p.nombre, p.estacion, h.horaInicio, h.horaFin, h.diaProgramado " +
-                    "FROM mus_programas p LEFT JOIN mus_horario h ON  p.idPrograma = h.idPrograma WHERE p.estacion = '{0}' and h.diaProgramado = '{1}';", estacion, fecha);
+                    "FROM mus_programas p LEFT JOIN mus_horario h ON  p.idPrograma = h.idPrograma WHERE p.estacion = '{0}' and h.diaProgramado = '{1}' " +
+                    "and p.estatus = 'Activo';", estacion, fecha);
                 MySqlCommand comando = new MySqlCommand(consulta, conn);
                 MySqlDataReader leer = comando.ExecuteReader();
                 while (leer.Read())
