@@ -17,5 +17,9 @@
                 </Style>
             </Button.Resources>
         </Button>
+        <Label Content="Nombre: " HorizontalAlignment="Left" Margin="176,110,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <Label Content="Hora: " HorizontalAlignment="Left" Margin="203,159,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <Label Content="Dias: " HorizontalAlignment="Left" Margin="208,209,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <Label Content="Menciones: " HorizontalAlignment="Left" Margin="156,258,0,0" VerticalAlignment="Top" FontSize="18"/>
     </Grid>
 </Window>
