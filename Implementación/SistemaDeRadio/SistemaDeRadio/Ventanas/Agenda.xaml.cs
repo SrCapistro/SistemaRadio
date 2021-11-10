@@ -40,13 +40,14 @@ namespace SistemaDeRadio.Ventanas
                 programas = ProgramaDAO.obtenerProgramasProgramados(fecha, PantallaPrincipal.estacion);
                 dgProgramasAgendados.AutoGenerateColumns = false;
                 dgProgramasAgendados.ItemsSource = programas;
+                Console.WriteLine("Hola" + PantallaPrincipal.estacion);
                 fecha = Convert.ToDateTime(fecha).ToString("D");
                 lbDiaSeleccionado.Content = fecha;
             }
             catch (Exception e)
             {
                 Console.WriteLine("Error: " + e.Message);
-
+                MessageBox.Show("Ocurrió un error en la Base de datos", "ATENCIÓN");
             }
 
         }
@@ -69,10 +70,10 @@ namespace SistemaDeRadio.Ventanas
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void btnAgendarPrograma_Click(object sender, RoutedEventArgs e)
         {
-
+            AgendarPrograma agendar = new AgendarPrograma();
+            agendar.Show();
         }
-
     }
 }

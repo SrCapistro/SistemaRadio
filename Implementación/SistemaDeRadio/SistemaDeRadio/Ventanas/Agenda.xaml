@@ -13,11 +13,11 @@
         <Label Content="Agenda del día: " HorizontalAlignment="Left" Margin="29,165,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="18"/>
         <DatePicker x:Name="dpFechas" HorizontalAlignment="Left" Margin="29,121,0,0" VerticalAlignment="Top" Width="275" SelectedDateChanged="seleccionFecha"/>
         <Label x:Name="lbDiaSeleccionado" Content="Aquí va el día seleccionado" HorizontalAlignment="Left" Margin="170,165,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.002,0.552" FontFamily="Arial" FontSize="18" FontWeight="Bold"/>
-        <DataGrid x:Name="dgProgramasAgendados" HorizontalAlignment="Left" Height="255" Margin="29,208,0,0" VerticalAlignment="Top" Width="659">
+        <DataGrid x:Name="dgProgramasAgendados" HorizontalAlignment="Left" Height="255" Margin="29,208,0,0" VerticalAlignment="Top" Width="660">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Nombre del programa" Binding= "{Binding NombrePrograma}"/>
-                <DataGridTextColumn Header="Hora de inicio" Binding= "{Binding HoraInicio}"/>
-                <DataGridTextColumn Header="Hora de fin" Binding= "{Binding HoraFin}"/>
+                <DataGridTextColumn Header="Nombre del programa" Binding= "{Binding NombrePrograma}" Width="360"/>
+                <DataGridTextColumn Header="Hora de inicio" Binding= "{Binding HoraInicio}" Width="150"/>
+                <DataGridTextColumn Header="Hora de fin" Binding= "{Binding HoraFin}" Width="150"/>
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="btnRegresar" Content="Regresar" HorizontalAlignment="Left" Margin="29,507,0,0" VerticalAlignment="Top" Width="125" Background="#FF8C0000" Foreground="White" FontFamily="Arial" FontSize="18" FontWeight="Bold" Height="30" Click="btnRegresar_Click">
@@ -34,7 +34,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Button Content="Agendar programa" HorizontalAlignment="Left" Margin="500,507,0,0" VerticalAlignment="Top" Width="188" Height="30" Background="#FF14213D" Foreground="White" FontFamily="Arial" FontWeight="Bold" FontSize="18" Click="Button_Click">
+        <Button x:Name="btnAgendarPrograma" Content="Agendar programa" HorizontalAlignment="Left" Margin="500,507,0,0" VerticalAlignment="Top" Width="188" Height="30" Background="#FF14213D" Foreground="White" FontFamily="Arial" FontWeight="Bold" FontSize="18" Click="btnAgendarPrograma_Click">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="7"/>

@@ -17,7 +17,7 @@ namespace SistemaDeRadio.DAO
             try
             {
                 conn = ConexionBD.getConnetion();
-                if(conn != null)
+                if (conn != null)
                 {
                     if (esUltimoRegistro(cancionID))
                     {
@@ -61,7 +61,7 @@ namespace SistemaDeRadio.DAO
                     }
                 }
 
-            }catch (Exception ex)
+            } catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
@@ -90,7 +90,7 @@ namespace SistemaDeRadio.DAO
                     reader.Close();
                     command.Dispose();
                 }
-                if(valorObtenido == cancionID)
+                if (valorObtenido == cancionID)
                 {
                     esUltimo = true;
                 }

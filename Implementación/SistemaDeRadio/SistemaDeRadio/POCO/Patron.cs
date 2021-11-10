@@ -15,5 +15,10 @@ namespace SistemaDeRadio.POCO
         public string NombrePatron { get => nombrePatron; set => nombrePatron = value; }
         public string UsoPatron { get => usoPatron; set => usoPatron = value; }
         internal List<Cancion> Canciones { get => canciones; set => canciones = value; }
+
+        public override string ToString()
+        {
+            return nombrePatron;
+        }
     }
 }

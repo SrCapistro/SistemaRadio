@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SistemaDeRadio.Ventanas"
         mc:Ignorable="d"
-        Title="AgendarPrograma" Height="554.835" Width="891.978">
+        Title="AgendarPrograma" Height="643.166" Width="891.978">
     <Grid>
         <StackPanel HorizontalAlignment="Left" Height="81" VerticalAlignment="Top" Width="886" Background="#FF14213D" Margin="0,0,-0.4,0">
             <Label Content="Agendar Programa" FontSize="50" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center"/>
@@ -16,14 +16,36 @@
         <Label Content="¿Programa nuevo?" HorizontalAlignment="Left" Margin="374,88,0,0" VerticalAlignment="Top"/>
         <Button x:Name="btnAgregarPrograma" Content="+" HorizontalAlignment="Left" Margin="529,105,0,0" VerticalAlignment="Top" Width="26" Height="32" Background="#FF14213D" Foreground="White" FontFamily="Arial" FontWeight="Bold" FontSize="24"/>
         <Label Content="Seleccionar un programa" HorizontalAlignment="Left" Margin="10,88,0,0" VerticalAlignment="Top"/>
-        <Label Content="Seleccionar un patrón" HorizontalAlignment="Left" Margin="10,157,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.045,0.427" Width="130"/>
-        <ComboBox x:Name="cbPatrones" HorizontalAlignment="Left" Margin="10,183,0,0" VerticalAlignment="Top" Width="214"/>
-        <Label Content="o" HorizontalAlignment="Left" Margin="281,173,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.286,0.606" FontSize="16"/>
-        <ComboBox x:Name="cbElementos" HorizontalAlignment="Left" Margin="323,183,0,0" VerticalAlignment="Top" Width="201"/>
-        <Button x:Name="btnAgregarPatron" Content="+" HorizontalAlignment="Left" Margin="229,172,0,0" VerticalAlignment="Top" Width="27" Height="33" Background="#FF14213D" Foreground="White" FontFamily="Arial" FontWeight="Bold" FontSize="24"/>
-        <Button x:Name="btnAgregarElemento" Content="+" HorizontalAlignment="Left" Margin="529,173,0,0" VerticalAlignment="Top" Width="26" Height="32" Background="#FF14213D" Foreground="White" FontFamily="Arial" FontSize="24" FontWeight="Bold"/>
-        <Label Content="Seleccionar un elemento" HorizontalAlignment="Left" Margin="323,157,0,0" VerticalAlignment="Top"/>
-        <GridSplitter HorizontalAlignment="Left" Height="132" Margin="581,88,0,0" VerticalAlignment="Top" Width="5" Background="#FF14213D"/>
-
+        <Label Content="Seleccionar un patrón" HorizontalAlignment="Left" Margin="603,86,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.045,0.427" Width="130"/>
+        <ComboBox x:Name="cbPatrones" HorizontalAlignment="Left" Margin="603,115,0,0" VerticalAlignment="Top" Width="260" SelectionChanged="seleccionarPatron"/>
+        <ComboBox x:Name="cbElementos" HorizontalAlignment="Left" Margin="62,504,0,0" VerticalAlignment="Top" Width="330"/>
+        <Button x:Name="btnAgregarElemento" Content="+" HorizontalAlignment="Left" Margin="397,494,0,0" VerticalAlignment="Top" Width="26" Height="32" Background="#FF14213D" Foreground="White" FontFamily="Arial" FontSize="24" FontWeight="Bold"/>
+        <Label Content="Seleccionar un elemento" HorizontalAlignment="Left" Margin="62,478,0,0" VerticalAlignment="Top"/>
+        <DataGrid x:Name="dgListaCanciones" HorizontalAlignment="Left" Height="231" Margin="62,234,0,0" VerticalAlignment="Top" Width="750">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Elementos" Binding= "{Binding NombreCancion}" Width="300"/>
+                <DataGridTextColumn Header="Comentarios" Binding= "{Binding Comentarios}" Width="450"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <ComboBox x:Name="cbHoraInicio" HorizontalAlignment="Left" Margin="10,167,0,0" VerticalAlignment="Top" Width="246"/>
+        <ComboBox x:Name="cbHoraFin" HorizontalAlignment="Left" Margin="323,167,0,0" VerticalAlignment="Top" Width="232"/>
+        <DatePicker x:Name="dpDiaProgramado" HorizontalAlignment="Left" Margin="603,166,0,0" VerticalAlignment="Top" Width="260"/>
+        <Label Content="De:" HorizontalAlignment="Left" Margin="10,141,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.247,0.539"/>
+        <Label Content="A:" HorizontalAlignment="Left" Margin="323,141,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.247,0.539" Width="27"/>
+        <Label Content="Día:" HorizontalAlignment="Left" Margin="603,139,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.247,0.539" Width="42" Height="27"/>
+        <Button x:Name="btnRegresar" Content="Regresar" HorizontalAlignment="Left" Margin="62,556,0,0" VerticalAlignment="Top" Width="117" FontFamily="Arial" FontWeight="Bold" FontSize="18" Background="#FF8C0000" Foreground="White" Height="36" Click="btnRegresar_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="6"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button x:Name="btnAgendar" Content="Agendar" HorizontalAlignment="Left" Margin="695,556,0,0" VerticalAlignment="Top" Width="117" FontFamily="Arial" FontSize="18" FontWeight="Bold" Background="#FF14213D" Foreground="White" Height="36" Click="btnAgendar_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="6"/>
+                </Style>
+            </Button.Resources>
+        </Button>
     </Grid>
 </Window>
