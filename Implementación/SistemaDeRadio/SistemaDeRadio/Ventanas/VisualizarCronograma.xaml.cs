@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SistemaDeRadio.DAO;
+using SistemaDeRadio.POCO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,10 +21,15 @@ namespace SistemaDeRadio.Ventanas
     /// </summary>
     public partial class VisualizarCronograma : Window
     {
+
+        List<Programa> programas;
+        String fechaHoy = DateTime.Now.ToString("yyyy-MM-dd");
+
         public VisualizarCronograma()
         {
             InitializeComponent();
-            llamarFecha();
+            programas = new List<Programa>();
+            cargarProgramasDelDia(fechaHoy);
         }
 
         private void btnRegresar_Click(object sender, RoutedEventArgs e)
@@ -30,12 +37,24 @@ namespace SistemaDeRadio.Ventanas
             PantallaPrincipal regresarPrincipal = new PantallaPrincipal();
             regresarPrincipal.Show();
             this.Close();
-        }
-            
-        private void llamarFecha()
+        } 
+
+        void cargarProgramasDelDia(String fecha)
         {
-            String fechaActual = DateTime.Now.ToString("dd-MM-yyyy");
-            lbFecha.Content = "Cronograma - " + fechaActual;
+
+            try
+            {
+                programas = ProgramaDAO.obtenerProgramasProgramados(fecha, PantallaPrincipal.estacion);
+                dgProgramas.AutoGenerateColumns = false;
+                dgProgramas.ItemsSource = programas;
+                lbFecha.Content = "Cronograma - " + fecha;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error: " + e.Message);
+                MessageBox.Show("Error en la conexión a la base de datos. Intente más tarde", "Error");
+            }
+
         }
 
     }

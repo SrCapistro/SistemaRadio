@@ -22,6 +22,30 @@ namespace SistemaDeRadio.Ventanas
         public VisualizarInfoProgramaActivo()
         {
             InitializeComponent();
+            /*
+            String horaActual = DateTime.Now.ToShortTimeString();
+            Console.WriteLine("La hora actual es: " + horaActual);
+            */
+            obtenerSoloHora();
+        }
+
+        private void obtenerSoloHora()
+        {
+            String horaActual = DateTime.Now.ToShortTimeString();
+            //Console.WriteLine("La hora actual es: " + horaActual);
+
+            char primerDijito = horaActual[0];
+            char segundoDijito = horaActual[1];
+
+            String soloHora = primerDijito.ToString() + segundoDijito.ToString();
+
+            Console.WriteLine("Las horas son: " + soloHora);
+
+        }
+
+        private void cargarInformacionProgramaActual(String hora)
+        {
+
         }
 
         private void btnRegresar_Click(object sender, RoutedEventArgs e)
