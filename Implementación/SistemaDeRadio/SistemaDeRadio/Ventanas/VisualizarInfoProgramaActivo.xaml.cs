@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SistemaDeRadio.DAO;
+using SistemaDeRadio.POCO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +21,9 @@ namespace SistemaDeRadio.Ventanas
     /// </summary>
     public partial class VisualizarInfoProgramaActivo : Window
     {
+
+        List<Programa> programas;
+
         public VisualizarInfoProgramaActivo()
         {
             InitializeComponent();
@@ -26,26 +31,46 @@ namespace SistemaDeRadio.Ventanas
             String horaActual = DateTime.Now.ToShortTimeString();
             Console.WriteLine("La hora actual es: " + horaActual);
             */
+            programas = new List<Programa>();
             obtenerSoloHora();
         }
 
         private void obtenerSoloHora()
         {
             String horaActual = DateTime.Now.ToShortTimeString();
-            //Console.WriteLine("La hora actual es: " + horaActual);
 
             char primerDijito = horaActual[0];
             char segundoDijito = horaActual[1];
 
             String soloHora = primerDijito.ToString() + segundoDijito.ToString();
 
-            Console.WriteLine("Las horas son: " + soloHora);
+            String soloHoraAux = soloHora + "%";
+
+            Console.WriteLine("Las horas son: " + soloHoraAux);
+
+            cargarInformacionProgramaActual(soloHoraAux);
 
         }
 
         private void cargarInformacionProgramaActual(String hora)
         {
+            try
+            {
+                programas = ProgramaDAO.obtenerProgramaActual(hora);
 
+                Programa programaActual = new Programa();
+                programaActual = programas[0];
+
+                lbNombrePrograma.Content = programaActual.NombrePrograma;
+                lbHoraInicio.Content = programaActual.HoraInicio;
+                lbHoraFin.Content = programaActual.HoraFin;
+                lbDiaProgramado.Content = programaActual.FechaProgramada;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error: " + e.Message);
+                MessageBox.Show("Error en la conexión a la base de datos. Intente más tarde", "Error");
+            }
         }
 
         private void btnRegresar_Click(object sender, RoutedEventArgs e)
