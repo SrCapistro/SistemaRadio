@@ -45,14 +45,14 @@ namespace SistemaDeRadio.Ventanas
         {
             VisualizarCronograma pantallaCronograma = new VisualizarCronograma();
             pantallaCronograma.Show();
-            
+            this.Close();
         }
 
         private void btnDetalles_Click(object sender, RoutedEventArgs e)
         {
             VisualizarInfoProgramaActivo pantallaDetalles = new VisualizarInfoProgramaActivo();
             pantallaDetalles.Show();
-            
+            this.Close();
         }
 
         private void btnAgenda_Click(object sender, RoutedEventArgs e)
