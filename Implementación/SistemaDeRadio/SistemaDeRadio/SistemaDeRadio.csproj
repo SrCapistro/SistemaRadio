@@ -61,6 +61,7 @@
     </ApplicationDefinition>
     <Compile Include="DAO\CancionDAO.cs" />
     <Compile Include="DAO\CategoriaDAO.cs" />
+    <Compile Include="DAO\FormatoDAO.cs" />
     <Compile Include="DAO\GeneroDAO.cs" />
     <Compile Include="DAO\ListaCancionesDAO.cs" />
     <Compile Include="DAO\PatronDAO.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="DAO\UsuarioDAO.cs" />
     <Compile Include="POCO\Cancion.cs" />
     <Compile Include="POCO\Categoria.cs" />
+    <Compile Include="POCO\Formato.cs" />
     <Compile Include="POCO\Genero.cs" />
     <Compile Include="POCO\LineaPatron.cs" />
     <Compile Include="POCO\ListaCanciones.cs" />

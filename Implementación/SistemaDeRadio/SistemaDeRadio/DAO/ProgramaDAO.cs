@@ -111,5 +111,47 @@ namespace SistemaDeRadio.DAO
             return elementos;
         }
 
+        public static int agendarPrograma(String horaInicio, String horaFin, String diaProgramado, String idPatron)
+        {
+            int resultado = 0;
+            MySqlConnection conn = null;
+
+            conn = ConexionBD.getConnetion();
+            if (conn != null)
+            {
+                string consulta = "INSERT INTO mus_horario VALUES (@horaInicio, @horaFin, @diaProgramado, @idPatron);";
+                MySqlCommand comando = new MySqlCommand(consulta, conn);
+                comando.Parameters.AddWithValue("@horaInicio", horaInicio);
+                comando.Parameters.AddWithValue("@horaFin", horaFin);
+                comando.Parameters.AddWithValue("@diaProgramado", diaProgramado);
+                comando.Parameters.AddWithValue("@idPatron", idPatron);
+                resultado = comando.ExecuteNonQuery();
+                conn.Close();
+            }
+            
+            return resultado;
+        }
+
+        public static int obtenerUltimoProgramaAgendado()
+        {
+            int ultimoIdAgendado = 0;
+            MySqlConnection conn = null;
+
+            conn = ConexionBD.getConnetion();
+            if (conn != null)
+            {
+                string consulta = "SELECT MAX(idHorario) as idHorario from mus_horario;";
+                MySqlCommand comando = new MySqlCommand(consulta, conn);
+                MySqlDataReader leer = comando.ExecuteReader();
+                if (leer.Read())
+                {
+                    ultimoIdAgendado = (!leer.IsDBNull(0)) ? leer.GetInt32("idHorario") : 0;
+                }
+                leer.Close();
+                comando.Dispose();
+            }
+            return ultimoIdAgendado;
+        }
+
     }
 }

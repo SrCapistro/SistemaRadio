@@ -14,12 +14,12 @@
         <Label Content="o" HorizontalAlignment="Left" Margin="281,105,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.286,0.606" FontSize="16"/>
         <TextBox x:Name="txtNombreProgramaNuevo" HorizontalAlignment="Left" Height="23" Margin="323,114,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="201"/>
         <Label Content="¿Programa nuevo?" HorizontalAlignment="Left" Margin="374,88,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btnAgregarPrograma" Content="+" HorizontalAlignment="Left" Margin="529,105,0,0" VerticalAlignment="Top" Width="26" Height="32" Background="#FF14213D" Foreground="White" FontFamily="Arial" FontWeight="Bold" FontSize="24"/>
+        <Button x:Name="btnAgregarPrograma" Content="+" HorizontalAlignment="Left" Margin="529,105,0,0" VerticalAlignment="Top" Width="26" Height="32" Background="#FF14213D" Foreground="White" FontFamily="Arial" FontWeight="Bold" FontSize="24" Click="btnAgregarPrograma_Click"/>
         <Label Content="Seleccionar un programa" HorizontalAlignment="Left" Margin="10,88,0,0" VerticalAlignment="Top"/>
         <Label Content="Seleccionar un patrón" HorizontalAlignment="Left" Margin="603,86,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.045,0.427" Width="130"/>
         <ComboBox x:Name="cbPatrones" HorizontalAlignment="Left" Margin="603,115,0,0" VerticalAlignment="Top" Width="260" SelectionChanged="seleccionarPatron"/>
         <ComboBox x:Name="cbElementos" HorizontalAlignment="Left" Margin="62,504,0,0" VerticalAlignment="Top" Width="330"/>
-        <Button x:Name="btnAgregarElemento" Content="+" HorizontalAlignment="Left" Margin="397,494,0,0" VerticalAlignment="Top" Width="26" Height="32" Background="#FF14213D" Foreground="White" FontFamily="Arial" FontSize="24" FontWeight="Bold"/>
+        <Button x:Name="btnAgregarElemento" Content="+" HorizontalAlignment="Left" Margin="397,494,0,0" VerticalAlignment="Top" Width="26" Height="32" Background="#FF14213D" Foreground="White" FontFamily="Arial" FontSize="24" FontWeight="Bold" Click="btnAgregarElemento_Click"/>
         <Label Content="Seleccionar un elemento" HorizontalAlignment="Left" Margin="62,478,0,0" VerticalAlignment="Top"/>
         <DataGrid x:Name="dgListaCanciones" HorizontalAlignment="Left" Height="231" Margin="62,234,0,0" VerticalAlignment="Top" Width="750">
             <DataGrid.Columns>
