@@ -111,5 +111,33 @@ namespace SistemaDeRadio.DAO
             return elementos;
         }
 
+        public static List<Programa> obtenerProgramaActual(string hora)
+        {
+            List<Programa> programas = new List<Programa>();
+            MySqlConnection conn = null;
+
+            conn = ConexionBD.getConnetion();
+            if (conn != null)
+            {
+                String consulta = string.Format("SELECT h.horaInicio, h.horaFin, h.diaProgramado, h.idPrograma FROM mus_horario h WHERE h.horaInicio LIKE '{0}'", hora);
+
+                MySqlCommand comando = new MySqlCommand(consulta, conn);
+                MySqlDataReader leer = comando.ExecuteReader();
+                while (leer.Read())
+                {
+                    Programa programa = new Programa();
+                    programa.HoraInicio = (!leer.IsDBNull(0)) ? leer.GetString("horaInicio") : "";
+                    programa.HoraFin = (!leer.IsDBNull(1)) ? leer.GetString("horaFin") : "";
+                    programa.FechaProgramada = (!leer.IsDBNull(2)) ? leer.GetString("diaProgramado") : "";
+                    programa.NombrePrograma = (!leer.IsDBNull(3)) ? leer.GetString("idPrograma") : "";
+                    programas.Add(programa);
+                }
+                leer.Close();
+                comando.Dispose();
+            }
+            return programas;
+        }
+
+
     }
 }
