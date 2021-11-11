@@ -4,8 +4,9 @@
     "\\Implementación",
     "\\Implementación\\SistemaDeRadio",
     "\\Implementación\\SistemaDeRadio\\SistemaDeRadio",
+    "\\Implementación\\SistemaDeRadio\\SistemaDeRadio\\DAO",
     "\\Implementación\\SistemaDeRadio\\SistemaDeRadio\\Ventanas"
   ],
-  "SelectedNode": "\\Implementación\\SistemaDeRadio\\SistemaDeRadio\\Ventanas\\Agenda.xaml.cs",
+  "SelectedNode": "\\Implementación\\SistemaDeRadio\\SistemaDeRadio\\DAO\\ProgramaDAO.cs",
   "PreviewInSolutionExplorer": false
 }
