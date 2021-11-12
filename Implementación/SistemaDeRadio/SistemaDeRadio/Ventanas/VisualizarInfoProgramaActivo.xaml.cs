@@ -56,7 +56,7 @@ namespace SistemaDeRadio.Ventanas
         {
             try
             {
-                programas = ProgramaDAO.obtenerProgramaActual(hora);
+                //programas = ProgramaDAO.obtenerProgramaActual(hora);
 
                 Programa programaActual = new Programa();
                 programaActual = programas[0];

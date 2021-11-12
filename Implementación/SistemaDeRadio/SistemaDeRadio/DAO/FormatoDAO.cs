@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using SistemaDeRadio.POCO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace SistemaDeRadio.DAO
 {
     class FormatoDAO
     {
-        /*public static int registrarFormato(int idHorario, string nombrePatron, int ordenElementos, DataGridRow row, DataGrid dgFormato)
+        public static int registrarFormato(List<Formato> formatos)
         {
             int resultado = 0;
             MySqlConnection conn = null;
@@ -18,17 +19,26 @@ namespace SistemaDeRadio.DAO
             conn = ConexionBD.getConnetion();
             if(conn!= null)
             {
-                string consulta = "INSERT INTO mus_formato VALUES (@idHorarioPrograma, @idPatron, @nombreElemento, @comentarios, @ordenElementos);";
-                MySqlCommand comando = new MySqlCommand(consulta, conn);
-                foreach (DataGridRow rows in dgFormato.Items)
+                int tamañoLista = formatos.Count();
+                int contador = 0;
+                while (contador < tamañoLista)
                 {
-                    comando.Parameters.AddWithValue("@idHorarioPrograma", idHorario);
-                comando.Parameters.AddWithValue("@idPatron", nombrePatron);
-                    comando.Parameters.Add("@nombreElemento", MySqlDbType.VarChar).Value = rows.GetValue("").ToString;
+                    string consulta = "INSERT INTO mus_formato (idHorarioPrograma, idPatron, nombreElemento, comentarios, ordenElementos) VALUES (@idHorarioPrograma, @idPatron, @nombreElemento, @comentarios, @ordenElementos);";
+                    MySqlCommand comando = new MySqlCommand(consulta, conn);
+                    comando.Parameters.Clear();
+                    comando.Parameters.AddWithValue("@idHorarioPrograma", formatos[contador].IdHorarioPrograma);
+                    comando.Parameters.AddWithValue("idPatron", formatos[contador].NombrePatron);
+                    comando.Parameters.AddWithValue("@nombreElemento", formatos[contador].NombreElemento);
+                    comando.Parameters.AddWithValue("@comentarios", formatos[contador].Comentarios);
+                    comando.Parameters.AddWithValue("@ordenElementos", formatos[contador].OrdenElementos);
+                    comando.ExecuteNonQuery();
+                    contador++;
                 }
-                
+                conn.Close();
+                resultado = contador;
                 
             }
-        }*/
+            return resultado;
+        }
     }
 }

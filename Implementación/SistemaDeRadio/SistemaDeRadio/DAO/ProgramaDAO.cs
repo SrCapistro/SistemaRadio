@@ -111,31 +111,26 @@ namespace SistemaDeRadio.DAO
             return elementos;
         }
 
-<<<<<<< HEAD
-        public static int agendarPrograma(String horaInicio, String horaFin, String diaProgramado, String idPatron)
+        public static int agendarPrograma(String horaInicio, String horaFin, String diaProgramado, String idPrograma)
         {
             int resultado = 0;
-=======
-        public static List<Programa> obtenerProgramaActual(string hora)
-        {
             List<Programa> programas = new List<Programa>();
->>>>>>> 1c0324a8ac1d95015bc53222e5cd0b12e7b0afd0
+
             MySqlConnection conn = null;
 
             conn = ConexionBD.getConnetion();
             if (conn != null)
             {
-<<<<<<< HEAD
-                string consulta = "INSERT INTO mus_horario VALUES (@horaInicio, @horaFin, @diaProgramado, @idPatron);";
+
+                string consulta = "INSERT INTO mus_horario (horaInicio, horaFin, diaProgramado, idPrograma) VALUES(@horaInicio, @horaFin, @diaProgramado, @idPrograma);";
                 MySqlCommand comando = new MySqlCommand(consulta, conn);
                 comando.Parameters.AddWithValue("@horaInicio", horaInicio);
                 comando.Parameters.AddWithValue("@horaFin", horaFin);
                 comando.Parameters.AddWithValue("@diaProgramado", diaProgramado);
-                comando.Parameters.AddWithValue("@idPatron", idPatron);
+                comando.Parameters.AddWithValue("@idPrograma", idPrograma);
                 resultado = comando.ExecuteNonQuery();
                 conn.Close();
             }
-            
             return resultado;
         }
 
@@ -153,33 +148,13 @@ namespace SistemaDeRadio.DAO
                 if (leer.Read())
                 {
                     ultimoIdAgendado = (!leer.IsDBNull(0)) ? leer.GetInt32("idHorario") : 0;
-=======
-                String consulta = string.Format("SELECT h.horaInicio, h.horaFin, h.diaProgramado, h.idPrograma FROM mus_horario h WHERE h.horaInicio LIKE '{0}'", hora);
-
-                MySqlCommand comando = new MySqlCommand(consulta, conn);
-                MySqlDataReader leer = comando.ExecuteReader();
-                while (leer.Read())
-                {
-                    Programa programa = new Programa();
-                    programa.HoraInicio = (!leer.IsDBNull(0)) ? leer.GetString("horaInicio") : "";
-                    programa.HoraFin = (!leer.IsDBNull(1)) ? leer.GetString("horaFin") : "";
-                    programa.FechaProgramada = (!leer.IsDBNull(2)) ? leer.GetString("diaProgramado") : "";
-                    programa.NombrePrograma = (!leer.IsDBNull(3)) ? leer.GetString("idPrograma") : "";
-                    programas.Add(programa);
->>>>>>> 1c0324a8ac1d95015bc53222e5cd0b12e7b0afd0
                 }
                 leer.Close();
                 comando.Dispose();
             }
-<<<<<<< HEAD
+
             return ultimoIdAgendado;
         }
 
-=======
-            return programas;
-        }
-
-
->>>>>>> 1c0324a8ac1d95015bc53222e5cd0b12e7b0afd0
     }
 }
