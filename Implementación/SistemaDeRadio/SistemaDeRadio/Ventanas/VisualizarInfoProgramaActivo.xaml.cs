@@ -23,14 +23,11 @@ namespace SistemaDeRadio.Ventanas
     {
 
         List<Programa> programas;
+        String fechaActual = DateTime.Now.ToString("yyyy-MM-dd");
 
         public VisualizarInfoProgramaActivo()
         {
             InitializeComponent();
-            /*
-            String horaActual = DateTime.Now.ToShortTimeString();
-            Console.WriteLine("La hora actual es: " + horaActual);
-            */
             programas = new List<Programa>();
             obtenerSoloHora();
         }
@@ -48,15 +45,15 @@ namespace SistemaDeRadio.Ventanas
 
             Console.WriteLine("Las horas son: " + soloHoraAux);
 
-            cargarInformacionProgramaActual(soloHoraAux);
+            cargarInformacionProgramaActual(soloHoraAux, fechaActual);
 
         }
 
-        private void cargarInformacionProgramaActual(String hora)
+        private void cargarInformacionProgramaActual(String hora, String fecha)
         {
             try
             {
-                //programas = ProgramaDAO.obtenerProgramaActual(hora);
+                programas = ProgramaDAO.obtenerProgramaActual(hora, fecha, PantallaPrincipal.estacion);
 
                 Programa programaActual = new Programa();
                 programaActual = programas[0];

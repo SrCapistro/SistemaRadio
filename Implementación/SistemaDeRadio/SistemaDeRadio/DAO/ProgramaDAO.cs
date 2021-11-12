@@ -156,5 +156,37 @@ namespace SistemaDeRadio.DAO
             return ultimoIdAgendado;
         }
 
+        public static List<Programa> obtenerProgramaActual(string hora, string fecha, string estacion)
+        {
+            List<Programa> programas = new List<Programa>();
+            MySqlConnection conn = null;
+
+            conn = ConexionBD.getConnetion();
+            if (conn != null)
+            {
+                
+                String consulta = string.Format("SELECT h.horaInicio, h.horaFin, h.diaProgramado, h.idPrograma, p.estacion " +
+                    "FROM mus_horario h LEFT JOIN mus_programas p ON h.idPrograma = p.nombre WHERE h.horaInicio LIKE '{0}' " +
+                    "AND h.diaProgramado = '{1}' AND p.estacion = '{2}'", hora, fecha, estacion);
+
+                MySqlCommand comando = new MySqlCommand(consulta, conn);
+                MySqlDataReader leer = comando.ExecuteReader();
+                while (leer.Read())
+                {
+                    Programa programa = new Programa();
+                    programa.HoraInicio = (!leer.IsDBNull(0)) ? leer.GetString("horaInicio") : "";
+                    programa.HoraFin = (!leer.IsDBNull(1)) ? leer.GetString("horaFin") : "";
+                    programa.FechaProgramada = (!leer.IsDBNull(2)) ? leer.GetString("diaProgramado") : "";
+                    programa.NombrePrograma = (!leer.IsDBNull(3)) ? leer.GetString("idPrograma") : "";
+                    programa.Estacion = (!leer.IsDBNull(4)) ? leer.GetString("estacion") : "";
+                    programas.Add(programa);
+                }
+                leer.Close();
+                comando.Dispose();
+            }
+            return programas;
+        }
+
+
     }
 }
