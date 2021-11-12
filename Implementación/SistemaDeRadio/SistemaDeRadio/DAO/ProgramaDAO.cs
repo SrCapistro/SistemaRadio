@@ -88,6 +88,47 @@ namespace SistemaDeRadio.DAO
             return programas;
         }
 
+        public static Boolean verificarProgramaRegistrado(string nombrePrograma)
+        {
+            Boolean hayRegistro = false;
+            MySqlConnection conn = null;
+
+            conn = ConexionBD.getConnetion();
+            if (conn != null)
+            {
+                String consulta = string.Format("SELECT nombre FROM mus_programas WHERE nombre = '{0}'", nombrePrograma);
+                MySqlCommand comando = new MySqlCommand(consulta, conn);
+                MySqlDataReader leer = comando.ExecuteReader();
+                if (leer.Read())
+                {
+                    hayRegistro = true;
+                }
+                leer.Close();
+                comando.Dispose();
+            }
+            return hayRegistro;
+        }
+
+        public static int registrarPrograma(string nombre, string estacion)
+        {
+            int resultado = 0;
+            MySqlConnection conn = null;
+
+            conn = ConexionBD.getConnetion();
+            if (conn != null)
+            {
+                String consulta = "INSERT INTO mus_programas (nombre, estacion, estatus) VALUES (@nombre, @estacion, @estatus)";
+                MySqlCommand comando = new MySqlCommand(consulta, conn);
+                comando.Parameters.AddWithValue("@nombre", nombre);
+                comando.Parameters.AddWithValue("@estacion", estacion);
+                comando.Parameters.AddWithValue("@estatus", "Activo");
+                resultado = comando.ExecuteNonQuery();
+                conn.Close();
+                comando.Dispose();
+            }
+            return resultado;
+        }
+
         public static List<string> obtenerElementos()
         {
             List<string> elementos = new List<string>();

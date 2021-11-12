@@ -78,6 +78,7 @@ namespace SistemaDeRadio.Ventanas
                 canciones = ListaCancionesDAO.obtenerCancionesDeUnPatron(patron);
                 dgListaCanciones.AutoGenerateColumns = false;
                 dgListaCanciones.CanUserAddRows = false;
+                dgListaCanciones.IsReadOnly = true;
                 dgListaCanciones.ItemsSource = canciones;
 
             } catch (Exception e)
@@ -153,20 +154,13 @@ namespace SistemaDeRadio.Ventanas
                             if(resultadoFinal == contador)
                             {
                                 MessageBox.Show("Registro exitoso", "INFORMACIÓN");
+                                abrirAgenda(diaProgramado);
                             }
                             else
                             {
                                 MessageBox.Show("No fue posible completar el registro, intente más tarde", "ATENCIÓN");
                             }
                         }
-                        else
-                        {
-                            MessageBox.Show("Algo salió mal, intente más tarde", "ATENCIÓN");
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Algo salió mal, intente más tarde", "ATENCIÓN");
                     }
                 }
                 catch(Exception e)
@@ -180,9 +174,47 @@ namespace SistemaDeRadio.Ventanas
 
         }
 
+        void abrirAgenda(string fecha)
+        {
+            Agenda agenda = new Agenda(fecha);
+            agenda.Show();
+            this.Close();
+        }
+
         private void btnAgregarPrograma_Click(object sender, RoutedEventArgs e)
         {
-            
+            string programaNuevo = txtNombreProgramaNuevo.Text;
+            try
+            {
+                if (!programaNuevo.Equals(""))
+                {
+                    Boolean hayRegistro = ProgramaDAO.verificarProgramaRegistrado(programaNuevo);
+                    if (!hayRegistro)
+                    {
+                        int resultado = ProgramaDAO.registrarPrograma(programaNuevo, PantallaPrincipal.estacion);
+                        if(resultado > 0)
+                        {
+                            MessageBox.Show("Registro exitoso, ahora puede seleccionar el nuevo programa", "INFORMACIÓN");
+                            txtNombreProgramaNuevo.Text = "";
+                            programas = ProgramaDAO.obtenerTodosLosProgramas(PantallaPrincipal.estacion);
+                            cbProgramas.ItemsSource = programas;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("El Programa ya fue registrado, intente con otro nombre", "ATENCIÓN");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Debe proporcionar un nombre para el programa", "ATENCIÓN");
+                }
+                    
+            }catch(Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+                MessageBox.Show("Ocurrió un error en la Base de datos", "ATENCIÓN");
+            }
         }
 
         private void btnAgregarElemento_Click(object sender, RoutedEventArgs e)
@@ -207,6 +239,17 @@ namespace SistemaDeRadio.Ventanas
                         cancionesAux2.Comentarios = canciones[contador].Comentarios;
                         auxiliar.Add(cancionesAux2);
                         contador++;
+                    }
+
+                    int contador2 = 0;
+                    canciones.Clear();
+                    while(contador2 < auxiliar.Count)
+                    {
+                        ListaCanciones llenarLista = new ListaCanciones();
+                        llenarLista.NombreCancion = auxiliar[contador2].NombreCancion;
+                        llenarLista.Comentarios = auxiliar[contador2].Comentarios;
+                        canciones.Add(llenarLista);
+                        contador2++;
                     }
                     dgListaCanciones.ItemsSource = auxiliar;
                     
@@ -236,8 +279,19 @@ namespace SistemaDeRadio.Ventanas
                         auxiliar.Add(cancionesAux5);
                         contador++;
                     }
+
+                    canciones.Clear();
+                    int contador2 = 0;
+                    while (contador2 < auxiliar.Count)
+                    {
+                        ListaCanciones llenarLista = new ListaCanciones();
+                        llenarLista.NombreCancion = auxiliar[contador2].NombreCancion;
+                        llenarLista.Comentarios = auxiliar[contador2].Comentarios;
+                        canciones.Add(llenarLista);
+                        contador2++;
+                    }
                     dgListaCanciones.ItemsSource = auxiliar;
-                   
+
 
                 }
                 else
@@ -251,16 +305,39 @@ namespace SistemaDeRadio.Ventanas
             }
         }
 
-        private void btnAgregarComentario_Click(object sender, RoutedEventArgs e)
+        private void btnAgregarComentario_Click_1(object sender, RoutedEventArgs e)
         {
+            auxiliar = new List<ListaCanciones>();
             int seleccionTabla = dgListaCanciones.SelectedIndex;
             string comentario = txtComentario.Text;
-            if(seleccionTabla >= 0)
+            if (seleccionTabla >= 0)
             {
                 if (!txtComentario.Equals(""))
                 {
-                    canciones[seleccionTabla].Comentarios = comentario;
-                    dgListaCanciones.ItemsSource = canciones;
+                    int contador = 0;
+                    while (contador < canciones.Count)
+                    {
+                        ListaCanciones cancionesAuxiliar = new ListaCanciones();
+                        cancionesAuxiliar.NombreCancion = canciones[contador].NombreCancion;
+                        cancionesAuxiliar.Comentarios = canciones[contador].Comentarios;
+                        auxiliar.Add(cancionesAuxiliar);
+                        contador++;
+                    }
+
+                    auxiliar[seleccionTabla].Comentarios = comentario;
+                    dgListaCanciones.ItemsSource = auxiliar;
+                
+                    int contador2 = 0;
+                    canciones.Clear();
+                    while (contador2 < auxiliar.Count)
+                    {
+                        ListaCanciones cancionesAuxiliar = new ListaCanciones();
+                        cancionesAuxiliar.NombreCancion = auxiliar[contador2].NombreCancion;
+                        cancionesAuxiliar.Comentarios = auxiliar[contador2].Comentarios;
+                        canciones.Add(cancionesAuxiliar);
+                        contador2++;
+                    }
+                    
                     txtComentario.Text = "";
                 }
                 else
@@ -272,13 +349,13 @@ namespace SistemaDeRadio.Ventanas
             {
                 MessageBox.Show("Para editar una celda primero seleccionela", "ATENCIÓN");
             }
-                
         }
 
 
         private void btnRegresar_Click(object sender, RoutedEventArgs e)
         {
-
+            string fecha = DateTime.Now.ToString("yyyy-MM-dd");
+            abrirAgenda(fecha);
         }
 
         private void btnAgendar_Click(object sender, RoutedEventArgs e)
@@ -286,6 +363,5 @@ namespace SistemaDeRadio.Ventanas
             agendarPrograma();
         }
 
-        
     }
 }

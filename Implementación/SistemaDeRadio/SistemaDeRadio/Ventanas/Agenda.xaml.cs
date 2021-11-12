@@ -23,13 +23,12 @@ namespace SistemaDeRadio.Ventanas
     {
 
         List<Programa> programas;
-        String fechaHoy = DateTime.Now.ToString("yyyy-MM-dd");
 
-        public Agenda()
+        public Agenda(string fecha)
         {
             InitializeComponent();
             programas = new List<Programa>();
-            cargarProgramas(fechaHoy);
+            cargarProgramas(fecha);
         }
 
         void cargarProgramas(String fecha)
@@ -74,6 +73,7 @@ namespace SistemaDeRadio.Ventanas
         {
             AgendarPrograma agendar = new AgendarPrograma();
             agendar.Show();
+            this.Close();
         }
     }
 }

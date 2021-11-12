@@ -63,7 +63,8 @@ namespace SistemaDeRadio.Ventanas
 
         private void btnAgenda_Click(object sender, RoutedEventArgs e)
         {
-            Agenda agenda = new Agenda();
+            string fecha = DateTime.Now.ToString("yyyy-MM-dd");
+            Agenda agenda = new Agenda(fecha);
             agenda.Show();
         }
 

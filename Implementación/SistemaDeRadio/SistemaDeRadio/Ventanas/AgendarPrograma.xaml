@@ -49,6 +49,6 @@
         </Button>
         <TextBox x:Name="txtComentario" HorizontalAlignment="Left" Height="64" Margin="62,570,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="330"/>
         <Label Content="Agrega un comentario" HorizontalAlignment="Left" Margin="62,544,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btnAgregarComentario" Content="+" HorizontalAlignment="Left" Margin="397,570,0,0" VerticalAlignment="Top" Width="26" Height="64" Background="#FF14213D" Foreground="White" FontFamily="Arial" FontSize="24" FontWeight="Bold"/>
+        <Button x:Name="btnAgregarComentario" Content="+" HorizontalAlignment="Left" Margin="397,570,0,0" VerticalAlignment="Top" Width="26" Height="64" Background="#FF14213D" Foreground="White" FontFamily="Arial" FontSize="24" FontWeight="Bold" Click="btnAgregarComentario_Click_1"/>
     </Grid>
 </Window>
