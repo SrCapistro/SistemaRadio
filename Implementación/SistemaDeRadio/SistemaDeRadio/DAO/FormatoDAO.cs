@@ -40,5 +40,26 @@ namespace SistemaDeRadio.DAO
             }
             return resultado;
         }
+
+        public static string obtenerPatronDeUnFormato(int idHorario)
+        {
+            string patron = "";
+            MySqlConnection conn = null;
+
+            conn = ConexionBD.getConnetion();
+            if (conn != null)
+            {
+                string consulta = string.Format("SELECT idPatron FROM mus_formato WHERE idHorarioPrograma = '{0}' GROUP BY idPatron;", idHorario);
+                MySqlCommand comando = new MySqlCommand(consulta, conn);
+                MySqlDataReader leer = comando.ExecuteReader();
+                if (leer.Read())
+                {
+                    patron = (!leer.IsDBNull(0)) ? leer.GetString("idPatron") : "";
+                }
+                leer.Close();
+                comando.Dispose();
+            }
+            return patron;
+        }
     }
 }

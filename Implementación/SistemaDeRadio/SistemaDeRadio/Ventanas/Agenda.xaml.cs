@@ -24,6 +24,11 @@ namespace SistemaDeRadio.Ventanas
 
         List<Programa> programas;
 
+        public static string nombreProgramaSeleccionado;
+        public static string horaInicioProgramaSeleccionado;
+        public static string horaFinProgramaSeleccionado;
+        public static string diaProgramadoProgramaSeleccionado;
+        public static int idHorarioSeleccion;
         public Agenda(string fecha)
         {
             InitializeComponent();
@@ -66,7 +71,22 @@ namespace SistemaDeRadio.Ventanas
 
         private void btnGestionarPrograma_Click(object sender, RoutedEventArgs e)
         {
-
+            int seleccionIndex = dgProgramasAgendados.SelectedIndex;
+            if(seleccionIndex >= 0)
+            {
+                nombreProgramaSeleccionado = programas[seleccionIndex].NombrePrograma;
+                horaInicioProgramaSeleccionado = programas[seleccionIndex].HoraInicio;
+                horaFinProgramaSeleccionado = programas[seleccionIndex].HoraFin;
+                diaProgramadoProgramaSeleccionado = programas[seleccionIndex].FechaProgramada;
+                idHorarioSeleccion = programas[seleccionIndex].IdHorario;
+                GestionarPrograma gestion = new GestionarPrograma(nombreProgramaSeleccionado, horaInicioProgramaSeleccionado, horaFinProgramaSeleccionado, diaProgramadoProgramaSeleccionado, idHorarioSeleccion);
+                gestion.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Primero seleccione un programa");
+            }
         }
 
         private void btnAgendarPrograma_Click(object sender, RoutedEventArgs e)

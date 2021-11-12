@@ -13,12 +13,13 @@ namespace SistemaDeRadio.POCO
         private String horaInicio;
         private String horaFin;
         private String fechaProgramada;
-
+        private int idHorario;
         public string NombrePrograma { get => nombrePrograma; set => nombrePrograma = value; }
         public string Estacion { get => estacion; set => estacion = value; }
         public string HoraInicio { get => horaInicio; set => horaInicio = value; }
         public string HoraFin { get => horaFin; set => horaFin = value; }
         public string FechaProgramada { get => fechaProgramada; set => fechaProgramada = value; }
+        public int IdHorario { get => idHorario; set => idHorario = value; }
 
         public override string ToString()
         {

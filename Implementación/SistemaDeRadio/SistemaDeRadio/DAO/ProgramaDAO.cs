@@ -20,7 +20,7 @@ namespace SistemaDeRadio.DAO
             conn = ConexionBD.getConnetion();
             if (conn != null)
             {
-                String consulta = String.Format("SELECT p.nombre, p.estacion, h.horaInicio, h.horaFin, h.diaProgramado " +
+                String consulta = String.Format("SELECT p.nombre, p.estacion, h.horaInicio, h.horaFin, h.diaProgramado, h.idHorario " +
                     "FROM mus_programas p LEFT JOIN mus_horario h ON  p.nombre = h.idPrograma WHERE p.estacion = '{0}' and h.diaProgramado = '{1}' " +
                     "and p.estatus = 'Activo';", estacion, fecha);
                 MySqlCommand comando = new MySqlCommand(consulta, conn);
@@ -33,6 +33,7 @@ namespace SistemaDeRadio.DAO
                     programa.HoraInicio = (!leer.IsDBNull(2)) ? leer.GetString("horaInicio") : "";
                     programa.HoraFin = (!leer.IsDBNull(3)) ? leer.GetString("horaFin") : "";
                     programa.FechaProgramada = (!leer.IsDBNull(4)) ? leer.GetString("diaProgramado") : "";
+                    programa.IdHorario = (!leer.IsDBNull(5)) ? leer.GetInt32("idHorario") : 0;
                     programas.Add(programa);
                 }
                 leer.Close();

@@ -82,6 +82,9 @@
     <Compile Include="Ventanas\AgendarPrograma.xaml.cs">
       <DependentUpon>AgendarPrograma.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Ventanas\GestionarPrograma.xaml.cs">
+      <DependentUpon>GestionarPrograma.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Ventanas\PantallaPrincipal.xaml.cs">
       <DependentUpon>PantallaPrincipal.xaml</DependentUpon>
     </Compile>
@@ -102,6 +105,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Ventanas\AgendarPrograma.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ventanas\GestionarPrograma.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
