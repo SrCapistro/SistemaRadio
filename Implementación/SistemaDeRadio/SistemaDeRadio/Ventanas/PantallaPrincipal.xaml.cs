@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SistemaDeRadio.DAO;
+using SistemaDeRadio.POCO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,11 +23,15 @@ namespace SistemaDeRadio.Ventanas
     {
 
         public static String estacion = "";
+        List<Programa> programas;
+        String fechaActual = DateTime.Now.ToString("yyyy-MM-dd");
 
         public PantallaPrincipal()
         {
             InitializeComponent();
+            programas = new List<Programa>();
             cargarEstacion();
+            obtenerHoraActual();
         }
 
         void cargarEstacion()
@@ -60,5 +66,36 @@ namespace SistemaDeRadio.Ventanas
             Agenda agenda = new Agenda();
             agenda.Show();
         }
+
+        private void obtenerHoraActual()
+        {
+            String horaActual = DateTime.Now.ToShortTimeString();
+            char primerDijito = horaActual[0];
+            char segundoDijito = horaActual[1];
+
+            String soloHora = primerDijito.ToString() + segundoDijito.ToString();
+
+            String soloHoraAux = soloHora + "%";
+            cargarNombreProgramaActual(soloHoraAux, fechaActual);
+        }
+
+        private void cargarNombreProgramaActual(String hora, String fecha)
+        {
+            try
+            {
+                programas = ProgramaDAO.obtenerProgramaActual(hora, fecha, PantallaPrincipal.estacion);
+
+                Programa programaActual = new Programa();
+                programaActual = programas[0];
+
+                txtInfoPrograma.Text = "Programa Actual: " + programaActual.NombrePrograma;
+                
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error: " + e.Message);
+            }
+        }
+
     }
 }

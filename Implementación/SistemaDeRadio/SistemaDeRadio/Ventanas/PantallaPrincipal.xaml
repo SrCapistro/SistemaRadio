@@ -63,7 +63,7 @@
                 <Image Stretch="Fill"  Source="/Ventanas/musicicon.png" Height="113" Width="129"/>
             </StackPanel>
         </Button>
-        <TextBox x:Name="txtInfoPrograma" IsEnabled="False" FontSize="20" FontWeight="Bold" Foreground="#FF7E7B7E" HorizontalAlignment="Center" Margin="26,331,118,0" TextWrapping="Wrap" Text="Aquí va la información del programa actual" VerticalAlignment="Top" Width="564" Height="32"/>
+        <TextBox x:Name="txtInfoPrograma" IsEnabled="False" FontSize="20" FontWeight="Bold" Foreground="#FF7E7B7E" HorizontalAlignment="Center" Margin="26,331,118,0" TextWrapping="Wrap" Text="No hay ningún programa activo actualmente" VerticalAlignment="Top" Width="564" Height="32"/>
 
         <Button x:Name="btnCronogramaCompleto" Background="#FF14213D" FontSize="18" Content="Ver cronograma completo" Foreground="White" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,378,0,69"  Width="272" Click="btnCronograma_Click">
             <Button.Resources>

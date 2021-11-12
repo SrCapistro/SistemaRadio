@@ -44,6 +44,7 @@ namespace SistemaDeRadio.Ventanas
             String soloHoraAux = soloHora + "%";
 
             Console.WriteLine("Las horas son: " + soloHoraAux);
+            Console.WriteLine("La fecha actual es: " + fechaActual);
 
             cargarInformacionProgramaActual(soloHoraAux, fechaActual);
 
@@ -62,6 +63,7 @@ namespace SistemaDeRadio.Ventanas
                 lbHoraInicio.Content = programaActual.HoraInicio;
                 lbHoraFin.Content = programaActual.HoraFin;
                 lbDiaProgramado.Content = programaActual.FechaProgramada;
+                lbEstacion.Content = programaActual.Estacion;
             }
             catch (Exception e)
             {
