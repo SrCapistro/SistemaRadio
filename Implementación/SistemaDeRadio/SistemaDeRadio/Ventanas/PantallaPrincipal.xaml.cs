@@ -70,7 +70,7 @@ namespace SistemaDeRadio.Ventanas
 
         private void obtenerHoraActual()
         {
-            String horaActual = DateTime.Now.ToShortTimeString();
+            String horaActual = DateTime.Now.ToString("HH:mm:ss");
             char primerDijito = horaActual[0];
             char segundoDijito = horaActual[1];
 
