@@ -33,7 +33,6 @@ namespace SistemaDeRadio.Ventanas
         public PatronCusom()
         {
             InitializeComponent();
-            seleccionIndexCombos();
             cargarGenerosCombo();
             cargarCategoriasCombo();
         }
@@ -47,8 +46,8 @@ namespace SistemaDeRadio.Ventanas
 
         private void btnGuardarPatron_Click(object sender, RoutedEventArgs e)
         {
-            if(tbNombrePatron.Text.Equals("Nombre del patrón")){
-                MessageBox.Show("Debe de llenar los campos", "Campos faltantes");
+            if(tbNombrePatron.Text.Length == 0){
+                MessageBox.Show("Debe de llenar los campos y \nregistrar al menos una linea de patron", "Campos faltantes");
             }
             else
             {
@@ -111,16 +110,18 @@ namespace SistemaDeRadio.Ventanas
         private void cbCategoriasSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             indexCategoria = cbCategorias.SelectedIndex;
+            Console.WriteLine(indexCategoria);
         }
 
         private void cbGenerosSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             indexGenero = cbGeneros.SelectedIndex;
+            Console.WriteLine(indexGenero);
         }
 
         private void btnAñadirLinea_Click(object sender, RoutedEventArgs e)
         {
-            if (indexGenero == 0 || indexCategoria == 0)
+            if (indexGenero ==0 || indexCategoria == 0)
             {
                 MessageBox.Show("Debe de seleccionar una categoria y un género valido", "Selección faltante");
             }
@@ -242,13 +243,6 @@ namespace SistemaDeRadio.Ventanas
             return existe;
         }
 
-        private void seleccionIndexCombos()
-        {
-            cbCategorias.Items.Add("Categoria");
-            cbCategorias.SelectedIndex = 0;
-            cbGeneros.Items.Add("Genero");
-            cbGeneros.SelectedIndex = 0;
-        }
 
     }
 

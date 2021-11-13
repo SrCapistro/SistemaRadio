@@ -12,7 +12,7 @@
         </StackPanel>
 
         <StackPanel Margin="0,95,0,0">
-            <DataGrid FontSize="18" Height="244" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+            <DataGrid x:Name="tablaPatrones" FontSize="18" Height="244" d:ItemsSource="{d:SampleData ItemCount=5}"/>
 
             <Grid Height="78">
 

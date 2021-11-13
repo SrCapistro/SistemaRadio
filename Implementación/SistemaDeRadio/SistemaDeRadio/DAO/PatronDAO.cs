@@ -126,5 +126,29 @@ namespace SistemaDeRadio.DAO
             }
             return patrones;
         }
+
+        public static List<Patron> obtenerListaPatronesCompleta()
+        {
+            List<Patron> patrones = new List<Patron>();
+            MySqlConnection conn = null;
+
+            conn = ConexionBD.getConnetion();
+            if (conn != null)
+            {
+                String consulta = "SELECT * from mus_patrones;";
+                MySqlCommand comando = new MySqlCommand(@consulta, conn);
+                MySqlDataReader reader = comando.ExecuteReader();
+                while (reader.Read())
+                {
+                    Patron patron = new Patron();
+                    patron.NombrePatron = (!reader.IsDBNull(0)) ? reader.GetString("PTRN_NOMBRE") : "";
+                    patron.UsoPatron = Convert.ToInt32(reader["PTRN_USO"]);
+                    patrones.Add(patron);
+                }
+                reader.Close();
+                comando.Dispose();
+            }
+            return patrones;
+        }
     }
 }
