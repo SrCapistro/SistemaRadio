@@ -193,3 +193,5 @@ C:\Users\brand\source\repos\SistemaDeRadio\Implementación\SistemaDeRadio\Sistem
 C:\Users\brand\source\repos\SistemaDeRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\SistemaDeRadio.pdb
 C:\Users\brand\source\repos\SistemaDeRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\Ventanas\GestionarPrograma.g.cs
 C:\Users\brand\source\repos\SistemaDeRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\Ventanas\GestionarPrograma.baml
+C:\Users\mario\source\repos\SrCapistro\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\Ventanas\GestionarPrograma.g.cs
+C:\Users\mario\source\repos\SrCapistro\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\Ventanas\GestionarPrograma.baml

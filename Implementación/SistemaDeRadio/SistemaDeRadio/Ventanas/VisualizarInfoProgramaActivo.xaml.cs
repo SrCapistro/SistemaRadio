@@ -84,7 +84,6 @@ namespace SistemaDeRadio.Ventanas
 
             dgElementos.AutoGenerateColumns = false;
             dgElementos.ItemsSource = formatos;
-            Console.WriteLine("luego del dao y del llenado de la tabla jaja");
         }
 
         private void btnRegresar_Click(object sender, RoutedEventArgs e)
