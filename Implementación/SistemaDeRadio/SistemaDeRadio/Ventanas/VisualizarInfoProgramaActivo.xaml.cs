@@ -68,7 +68,6 @@ namespace SistemaDeRadio.Ventanas
             catch (Exception e)
             {
                 Console.WriteLine("Error: " + e.Message);
-                MessageBox.Show("Error en la conexión a la base de datos. Intente más tarde", "Error");
             }
         }
 

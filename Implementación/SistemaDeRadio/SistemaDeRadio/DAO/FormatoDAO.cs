@@ -61,5 +61,36 @@ namespace SistemaDeRadio.DAO
             }
             return patron;
         }
+
+
+        //Metodo para obtener los elementos correspondientes de un programa segun la tabla de formato, por eso en esta clase
+        public static List<Formato> obtenerElementosDelPrograma(string nombre, string horaInicio, string horaFin)
+        {
+            List<Formato> elementosFormato = new List<Formato>();
+            MySqlConnection conn = null;
+
+            conn = ConexionBD.getConnetion();
+            if (conn != null)
+            {
+
+                String consulta = string.Format("");
+
+                MySqlCommand comando = new MySqlCommand(consulta, conn);
+                MySqlDataReader leer = comando.ExecuteReader();
+                while (leer.Read())
+                {
+                    Formato formato = new Formato();
+                    formato.IdHorarioPrograma = (!leer.IsDBNull(0)) ? leer.GetInt32("idHorarioPrograma") : 0;
+                    formato.NombrePatron = (!leer.IsDBNull(1)) ? leer.GetString("idPatron") : "";
+                    formato.NombreElemento = (!leer.IsDBNull(2)) ? leer.GetString("nombreElemento") : "";
+                    formato.Comentarios = (!leer.IsDBNull(3)) ? leer.GetString("comentarios") : "";
+                    formato.OrdenElementos = (!leer.IsDBNull(4)) ? leer.GetInt32("ordenElementos") : 0;
+                    elementosFormato.Add(formato);
+                }
+                leer.Close();
+                comando.Dispose();
+            }
+            return elementosFormato;
+        }
     }
 }

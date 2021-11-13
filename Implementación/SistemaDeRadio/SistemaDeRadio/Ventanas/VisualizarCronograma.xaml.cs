@@ -44,18 +44,32 @@ namespace SistemaDeRadio.Ventanas
 
             try
             {
+                lbFecha.Content = "Cronograma - " + fecha;
+
                 programas = ProgramaDAO.obtenerProgramasProgramados(fecha, PantallaPrincipal.estacion);
                 dgProgramas.AutoGenerateColumns = false;
+
                 dgProgramas.ItemsSource = programas;
-                lbFecha.Content = "Cronograma - " + fecha;
+                
             }
             catch (Exception e)
             {
                 Console.WriteLine("Error: " + e.Message);
-                MessageBox.Show("Error en la conexión a la base de datos. Intente más tarde", "Error");
             }
 
         }
+                        
+        private void seleccionPrograma_Click(object sender, SelectionChangedEventArgs e)
+        {
+            Console.WriteLine("Clic en el programaaaa");
+            Programa programaSeleccionado = new Programa();
+            programaSeleccionado = programas[dgProgramas.SelectedIndex];
 
+            String nombreProgramaAux = programaSeleccionado.NombrePrograma;
+            String horaInicioAux = programaSeleccionado.HoraInicio;
+            String horaFinAux = programaSeleccionado.HoraFin;
+            Console.WriteLine("Elementos del programa: " + nombreProgramaAux + " Horas: " + horaInicioAux + " a " + horaFinAux);
+            //AQUI LLAMO AL DAO PARA MANDAR A LA OTRA TABLA
+        }
     }
 }

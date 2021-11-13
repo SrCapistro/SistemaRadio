@@ -17,8 +17,8 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Label Content="Elementos por programa" HorizontalAlignment="Left" Margin="254,101,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <DataGrid x:Name="dgSegunPrograma" HorizontalAlignment="Left" Height="249" Margin="254,159,0,0" VerticalAlignment="Top" Width="589">
+        <Label Content="Elementos por programa" HorizontalAlignment="Left" Margin="329,101,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <DataGrid x:Name="dgSegunPrograma" HorizontalAlignment="Left" Height="249" Margin="329,159,0,0" VerticalAlignment="Top" Width="514">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Elemento" Binding="{Binding Elemento}"/>
                 <DataGridTextColumn Header="Comentarios" Binding="{Binding Comentarios}"/>
@@ -26,9 +26,11 @@
             </DataGrid.Columns>
         </DataGrid>
         <Label x:Name="lbFecha" Content="" HorizontalAlignment="Left" Margin="10,101,0,0" VerticalAlignment="Top" FontSize="18" Width="225"/>
-        <DataGrid x:Name="dgProgramas" HorizontalAlignment="Left" Height="249" Margin="25,159,0,0" VerticalAlignment="Top" Width="172">
+        <DataGrid x:Name="dgProgramas" HorizontalAlignment="Left" Height="249" Margin="25,159,0,0" VerticalAlignment="Top" Width="264" SelectionChanged="seleccionPrograma_Click">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Programas del Dia" Binding="{Binding NombrePrograma}"/>
+                <DataGridTextColumn Header="Inicio" Binding="{Binding HoraInicio}"/>
+                <DataGridTextColumn Header="Fin" Binding="{Binding HoraFin}"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
