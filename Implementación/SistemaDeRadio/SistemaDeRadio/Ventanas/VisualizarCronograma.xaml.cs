@@ -23,12 +23,14 @@ namespace SistemaDeRadio.Ventanas
     {
 
         List<Programa> programas;
+        List<Formato> formatos;
         String fechaHoy = DateTime.Now.ToString("yyyy-MM-dd");
 
         public VisualizarCronograma()
         {
             InitializeComponent();
             programas = new List<Programa>();
+            formatos = new List<Formato>();
             cargarProgramasDelDia(fechaHoy);
         }
 
@@ -60,16 +62,15 @@ namespace SistemaDeRadio.Ventanas
         }
                         
         private void seleccionPrograma_Click(object sender, SelectionChangedEventArgs e)
-        {
-            Console.WriteLine("Clic en el programaaaa");
+        {            
             Programa programaSeleccionado = new Programa();
             programaSeleccionado = programas[dgProgramas.SelectedIndex];
-
-            String nombreProgramaAux = programaSeleccionado.NombrePrograma;
-            String horaInicioAux = programaSeleccionado.HoraInicio;
-            String horaFinAux = programaSeleccionado.HoraFin;
-            Console.WriteLine("Elementos del programa: " + nombreProgramaAux + " Horas: " + horaInicioAux + " a " + horaFinAux);
-            //AQUI LLAMO AL DAO PARA MANDAR A LA OTRA TABLA
+            
+            int idHorarioAux = programaSeleccionado.IdHorario;
+            formatos = FormatoDAO.obtenerElementosDelPrograma(idHorarioAux);
+            
+            dgSegunPrograma.AutoGenerateColumns = false;
+            dgSegunPrograma.ItemsSource = formatos;
         }
     }
 }

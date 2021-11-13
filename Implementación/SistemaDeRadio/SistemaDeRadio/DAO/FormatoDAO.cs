@@ -64,7 +64,7 @@ namespace SistemaDeRadio.DAO
 
 
         //Metodo para obtener los elementos correspondientes de un programa segun la tabla de formato, por eso en esta clase
-        public static List<Formato> obtenerElementosDelPrograma(string nombre, string horaInicio, string horaFin)
+        public static List<Formato> obtenerElementosDelPrograma(int idHorario)
         {
             List<Formato> elementosFormato = new List<Formato>();
             MySqlConnection conn = null;
@@ -73,7 +73,9 @@ namespace SistemaDeRadio.DAO
             if (conn != null)
             {
 
-                String consulta = string.Format("");
+                String consulta = string.Format("SELECT f.idHorarioPrograma, f.idPatron, f.nombreElemento, f.comentarios, f.ordenElementos " +
+                    "FROM mus_formato f INNER JOIN mus_horario h ON f.idHorarioPrograma = {0} " +
+                    "GROUP BY f.idHorarioPrograma, f.idPatron, f.nombreElemento, f.comentarios, f.ordenElementos", idHorario);
 
                 MySqlCommand comando = new MySqlCommand(consulta, conn);
                 MySqlDataReader leer = comando.ExecuteReader();

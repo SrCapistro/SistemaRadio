@@ -20,9 +20,9 @@
         <Label Content="Elementos por programa" HorizontalAlignment="Left" Margin="329,101,0,0" VerticalAlignment="Top" FontSize="18"/>
         <DataGrid x:Name="dgSegunPrograma" HorizontalAlignment="Left" Height="249" Margin="329,159,0,0" VerticalAlignment="Top" Width="514">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Elemento" Binding="{Binding Elemento}"/>
+                <DataGridTextColumn Header="Elemento" Binding="{Binding NombreElemento}"/>
                 <DataGridTextColumn Header="Comentarios" Binding="{Binding Comentarios}"/>
-                <DataGridTextColumn Header="Patrón" Binding="{Binding Patron}"/>
+                <DataGridTextColumn Header="Patrón" Binding="{Binding NombrePatron}"/>
             </DataGrid.Columns>
         </DataGrid>
         <Label x:Name="lbFecha" Content="" HorizontalAlignment="Left" Margin="10,101,0,0" VerticalAlignment="Top" FontSize="18" Width="225"/>
