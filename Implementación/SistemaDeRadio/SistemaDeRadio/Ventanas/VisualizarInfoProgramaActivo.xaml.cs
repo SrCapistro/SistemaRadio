@@ -24,7 +24,7 @@ namespace SistemaDeRadio.Ventanas
 
         List<Programa> programas;
         List<Formato> formatos;
-        String fechaActual = DateTime.Now.ToString("yyyy-MM-dd");
+        String fechaActual = DateTime.Now.ToString("dddd");
 
         public VisualizarInfoProgramaActivo()
         {
