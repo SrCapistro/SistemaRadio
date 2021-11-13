@@ -5,27 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SistemaDeRadio.Ventanas"
         mc:Ignorable="d"
-        Title="VisualizarInfoProgramaActivo" Height="450" Width="700">
+        Title="VisualizarInfoProgramaActivo" Height="600" Width="700">
     <Grid>
         <StackPanel HorizontalAlignment="Left" Height="81" VerticalAlignment="Top" Width="692" Background="#FF14213D">
             <Label Content="Detalles Programa Activo" FontSize="40" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" Margin="109,0,46,0" Width="537"/>
         </StackPanel>
-        <Button x:Name="btnRegresar" Content="Regresar" HorizontalAlignment="Left" Margin="277,345,0,0" VerticalAlignment="Top" Width="125" Background="#FF8C0000" Foreground="White" FontFamily="Arial" FontSize="18" FontWeight="Bold" Height="30" Click="btnRegresar_Click">
+        <Button x:Name="btnRegresar" Content="Regresar" HorizontalAlignment="Left" Margin="277,529,0,0" VerticalAlignment="Top" Width="125" Background="#FF8C0000" Foreground="White" FontFamily="Arial" FontSize="18" FontWeight="Bold" Height="30" Click="btnRegresar_Click">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="7"/>
                 </Style>
             </Button.Resources>
         </Button>
-        <Label Content="Nombre del Programa: " HorizontalAlignment="Left" Margin="89,120,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
-        <Label Content="Hora de inicio: " HorizontalAlignment="Left" Margin="160,159,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
-        <Label Content="Hora de Fin: " HorizontalAlignment="Left" Margin="180,198,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
-        <Label Content="Dia Programado: " HorizontalAlignment="Left" Margin="140,237,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
-        <Label Content="Estación Actual: " HorizontalAlignment="Left" Margin="152,276,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="159"/>
-        <Label x:Name="lbNombrePrograma" Content="No existe un programa activo actualmente" HorizontalAlignment="Left" Margin="322,120,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <Label x:Name="lbHoraInicio" Content="" HorizontalAlignment="Left" Margin="322,159,0,0" VerticalAlignment="Top" FontSize="18" Width="246"/>
-        <Label x:Name="lbHoraFin" Content="" HorizontalAlignment="Left" Margin="322,198,0,0" VerticalAlignment="Top" FontSize="18" Width="208"/>
-        <Label x:Name="lbDiaProgramado" Content="" HorizontalAlignment="Left" Margin="323,237,0,0" VerticalAlignment="Top" FontSize="18" Width="100"/>
-        <Label x:Name="lbEstacion" Content="" HorizontalAlignment="Left" Margin="322,276,0,0" VerticalAlignment="Top" FontSize="18" Width="246"/>
+        <Label Content="Nombre del Programa: " HorizontalAlignment="Left" Margin="89,96,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <Label Content="Hora de inicio: " HorizontalAlignment="Left" Margin="160,135,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <Label Content="Hora de Fin: " HorizontalAlignment="Left" Margin="180,174,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <Label Content="Dia Programado: " HorizontalAlignment="Left" Margin="140,213,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <Label Content="Estación Actual: " HorizontalAlignment="Left" Margin="152,252,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Width="159"/>
+        <Label x:Name="lbNombrePrograma" Content="No existe un programa activo actualmente" HorizontalAlignment="Left" Margin="322,96,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <Label x:Name="lbHoraInicio" Content="" HorizontalAlignment="Left" Margin="322,135,0,0" VerticalAlignment="Top" FontSize="18" Width="246"/>
+        <Label x:Name="lbHoraFin" Content="" HorizontalAlignment="Left" Margin="322,174,0,0" VerticalAlignment="Top" FontSize="18" Width="208"/>
+        <Label x:Name="lbDiaProgramado" Content="" HorizontalAlignment="Left" Margin="323,213,0,0" VerticalAlignment="Top" FontSize="18" Width="100"/>
+        <Label x:Name="lbEstacion" Content="" HorizontalAlignment="Left" Margin="322,252,0,0" VerticalAlignment="Top" FontSize="18" Width="246"/>
+        <DataGrid x:Name="dgElementos" HorizontalAlignment="Left" Height="200" Margin="26,308,0,0" VerticalAlignment="Top" Width="643">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Elemento" Binding="{Binding NombreElemento}"/>
+                <DataGridTextColumn Header="Comentarios" Binding="{Binding Comentarios}"/>
+                <DataGridTextColumn Header="Patrón" Binding="{Binding NombrePatron}"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>

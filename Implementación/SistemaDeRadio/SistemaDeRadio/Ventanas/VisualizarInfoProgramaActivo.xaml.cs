@@ -23,12 +23,14 @@ namespace SistemaDeRadio.Ventanas
     {
 
         List<Programa> programas;
+        List<Formato> formatos;
         String fechaActual = DateTime.Now.ToString("yyyy-MM-dd");
 
         public VisualizarInfoProgramaActivo()
         {
             InitializeComponent();
             programas = new List<Programa>();
+            formatos = new List<Formato>();
             obtenerSoloHora();
         }
 
@@ -64,11 +66,25 @@ namespace SistemaDeRadio.Ventanas
                 lbHoraFin.Content = programaActual.HoraFin;
                 lbDiaProgramado.Content = programaActual.FechaProgramada;
                 lbEstacion.Content = programaActual.Estacion;
+
+                int idHorarioAux = programaActual.IdHorario;
+                
+                llenarTabla(idHorarioAux);
             }
             catch (Exception e)
             {
                 Console.WriteLine("Error: " + e.Message);
             }
+        }
+
+        private void llenarTabla(int horario)
+        {
+
+            formatos = FormatoDAO.obtenerElementosDelPrograma(horario);
+
+            dgElementos.AutoGenerateColumns = false;
+            dgElementos.ItemsSource = formatos;
+            Console.WriteLine("luego del dao y del llenado de la tabla jaja");
         }
 
         private void btnRegresar_Click(object sender, RoutedEventArgs e)
