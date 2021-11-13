@@ -33,6 +33,7 @@ namespace SistemaDeRadio.Ventanas
         public PatronCusom()
         {
             InitializeComponent();
+            seleccionIndexCombos();
             cargarGenerosCombo();
             cargarCategoriasCombo();
         }
@@ -240,6 +241,15 @@ namespace SistemaDeRadio.Ventanas
             }
             return existe;
         }
+
+        private void seleccionIndexCombos()
+        {
+            cbCategorias.Items.Add("Categoria");
+            cbCategorias.SelectedIndex = 0;
+            cbGeneros.Items.Add("Genero");
+            cbGeneros.SelectedIndex = 0;
+        }
+
     }
 
     

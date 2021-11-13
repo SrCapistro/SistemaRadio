@@ -195,3 +195,12 @@ C:\Users\brand\source\repos\SistemaDeRadio\Implementación\SistemaDeRadio\Sistem
 C:\Users\brand\source\repos\SistemaDeRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\Ventanas\GestionarPrograma.baml
 C:\Users\mario\source\repos\SrCapistro\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\Ventanas\GestionarPrograma.g.cs
 C:\Users\mario\source\repos\SrCapistro\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\Ventanas\GestionarPrograma.baml
+C:\Users\Mrcap\Documents\Repositorios\SistemaRadio\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\bin\Debug\Zstandard.Net.dll
+C:\Users\Mrcap\Documents\Repositorios\SistemaRadio\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\bin\Debug\Renci.SshNet.dll
+C:\Users\Mrcap\Documents\Repositorios\SistemaRadio\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Mrcap\Documents\Repositorios\SistemaRadio\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\Ventanas\GestionarPrograma.g.cs
+C:\Users\Mrcap\Documents\Repositorios\SistemaRadio\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\Ventanas\VisualizarCronograma.g.cs
+C:\Users\Mrcap\Documents\Repositorios\SistemaRadio\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\Ventanas\VisualizarInfoProgramaActivo.g.cs
+C:\Users\Mrcap\Documents\Repositorios\SistemaRadio\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\Ventanas\GestionarPrograma.baml
+C:\Users\Mrcap\Documents\Repositorios\SistemaRadio\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\Ventanas\VisualizarCronograma.baml
+C:\Users\Mrcap\Documents\Repositorios\SistemaRadio\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\Ventanas\VisualizarInfoProgramaActivo.baml
