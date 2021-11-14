@@ -23,19 +23,23 @@ namespace SistemaDeRadio.Ventanas
     public partial class AgendarPrograma : Window
     {
 
-        List<string> horas;
+        List<string> horasInicio;
+        List<string> horasFin;
         List<string> elementos;
         List<Programa> programas;
         List<Patron> patrones;
         List<ListaCanciones> canciones;
         List<ListaCanciones> auxiliar;
+        List<string> diasSemana;
         public AgendarPrograma()
         {
             InitializeComponent();
-            horas = new List<string>();
+            horasInicio = new List<string>();
+            horasFin = new List<string>();
             elementos = new List<string>();
             programas = new List<Programa>();
             patrones = new List<Patron>();
+            diasSemana = new List<string>();
             cargarCombos();
         }
 
@@ -43,22 +47,42 @@ namespace SistemaDeRadio.Ventanas
         {
             try
             {
-                horas = ProgramaDAO.obtenerHoras();
+                horasInicio = ProgramaDAO.obtenerHorasInicio();
+                cbHoraInicio.ItemsSource = horasInicio;
+            
                 elementos = ProgramaDAO.obtenerElementos();
-                programas = ProgramaDAO.obtenerTodosLosProgramas(PantallaPrincipal.estacion);
-                patrones = PatronDAO.obtenerPatrones();
-
-                cbHoraInicio.ItemsSource = horas;
-                cbHoraFin.ItemsSource = horas;
                 cbElementos.ItemsSource = elementos;
+
+                programas = ProgramaDAO.obtenerTodosLosProgramas(PantallaPrincipal.estacion);
                 cbProgramas.ItemsSource = programas;
+
+                patrones = PatronDAO.obtenerPatrones();
                 cbPatrones.ItemsSource = patrones;
+
+                horasFin = ProgramaDAO.obtenerHorasFin();
+                cbHoraFin.ItemsSource = horasFin;
+                
+                
+                
+                cargarDiasDeLaSemana();
             } catch (Exception e)
             {
                 Console.WriteLine("Error: " + e.Message);
                 MessageBox.Show("Error en base de datos", "ATENCIÓN");
             }
 
+        }
+
+        void cargarDiasDeLaSemana()
+        {
+            diasSemana.Add("lunes");
+            diasSemana.Add("martes");
+            diasSemana.Add("miércoles");
+            diasSemana.Add("jueves");
+            diasSemana.Add("viernes");
+            diasSemana.Add("sábado");
+            diasSemana.Add("domingo");
+            cbDiaSemana.ItemsSource = diasSemana;
         }
 
         private void seleccionarPatron(object sender, SelectionChangedEventArgs e)
@@ -93,7 +117,7 @@ namespace SistemaDeRadio.Ventanas
         void agendarPrograma()
         {
             string nombrePrograma = cbProgramas.Text;
-            string diaProgramado = dpDiaProgramado.Text;
+            string diaProgramado = cbDiaSemana.Text;
             string horaInicio = cbHoraInicio.Text;
             string horaFin = cbHoraFin.Text;
             string patron = cbPatrones.Text;
@@ -126,52 +150,116 @@ namespace SistemaDeRadio.Ventanas
                 esCorrecto = false;
             }
 
-            if (esCorrecto)
+            DateTime horaInicioConvertida = Convert.ToDateTime(horaInicio);
+            DateTime horaFinConvertida = Convert.ToDateTime(horaFin);
+            Boolean esHorarioCorrecto = true;
+            if(horaInicioConvertida > horaFinConvertida)
             {
-                diaProgramado = Convert.ToDateTime(diaProgramado).ToString("yyyy-MM-dd");
-                try
-                {
-                    int resultado = ProgramaDAO.agendarPrograma(horaInicio, horaFin, diaProgramado, nombrePrograma);
-                    if (resultado > 0)
-                    {
-                        int programaAgendado = ProgramaDAO.obtenerUltimoProgramaAgendado();
-                        if (programaAgendado > 0)
-                        {
-                            int tamañoLista = canciones.Count();
-                            int contador = 0;
-                            while (contador < tamañoLista)
-                            {
-                                Formato formato = new Formato();
-                                formato.IdHorarioPrograma = programaAgendado;
-                                formato.NombrePatron = patron;
-                                formato.NombreElemento = canciones[contador].NombreCancion;
-                                formato.Comentarios = canciones[contador].Comentarios;
-                                formato.OrdenElementos = contador;
-                                formatos.Add(formato);
-                                contador++;
-                            }
-                            int resultadoFinal = FormatoDAO.registrarFormato(formatos);
-                            if(resultadoFinal == contador)
-                            {
-                                MessageBox.Show("Registro exitoso", "INFORMACIÓN");
-                                abrirAgenda(diaProgramado);
-                            }
-                            else
-                            {
-                                MessageBox.Show("No fue posible completar el registro, intente más tarde", "ATENCIÓN");
-                            }
-                        }
-                    }
-                }
-                catch(Exception e)
-                {
-                    MessageBox.Show("Error en la base de datos", "ATENCIÓN");
-                    Console.WriteLine("Error: " + e.Message);
-                }
-                    
-                
+                esHorarioCorrecto = false;
             }
 
+            Boolean hayTraslape = validarTraslapes(horaInicioConvertida, horaFinConvertida, diaProgramado);
+
+
+            if (esCorrecto)
+            {
+                if (esHorarioCorrecto)
+                {
+                    if (!hayTraslape)
+                    {
+                        try
+                        {
+                            int resultado = ProgramaDAO.agendarPrograma(horaInicio, horaFin, diaProgramado, nombrePrograma);
+                            if (resultado > 0)
+                            {
+                                int programaAgendado = ProgramaDAO.obtenerUltimoProgramaAgendado();
+                                if (programaAgendado > 0)
+                                {
+                                    int tamañoLista = canciones.Count();
+                                    int contador = 0;
+                                    while (contador < tamañoLista)
+                                    {
+                                        Formato formato = new Formato();
+                                        formato.IdHorarioPrograma = programaAgendado;
+                                        formato.NombrePatron = patron;
+                                        formato.NombreElemento = canciones[contador].NombreCancion;
+                                        formato.Comentarios = canciones[contador].Comentarios;
+                                        formato.OrdenElementos = contador;
+                                        formatos.Add(formato);
+                                        contador++;
+                                    }
+                                    int resultado2 = FormatoDAO.registrarFormato(formatos);
+                                    if (resultado2 == contador)
+                                    {
+                                        int resultadoFinal = PatronDAO.aumentarUsoDePatron(patron);
+                                        if (resultadoFinal > 0)
+                                        {
+                                            MessageBox.Show("Registro exitoso", "INFORMACIÓN");
+                                            abrirAgenda(diaProgramado);
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("No fue posible completar el registro, intente más tarde", "ATENCIÓN");
+                                        }
+
+                                    }
+
+                                }
+                            }
+                        }
+                        catch (Exception e)
+                        {
+                            MessageBox.Show("Error en la base de datos", "ATENCIÓN");
+                            Console.WriteLine("Error: " + e.Message);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Traslape de horario, el lapso de horario que desea registrar ya está ocupado", "ATENCIÓN");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("La hora de inicio debe ser menor a la hora de final", "ATENCIÓN");
+                }
+
+            }
+
+        }
+
+        Boolean validarTraslapes(DateTime horaInicio, DateTime horaFin, string diaProgramado)
+        {
+            Boolean hayTraslape = false;
+            List<string> horasInicio = new List<string>();
+            List<string> horasFin = new List<string>();
+            try
+            {
+                horasInicio = ProgramaDAO.obtenerHorasInicioProgramadas(diaProgramado);
+                horasFin = ProgramaDAO.obtenerHorasFinProgramadas(diaProgramado);
+                for(int i = 0; i < horasInicio.Count; i++)
+                {
+                    DateTime horaInicioObtenida = Convert.ToDateTime(horasInicio[i]);
+                    DateTime horaFinObtenida = Convert.ToDateTime(horasFin[i]);
+                    if (horaInicio == horaInicioObtenida)
+                    {
+                        hayTraslape = true;
+                        break;
+                    }
+                    if (((horaInicio >= horaInicioObtenida) && (horaInicio < horaFinObtenida)) || ((horaFin >= horaInicioObtenida) && (horaInicio < horaFinObtenida)))
+                    {
+                        hayTraslape = true;
+                        break;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error: " + e.Message);
+                hayTraslape = true;
+                MessageBox.Show("Validacion de traslape", "ATENCIÓN");
+                MessageBox.Show("Error en la base de datos", "ATENCIÓN");
+            }
+            return hayTraslape;
         }
 
         void abrirAgenda(string fecha)

@@ -29,7 +29,6 @@
         </DataGrid>
         <ComboBox x:Name="cbHoraInicio" HorizontalAlignment="Left" Margin="10,167,0,0" VerticalAlignment="Top" Width="246"/>
         <ComboBox x:Name="cbHoraFin" HorizontalAlignment="Left" Margin="323,167,0,0" VerticalAlignment="Top" Width="232"/>
-        <DatePicker x:Name="dpDiaProgramado" HorizontalAlignment="Left" Margin="603,166,0,0" VerticalAlignment="Top" Width="260"/>
         <Label Content="De:" HorizontalAlignment="Left" Margin="10,141,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.247,0.539"/>
         <Label Content="A:" HorizontalAlignment="Left" Margin="323,141,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.247,0.539" Width="27"/>
         <Label Content="Día:" HorizontalAlignment="Left" Margin="603,139,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.247,0.539" Width="42" Height="27"/>
@@ -50,5 +49,6 @@
         <TextBox x:Name="txtComentario" HorizontalAlignment="Left" Height="64" Margin="62,570,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="330"/>
         <Label Content="Agrega un comentario" HorizontalAlignment="Left" Margin="62,544,0,0" VerticalAlignment="Top"/>
         <Button x:Name="btnAgregarComentario" Content="+" HorizontalAlignment="Left" Margin="397,570,0,0" VerticalAlignment="Top" Width="26" Height="64" Background="#FF14213D" Foreground="White" FontFamily="Arial" FontSize="24" FontWeight="Bold" Click="btnAgregarComentario_Click_1"/>
+        <ComboBox x:Name="cbDiaSemana" HorizontalAlignment="Left" Margin="603,167,0,0" VerticalAlignment="Top" Width="260"/>
     </Grid>
 </Window>

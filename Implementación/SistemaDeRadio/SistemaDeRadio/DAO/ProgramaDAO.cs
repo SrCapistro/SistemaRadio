@@ -12,7 +12,7 @@ namespace SistemaDeRadio.DAO
     class ProgramaDAO
     {
 
-        public static List<Programa> obtenerProgramasProgramados(String fecha, String estacion)
+        public static List<Programa> obtenerProgramasProgramados(String diaSemana, String estacion)
         {
             List<Programa> programas = new List<Programa>();
             MySqlConnection conn = null;
@@ -22,7 +22,7 @@ namespace SistemaDeRadio.DAO
             {
                 String consulta = String.Format("SELECT p.nombre, p.estacion, h.horaInicio, h.horaFin, h.diaProgramado, h.idHorario " +
                     "FROM mus_programas p LEFT JOIN mus_horario h ON  p.nombre = h.idPrograma WHERE p.estacion = '{0}' and h.diaProgramado = '{1}' " +
-                    "and p.estatus = 'Activo';", estacion, fecha);
+                    "and p.estatus = 'Activo';", estacion, diaSemana);
                 MySqlCommand comando = new MySqlCommand(consulta, conn);
                 MySqlDataReader leer = comando.ExecuteReader();
                 while (leer.Read())
@@ -42,7 +42,7 @@ namespace SistemaDeRadio.DAO
             return programas;
         } 
 
-        public static List<string> obtenerHoras()
+        public static List<string> obtenerHorasInicio()
         {
             List<string> horas = new List<string>();
             MySqlConnection conn = null;
@@ -50,13 +50,36 @@ namespace SistemaDeRadio.DAO
             conn = ConexionBD.getConnetion();
             if(conn != null)
             {
-                string consulta = "SELECT * FROM horas;";
+                string consulta = "SELECT horaInicio FROM horas;";
                 MySqlCommand comando = new MySqlCommand(consulta, conn);
                 MySqlDataReader leer = comando.ExecuteReader();
                 while (leer.Read())
                 {
                     string hora = "";
-                    hora = (!leer.IsDBNull(0)) ? leer.GetString("hora") : "";
+                    hora = (!leer.IsDBNull(0)) ? leer.GetString("horaInicio") : "";
+                    horas.Add(hora);
+                }
+                leer.Close();
+                comando.Dispose();
+            }
+            return horas;
+        }
+
+        public static List<string> obtenerHorasFin()
+        {
+            List<string> horas = new List<string>();
+            MySqlConnection conn = null;
+
+            conn = ConexionBD.getConnetion();
+            if (conn != null)
+            {
+                string consulta = "SELECT horaFin FROM horas;";
+                MySqlCommand comando = new MySqlCommand(consulta, conn);
+                MySqlDataReader leer = comando.ExecuteReader();
+                while (leer.Read())
+                {
+                    string hora = "";
+                    hora = (!leer.IsDBNull(0)) ? leer.GetString("horaFin") : "";
                     horas.Add(hora);
                 }
                 leer.Close();
@@ -230,6 +253,50 @@ namespace SistemaDeRadio.DAO
             return programas;
         }
 
+        public static List<string> obtenerHorasInicioProgramadas(string diaProgramado)
+        {
+            List<string> horariosInicio = new List<string>();
+            MySqlConnection conn = null;
 
+            conn = ConexionBD.getConnetion();
+            if (conn != null)
+            {
+                string consulta = string.Format("SELECT horaInicio FROM mus_horario WHERE diaProgramado = '{0}';", diaProgramado);
+                MySqlCommand comando = new MySqlCommand(consulta, conn);
+                MySqlDataReader leer = comando.ExecuteReader();
+                while (leer.Read())
+                {
+                    string horaInicio = leer.GetString("horaInicio");
+                    horariosInicio.Add(horaInicio);
+                }
+                leer.Close();
+                comando.Dispose();
+            }
+
+            return horariosInicio;
+        }
+
+        public static List<string> obtenerHorasFinProgramadas(string diaProgramado)
+        {
+            List<string> horariosFin = new List<string>();
+            MySqlConnection conn = null;
+
+            conn = ConexionBD.getConnetion();
+            if (conn != null)
+            {
+                string consulta = string.Format("SELECT horaFin FROM mus_horario WHERE diaProgramado = '{0}';", diaProgramado);
+                MySqlCommand comando = new MySqlCommand(consulta, conn);
+                MySqlDataReader leer = comando.ExecuteReader();
+                while (leer.Read())
+                {
+                    string horaFin = leer.GetString("horaFin");
+                    horariosFin.Add(horaFin);
+                }
+                leer.Close();
+                comando.Dispose();
+            }
+
+            return horariosFin;
+        }
     }
 }

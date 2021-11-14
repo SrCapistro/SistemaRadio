@@ -231,5 +231,18 @@ namespace SistemaDeRadio.DAO
             catch { throw new Exception(); }
             return lineaPatrons;
         } 
+        
+        public static int aumentarUsoDePatron(string nombrePatron)
+        {
+            int resultado = 0;
+            MySqlConnection conn = null;
+            conn = ConexionBD.getConnetion();
+            String query = String.Format("update mus_patrones set PTRN_USO = (PTRN_USO + 1) where PTRN_NOMBRE = '{0}';", nombrePatron);
+            MySqlCommand command = new MySqlCommand(query, conn);
+            resultado = command.ExecuteNonQuery();
+            command.Dispose();
+            conn.Close();
+            return resultado;
+        }
     }
 }

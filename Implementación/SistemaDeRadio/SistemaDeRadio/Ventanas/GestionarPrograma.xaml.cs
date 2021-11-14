@@ -20,7 +20,8 @@ namespace SistemaDeRadio.Ventanas
     public partial class GestionarPrograma : Window
     {
         
-        List<string> horas;
+        List<string> horasInicio;
+        List<string> horasFin;
         List<string> elementos;
         List<Programa> programas;
         List<Patron> patrones;
@@ -41,7 +42,8 @@ namespace SistemaDeRadio.Ventanas
             this.diaSeleccionado = diaSeleccionado;
             this.idHorarioSeleccionado = idHorarioSeleccionado;
 
-            horas = new List<string>();
+            horasInicio = new List<string>();
+            horasFin = new List<string>();
             elementos = new List<string>();
             programas = new List<Programa>();
             patrones = new List<Patron>();
@@ -50,31 +52,29 @@ namespace SistemaDeRadio.Ventanas
 
         void cargarCombosSeleccionados()
         {
-           
+
             try
             {
-                horas = ProgramaDAO.obtenerHoras();
-                elementos = ProgramaDAO.obtenerElementos();
-                programas = ProgramaDAO.obtenerTodosLosProgramas(PantallaPrincipal.estacion);
-                patrones = PatronDAO.obtenerPatrones();
-
-                cbHoraInicio.ItemsSource = horas;
+                horasInicio = ProgramaDAO.obtenerHorasInicio();
+                cbHoraInicio.ItemsSource = horasInicio;
                 cbHoraInicio.Text = horaInicioSeleccion;
-
-                cbHoraFin.ItemsSource = horas;
-                cbHoraFin.Text = horaFinSeleccion;
-
+            
+                elementos = ProgramaDAO.obtenerElementos();
                 cbElementos.ItemsSource = elementos;
 
+                programas = ProgramaDAO.obtenerTodosLosProgramas(PantallaPrincipal.estacion);
                 cbProgramas.ItemsSource = programas;
                 cbProgramas.Text = programaSeleccion;
 
-                dpDiaProgramado.Text = Convert.ToDateTime(diaSeleccionado).ToString("d");
-
+                patrones = PatronDAO.obtenerPatrones();
                 cbPatrones.ItemsSource = patrones;
                 string patronSeleccionado = FormatoDAO.obtenerPatronDeUnFormato(idHorarioSeleccionado);
                 cbPatrones.Text = patronSeleccionado;
-                Console.WriteLine("Campos: " + horaInicioSeleccion + idHorarioSeleccionado);
+
+                horasFin = ProgramaDAO.obtenerHorasFin();
+                cbHoraFin.ItemsSource = horasFin;
+                cbHoraFin.Text = horaFinSeleccion;
+
             }
             catch (Exception e)
             {

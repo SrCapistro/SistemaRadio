@@ -11,7 +11,6 @@
             <Label Content="Agenda" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="50" FontWeight="Bold" Foreground="White"/>
         </StackPanel>
         <Label Content="Agenda del día: " HorizontalAlignment="Left" Margin="29,165,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="18"/>
-        <DatePicker x:Name="dpFechas" HorizontalAlignment="Left" Margin="29,121,0,0" VerticalAlignment="Top" Width="275" SelectedDateChanged="seleccionFecha"/>
         <Label x:Name="lbDiaSeleccionado" Content="Aquí va el día seleccionado" HorizontalAlignment="Left" Margin="170,165,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.002,0.552" FontFamily="Arial" FontSize="18" FontWeight="Bold"/>
         <DataGrid x:Name="dgProgramasAgendados" HorizontalAlignment="Left" Height="255" Margin="29,208,0,0" VerticalAlignment="Top" Width="660">
             <DataGrid.Columns>
@@ -41,6 +40,8 @@
                 </Style>
             </Button.Resources>
         </Button>
+        <Label Content="Días de la semana:" HorizontalAlignment="Left" Margin="29,124,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cbDiaSemana" HorizontalAlignment="Left" Margin="143,127,0,0" VerticalAlignment="Top" Width="197" SelectionChanged="seleccionDia"/>
 
     </Grid>
 </Window>

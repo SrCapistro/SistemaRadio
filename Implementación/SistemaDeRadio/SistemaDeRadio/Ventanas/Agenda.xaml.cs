@@ -23,30 +23,45 @@ namespace SistemaDeRadio.Ventanas
     {
 
         List<Programa> programas;
+        List<string> diasSemana;
 
         public static string nombreProgramaSeleccionado;
         public static string horaInicioProgramaSeleccionado;
         public static string horaFinProgramaSeleccionado;
         public static string diaProgramadoProgramaSeleccionado;
         public static int idHorarioSeleccion;
-        public Agenda(string fecha)
+        public Agenda(string diaSemana)
         {
             InitializeComponent();
             programas = new List<Programa>();
-            cargarProgramas(fecha);
+            cargarProgramas(diaSemana);
+            cargarComboDias();
         }
 
-        void cargarProgramas(String fecha)
+        void cargarComboDias()
+        {
+            diasSemana = new List<string>();
+            diasSemana.Add("lunes");
+            diasSemana.Add("martes");
+            diasSemana.Add("miércoles");
+            diasSemana.Add("jueves");
+            diasSemana.Add("viernes");
+            diasSemana.Add("sábado");
+            diasSemana.Add("domingo");
+            cbDiaSemana.ItemsSource = diasSemana;
+        }
+
+        void cargarProgramas(String diaSemana)
         {
             
             try
             {
-                programas = ProgramaDAO.obtenerProgramasProgramados(fecha, PantallaPrincipal.estacion);
+                programas = ProgramaDAO.obtenerProgramasProgramados(diaSemana, PantallaPrincipal.estacion);
                 dgProgramasAgendados.AutoGenerateColumns = false;
+                dgProgramasAgendados.IsReadOnly = true;
+                dgProgramasAgendados.CanUserAddRows = false;
                 dgProgramasAgendados.ItemsSource = programas;
-                Console.WriteLine("Hola" + PantallaPrincipal.estacion);
-                fecha = Convert.ToDateTime(fecha).ToString("D");
-                lbDiaSeleccionado.Content = fecha;
+                lbDiaSeleccionado.Content = diaSemana;
             }
             catch (Exception e)
             {
@@ -56,12 +71,10 @@ namespace SistemaDeRadio.Ventanas
 
         }
 
-
-        private void seleccionFecha(object sender, SelectionChangedEventArgs e)
+        private void seleccionDia(object sender, SelectionChangedEventArgs e)
         {
-            String fechaSeleccionada = dpFechas.Text;
-            fechaSeleccionada = Convert.ToDateTime(fechaSeleccionada).ToString("yyyy-MM-dd");
-            cargarProgramas(fechaSeleccionada);
+            int seleccionCombo = cbDiaSemana.SelectedIndex;
+            cargarProgramas(diasSemana[seleccionCombo]);
         }
 
         private void btnRegresar_Click(object sender, RoutedEventArgs e)
@@ -95,5 +108,7 @@ namespace SistemaDeRadio.Ventanas
             agendar.Show();
             this.Close();
         }
+
+        
     }
 }
