@@ -24,7 +24,7 @@ namespace SistemaDeRadio.Ventanas
 
         public static String estacion = "";
         List<Programa> programas;
-        String fechaActual = DateTime.Now.ToString("yyyy-MM-dd");
+        String fechaActual = DateTime.Now.ToString("dddd");
 
         public PantallaPrincipal()
         {
@@ -71,7 +71,7 @@ namespace SistemaDeRadio.Ventanas
 
         private void obtenerHoraActual()
         {
-            String horaActual = DateTime.Now.ToShortTimeString();
+            String horaActual = DateTime.Now.ToString("HH:mm:ss");
             char primerDijito = horaActual[0];
             char segundoDijito = horaActual[1];
 

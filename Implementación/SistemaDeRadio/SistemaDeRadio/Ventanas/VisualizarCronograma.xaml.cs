@@ -24,7 +24,7 @@ namespace SistemaDeRadio.Ventanas
 
         List<Programa> programas;
         List<Formato> formatos;
-        String fechaHoy = DateTime.Now.ToString("yyyy-MM-dd");
+        String fechaHoy = DateTime.Now.ToString("dddd");
 
         public VisualizarCronograma()
         {
@@ -62,15 +62,22 @@ namespace SistemaDeRadio.Ventanas
         }
                         
         private void seleccionPrograma_Click(object sender, SelectionChangedEventArgs e)
-        {            
-            Programa programaSeleccionado = new Programa();
-            programaSeleccionado = programas[dgProgramas.SelectedIndex];
-            
-            int idHorarioAux = programaSeleccionado.IdHorario;
-            formatos = FormatoDAO.obtenerElementosDelPrograma(idHorarioAux);
-            
-            dgSegunPrograma.AutoGenerateColumns = false;
-            dgSegunPrograma.ItemsSource = formatos;
+        {
+            try
+            {
+                Programa programaSeleccionado = new Programa();
+                programaSeleccionado = programas[dgProgramas.SelectedIndex];
+
+                int idHorarioAux = programaSeleccionado.IdHorario;
+                formatos = FormatoDAO.obtenerElementosDelPrograma(idHorarioAux);
+
+                dgSegunPrograma.AutoGenerateColumns = false;
+                dgSegunPrograma.ItemsSource = formatos;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
         }
     }
 }
