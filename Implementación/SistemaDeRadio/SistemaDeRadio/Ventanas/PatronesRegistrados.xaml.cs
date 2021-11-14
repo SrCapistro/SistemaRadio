@@ -21,6 +21,7 @@ namespace SistemaDeRadio.Ventanas
     /// </summary>
     public partial class PatronesRegistrados : Window
     {
+        List<Patron> listaPatrones = new List<Patron>();
         public PatronesRegistrados()
         {
             InitializeComponent();
@@ -45,13 +46,50 @@ namespace SistemaDeRadio.Ventanas
         {
             try
             {
-                List<Patron> listaPatrones = new List<Patron>();
                 listaPatrones = PatronDAO.obtenerListaPatronesCompleta();
                 tablaPatrones.AutoGenerateColumns = true;
                 tablaPatrones.ItemsSource = listaPatrones;
             }catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnModificarPatron_Click(object sender, RoutedEventArgs e)
+        {
+            int selectedIndex = tablaPatrones.SelectedIndex;
+            if(selectedIndex >= 0)
+            {
+                Patron patronEditar = listaPatrones[selectedIndex];
+                PatronCusom editarPatron = new PatronCusom(patronEditar.NombrePatron);
+                editarPatron.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Patrón no seleccionado");
+            }
+        }
+
+        private void btnEliminarPatron_Click(object sender, RoutedEventArgs e)
+        {
+            int selectedIndex = tablaPatrones.SelectedIndex;
+            if(selectedIndex >= 0)
+            {
+                String patronEliminar = listaPatrones[selectedIndex].NombrePatron;
+                MessageBoxResult messageResult = MessageBox.Show("¿Seguro que desea dar de baja el patron " + patronEliminar + "?","Confirmación de baja", MessageBoxButton.YesNo);
+                if(messageResult == MessageBoxResult.Yes)
+                {
+                    if (PatronDAO.darBajaPatron(patronEliminar) > 0)
+                    {
+                        MessageBox.Show("El patrón se ha dado de baja correctamente");
+                        cargarPatronesEnGrid();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ha ocurrido un error al dar de baja el patrón", "Error de baja");
+                    }
+                }
             }
         }
     }

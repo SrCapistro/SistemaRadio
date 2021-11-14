@@ -103,7 +103,35 @@ namespace SistemaDeRadio.DAO
             return esUltimo;
         }
 
+        public static int obtenerUltimaCancionLinea(long categoriaID, long generoID)
+        {
+            int idCancion = 0;
+            MySqlConnection conn = null;
+            try
+            {
+                conn = ConexionBD.getConnetion();
+                if (conn != null)
+                {
+                    String SQL = String.Format("select ml.LIST_IDCANCION from mus_listacanciones ml  "+
+                            "where LIST_IDCATEGORIA = {0} and LIST_IDGENERO = {1} " +
+                           "order by LIST_IDCANCION desc limit 1; ", categoriaID, generoID);
+                    MySqlCommand command = new MySqlCommand(SQL, conn);
+                    MySqlDataReader reader = command.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        idCancion = reader.GetInt32(0);
+                    }
+                    reader.Close();
+                    command.Dispose();
+                }
 
+            }
+            catch (Exception ex)
+            {
+                throw new Exception();
+            }
+            return idCancion;
+        }
 
         public static int contarCancionesLinea(long categoriaID, long generoID)
         {
@@ -133,6 +161,29 @@ namespace SistemaDeRadio.DAO
             }
 
             return numeroCanciones;
+        }
+
+        public static int eliminarListaLineasActualizaras(String nombrePatron)
+        {
+            int seBorro = 0;
+            MySqlConnection conn = null;
+            try
+            {
+                conn = ConexionBD.getConnetion();
+                if (conn != null)
+                {
+                    String SQL = String.Format("DELETE FROM mus_listacanciones WHERE LIST_PATRON = '{0}'", nombrePatron);
+                    MySqlCommand command = new MySqlCommand(SQL, conn);
+                    seBorro = command.ExecuteNonQuery();
+                    command.Dispose();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception();
+            }
+            return seBorro;
         }
     }
 }

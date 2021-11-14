@@ -47,5 +47,7 @@ namespace SistemaDeRadio.DAO
             }
             return categoriasRegistradas;
         }
+
+        
     }
 }

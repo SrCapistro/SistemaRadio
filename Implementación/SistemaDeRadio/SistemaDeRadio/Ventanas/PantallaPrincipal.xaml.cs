@@ -44,6 +44,7 @@ namespace SistemaDeRadio.Ventanas
         {
             PatronesRegistrados pantallaPatrones = new PatronesRegistrados();
             pantallaPatrones.Show();
+            this.Close();
             
         }
 

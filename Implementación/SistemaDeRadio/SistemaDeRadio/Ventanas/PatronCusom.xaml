@@ -8,7 +8,7 @@
         Title="PatronCusom" Height="450" Width="800">
     <Grid>
         <StackPanel Background="#FF14213D" Margin="0,0,0,341">
-            <Label Content="Registrar patrón" Foreground="White" FontSize="50" HorizontalAlignment="Center" Padding="5" FontWeight="ExtraBold" Height="83"/>
+            <Label x:Name="lbTituloVentana" Content="Registrar patrón" Foreground="White" FontSize="50" HorizontalAlignment="Center" Padding="5" FontWeight="ExtraBold" Height="83"/>
         </StackPanel>
 
         <TextBox x:Name="tbNombrePatron" HorizontalAlignment="Left" FontSize="20"  Margin="10,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190" Height="32">
@@ -35,7 +35,7 @@
                 </Style>
             </TextBox.Style>
         </TextBox>
-        
+
         <DataGrid x:Name="tablaLineas" FontSize="18" Margin="0,150,0,125" FrozenColumnCount="3" IsReadOnly="True"/>
         <Label Content="Añade lineas del patrón:" FontSize="18" HorizontalAlignment="Left" Margin="214,99,0,0" VerticalAlignment="Top" Height="32" Width="237"/>
 
@@ -74,6 +74,18 @@
                 <Image Stretch="Fill"  Source="/Recursos/guardar.png" Height="38" Width="48"/>
             </StackPanel>
         </Button>
+
+        <Button x:Name="btnEliminarLinea" HorizontalAlignment="Left" Margin="10,316,0,0" VerticalAlignment="Top" Click="btnEliminarLinea_Click">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+            <StackPanel>
+                <Image Stretch="Fill"  Source="/Recursos/eliminar.png" Height="38" Width="48"/>
+            </StackPanel>
+        </Button>
+        <CheckBox x:Name="chbNuevasCanciones" Content="Generar nuevas canciones" HorizontalAlignment="Left" Margin="522,329,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

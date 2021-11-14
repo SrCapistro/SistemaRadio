@@ -130,10 +130,11 @@ namespace SistemaDeRadio.Ventanas
                     }
                     else
                     {
-                        MessageBox.Show("El nombre del patron " + patronGuardar.NombrePatron + " ya existe.", "Registro duplicado");
+                        MessageBox.Show("El nombre del patron " + patronGuardar.NombrePatron + " ya existe.", "Registro duplicado")
                     }
                 }
                 generarCancionesPorLinea(listaLineasAñadidas);
+                PatronDAO.actualizarPatron(patronGuardar.NombrePatron, nombrePatronSeleccionado);
                 PatronDAO.registrarListaDePatron(listaCancionesPatron, patronGuardar.NombrePatron);
                 MessageBox.Show("Se ha registrado el patrón correctamente", "Registro éxitoso");
                 PatronesRegistrados patronesRegistrados = new PatronesRegistrados();
@@ -150,29 +151,29 @@ namespace SistemaDeRadio.Ventanas
         {
             Patron patronGuardar = new Patron();
             patronGuardar.NombrePatron = tbNombrePatron.Text;
-            try
+            if (!PatronDAO.comprobarExistenciaPatron(patronGuardar.NombrePatron))
             {
-                if (!patronGuardar.NombrePatron.Equals(nombrePatronSeleccionado))
+                try
                 {
-                    if (!PatronDAO.comprobarExistenciaPatron(patronGuardar.NombrePatron))
+                    if (!patronGuardar.NombrePatron.Equals(nombrePatronSeleccionado))
                     {
                         PatronDAO.actualizarPatron(patronGuardar.NombrePatron, nombrePatronSeleccionado);
                     }
-                    else
-                    {
-                        MessageBox.Show("El nombre del patron " + patronGuardar.NombrePatron + " ya existe.", "Registro duplicado");
-                    }
+                    generarCancionesPorLinea(listaLineasNuevas);
+                    PatronDAO.registrarListaDePatron(listaCancionesPatron, patronGuardar.NombrePatron);
+                    MessageBox.Show("Se ha registrado el patrón correctamente", "Registro éxitoso");
+                    PatronesRegistrados patronesRegistrados = new PatronesRegistrados();
+                    patronesRegistrados.Show();
+                    this.Close();
                 }
-                generarCancionesPorLinea(listaLineasNuevas);
-                PatronDAO.registrarListaDePatron(listaCancionesPatron, patronGuardar.NombrePatron);
-                MessageBox.Show("Se ha registrado el patrón correctamente", "Registro éxitoso");
-                PatronesRegistrados patronesRegistrados = new PatronesRegistrados();
-                patronesRegistrados.Show();
-                this.Close();
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("El nombre de patrón no se puede modificar si esta siendo ocupado en un programa "+ex.Message);
+                MessageBox.Show("El patron con el nombre " + patronGuardar.NombrePatron + " ya esta registrado", "Registro duplicado");
             }
         }
         
@@ -209,30 +210,18 @@ namespace SistemaDeRadio.Ventanas
         private void cbCategoriasSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             indexCategoria = cbCategorias.SelectedIndex;
-            try
-            {
-                listaGeneros.Clear();
-                listaGeneros = GeneroDAO.obtenerGeneroPorCategoria(listaCategorias[indexCategoria].CategoriaID);
-                cbGeneros.Items.Clear();
-                foreach (Genero genero in listaGeneros)
-                {
-                    cbGeneros.Items.Add(genero.GeneroNombre);
-                }
-            }
-            catch (NullReferenceException ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            Console.WriteLine(indexCategoria);
         }
 
         private void cbGenerosSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             indexGenero = cbGeneros.SelectedIndex;
+            Console.WriteLine(indexGenero);
         }
 
         private void btnAñadirLinea_Click(object sender, RoutedEventArgs e)
         {
-            if (indexGenero == 0 || indexCategoria == 0)
+            if (indexGenero ==0 || indexCategoria == 0)
             {
                 MessageBox.Show("Debe de seleccionar una categoria y un género valido", "Selección faltante");
             }

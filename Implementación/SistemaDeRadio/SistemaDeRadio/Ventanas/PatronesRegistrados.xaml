@@ -27,7 +27,7 @@
                     </StackPanel>
                 </Button>
 
-                <Button x:Name="btnModificarPatron" Margin="192,6,360,4">
+                <Button x:Name="btnModificarPatron" Margin="192,6,360,4" Click="btnModificarPatron_Click">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="40"/>
@@ -38,7 +38,7 @@
                     </StackPanel>
                 </Button>
 
-                <Button x:Name="btnEliminarPatron" Margin="370,5,181,5">
+                <Button x:Name="btnEliminarPatron" Margin="370,5,181,5" Click="btnEliminarPatron_Click">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="40"/>
