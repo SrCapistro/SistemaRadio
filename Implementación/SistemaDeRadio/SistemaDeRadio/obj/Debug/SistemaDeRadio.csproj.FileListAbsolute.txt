@@ -204,3 +204,8 @@ C:\Users\Mrcap\Documents\Repositorios\SistemaRadio\SistemaRadio\Implementación\
 C:\Users\Mrcap\Documents\Repositorios\SistemaRadio\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\Ventanas\GestionarPrograma.baml
 C:\Users\Mrcap\Documents\Repositorios\SistemaRadio\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\Ventanas\VisualizarCronograma.baml
 C:\Users\Mrcap\Documents\Repositorios\SistemaRadio\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\Ventanas\VisualizarInfoProgramaActivo.baml
+C:\Users\mario\source\repos\SrCapistro\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\bin\Debug\Syncfusion.Compression.Base.dll
+C:\Users\mario\source\repos\SrCapistro\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\bin\Debug\Syncfusion.Licensing.dll
+C:\Users\mario\source\repos\SrCapistro\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\bin\Debug\Syncfusion.Pdf.Base.dll
+C:\Users\mario\source\repos\SrCapistro\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\bin\Debug\Syncfusion.Compression.Base.xml
+C:\Users\mario\source\repos\SrCapistro\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\bin\Debug\Syncfusion.Pdf.Base.xml

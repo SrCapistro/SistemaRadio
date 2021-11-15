@@ -13,6 +13,12 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Syncfusion.Pdf;
+using Syncfusion.Pdf.Graphics;
+using System.ComponentModel;
+using System.Drawing;
+using Syncfusion.Pdf.Grid;
+using System.Data;
 
 namespace SistemaDeRadio.Ventanas
 {
@@ -24,6 +30,7 @@ namespace SistemaDeRadio.Ventanas
 
         List<Programa> programas;
         List<Formato> formatos;
+        List<ReporteProgramacionDelDia> elementosReporte;
         String fechaHoy = DateTime.Now.ToString("dddd");
 
         public VisualizarCronograma()
@@ -31,15 +38,21 @@ namespace SistemaDeRadio.Ventanas
             InitializeComponent();
             programas = new List<Programa>();
             formatos = new List<Formato>();
+            elementosReporte = new List<ReporteProgramacionDelDia>();
             cargarProgramasDelDia(fechaHoy);
         }
 
         private void btnRegresar_Click(object sender, RoutedEventArgs e)
         {
+            salir();
+        } 
+
+        private void salir()
+        {
             PantallaPrincipal regresarPrincipal = new PantallaPrincipal();
             regresarPrincipal.Show();
             this.Close();
-        } 
+        }
 
         void cargarProgramasDelDia(String fecha)
         {
@@ -79,6 +92,71 @@ namespace SistemaDeRadio.Ventanas
             catch (Exception ex)
             {
                 Console.WriteLine("Error: " + ex.Message);
+            }
+        }
+
+        private void btnGenerarPdf_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+
+                elementosReporte = FormatoDAO.obtenerElementosParaReporteDelDia(PantallaPrincipal.estacion, fechaHoy);
+
+
+                //Create a new PDF document.
+                PdfDocument doc = new PdfDocument();
+                //Add a page.
+                PdfPage page = doc.Pages.Add();
+                //Create a PdfGrid.
+                PdfGrid pdfGrid = new PdfGrid();
+
+                //AQUI LO DEL NUEVO CODIGO
+                PdfGraphics graphics = page.Graphics;
+
+                //Set the standard font
+                PdfFont font = new PdfStandardFont(PdfFontFamily.TimesRoman, 30);
+
+                //Draw the text
+                graphics.DrawString("Reporte de Programación del Día - " +  fechaHoy, font, PdfBrushes.Blue, new PointF(0, 0));
+
+                //ACA ACABA
+
+
+                //Create a DataTable.
+                DataTable dataTable = new DataTable();
+                //Add columns to the DataTable
+                dataTable.Columns.Add("Nombre Programa");
+                dataTable.Columns.Add("Hora Inicio");
+                dataTable.Columns.Add("Hora Fin");
+                dataTable.Columns.Add("Elemento");
+                dataTable.Columns.Add("Comentarios");
+                dataTable.Columns.Add("Patron");
+
+                //Add rows to the DataTable.
+
+
+                foreach (ReporteProgramacionDelDia reporteR in elementosReporte)
+                {
+                    dataTable.Rows.Add(reporteR.NombrePrograma, reporteR.HoraInicio, reporteR.HoraFin, reporteR.NombreElemento, reporteR.Comentario, reporteR.NombrePatron);
+                }
+
+                //Assign data source.
+                pdfGrid.DataSource = dataTable;
+                //Draw grid to the page of PDF document.
+                pdfGrid.Draw(page, new PointF(20, 50));
+                                
+                //Save the document.
+                doc.Save("ReporteP2.pdf");
+                //close the document
+                doc.Close(true);
+
+                MessageBox.Show("Reporte generado exitosamente!", "Mensaje de Confirmación");
+                salir();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                MessageBox.Show("Error al generar el archivo. Intente más tarde", "ERROR");
             }
         }
     }

@@ -33,5 +33,12 @@
                 <DataGridTextColumn Header="Fin" Binding="{Binding HoraFin}"/>
             </DataGrid.Columns>
         </DataGrid>
+        <Button x:Name="btnGenerarPdf" Content="Generar Reporte" HorizontalAlignment="Left" Margin="660,468,0,0" VerticalAlignment="Top" Width="183" Background="Green" Foreground="White" FontFamily="Arial" FontSize="18" FontWeight="Bold" Height="30" Click="btnGenerarPdf_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="7"/>
+                </Style>
+            </Button.Resources>
+        </Button>
     </Grid>
 </Window>
