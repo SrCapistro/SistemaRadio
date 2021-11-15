@@ -84,6 +84,7 @@ namespace SistemaDeRadio.Ventanas
 
             dgElementos.AutoGenerateColumns = false;
             dgElementos.ItemsSource = formatos;
+            dgElementos.CanUserAddRows = false;
         }
 
         private void btnRegresar_Click(object sender, RoutedEventArgs e)

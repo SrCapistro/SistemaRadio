@@ -52,6 +52,7 @@ namespace SistemaDeRadio.Ventanas
                 dgProgramas.AutoGenerateColumns = false;
 
                 dgProgramas.ItemsSource = programas;
+                dgProgramas.CanUserAddRows = false;
                 
             }
             catch (Exception e)
@@ -73,6 +74,7 @@ namespace SistemaDeRadio.Ventanas
 
                 dgSegunPrograma.AutoGenerateColumns = false;
                 dgSegunPrograma.ItemsSource = formatos;
+                dgSegunPrograma.CanUserAddRows = false;
             }
             catch (Exception ex)
             {
