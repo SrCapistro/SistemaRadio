@@ -4,11 +4,16 @@
 winexe
 C#
 .cs
+<<<<<<< HEAD
 C:\Users\brand\source\repos\SistemaDeRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\
+=======
+C:\Users\mario\source\repos\SrCapistro\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\
+>>>>>>> 2fd20b1b3f9dc1f582828af596faac96e5cf02fa
 SistemaDeRadio
 none
 false
 DEBUG;TRACE
+<<<<<<< HEAD
 C:\Users\brand\source\repos\SistemaDeRadio\Implementación\SistemaDeRadio\SistemaDeRadio\App.xaml
 9-314150478
 
@@ -17,4 +22,14 @@ C:\Users\brand\source\repos\SistemaDeRadio\Implementación\SistemaDeRadio\Sistem
 Ventanas\Agenda.xaml;Ventanas\AgendarPrograma.xaml;Ventanas\GestionarPrograma.xaml;Ventanas\Login.xaml;Ventanas\PantallaPrincipal.xaml;Ventanas\PatronCusom.xaml;Ventanas\PatronesRegistrados.xaml;Ventanas\VisualizarCronograma.xaml;Ventanas\VisualizarInfoProgramaActivo.xaml;
 
 True
+=======
+C:\Users\mario\source\repos\SrCapistro\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\App.xaml
+9-314150478
+
+33-1682626288
+18-1228416709
+Ventanas\Agenda.xaml;Ventanas\AgendarPrograma.xaml;Ventanas\GestionarPrograma.xaml;Ventanas\Login.xaml;Ventanas\PantallaPrincipal.xaml;Ventanas\PatronCusom.xaml;Ventanas\PatronesRegistrados.xaml;Ventanas\VisualizarCronograma.xaml;Ventanas\VisualizarInfoProgramaActivo.xaml;
+
+False
+>>>>>>> 2fd20b1b3f9dc1f582828af596faac96e5cf02fa
 

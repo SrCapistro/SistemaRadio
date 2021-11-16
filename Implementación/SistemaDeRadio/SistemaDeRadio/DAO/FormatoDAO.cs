@@ -125,28 +125,56 @@ namespace SistemaDeRadio.DAO
             return elementosFormato;
         }
 
+<<<<<<< HEAD
         public static List<Formato> obtenerFormatoDeProgramaEnOrden(int idHorarioPrograma, string nombrePatron)
         {
             List<Formato> formatoObtenido = new List<Formato>();
+=======
+        public static List<ReporteProgramacionDelDia> obtenerElementosParaReporteDelDia(String estacion, String diaSemana)
+        {
+            List<ReporteProgramacionDelDia> elementosReporte = new List<ReporteProgramacionDelDia>();
+>>>>>>> 2fd20b1b3f9dc1f582828af596faac96e5cf02fa
             MySqlConnection conn = null;
 
             conn = ConexionBD.getConnetion();
             if (conn != null)
             {
+<<<<<<< HEAD
                 string consulta = string.Format("SELECT nombreElemento, comentarios FROM mus_formato WHERE idHorarioPrograma = {0} and idPatron = '{1}' " +
                     "ORDER BY ordenElementos;", idHorarioPrograma, nombrePatron);
+=======
+
+                String consulta = string.Format("SELECT h.idPrograma, h.horaInicio, h.horaFin, f.nombreElemento, f.comentarios, f.idPatron, p.estacion " +
+                    "FROM mus_horario h INNER JOIN mus_formato f ON h.idHorario = f.idHorarioPrograma INNER JOIN mus_programas p " +
+                    "ON h.idPrograma = p.nombre AND p.estacion = '{0}' AND h.diaProgramado = '{1}' " +
+                    "GROUP BY h.idPrograma, h.horaInicio, h.horaFin, f.nombreElemento, f.comentarios, f.idPatron, p.estacion ", estacion, diaSemana);
+
+>>>>>>> 2fd20b1b3f9dc1f582828af596faac96e5cf02fa
                 MySqlCommand comando = new MySqlCommand(consulta, conn);
                 MySqlDataReader leer = comando.ExecuteReader();
                 while (leer.Read())
                 {
+<<<<<<< HEAD
                     Formato formato = new Formato();
                     formato.NombreElemento = leer.GetString("nombreElemento");
                     formato.Comentarios = leer.GetString("comentarios");
                     formatoObtenido.Add(formato);
+=======
+                    ReporteProgramacionDelDia reporte = new ReporteProgramacionDelDia();
+                    reporte.NombrePrograma = (!leer.IsDBNull(0)) ? leer.GetString("idPrograma") : "";
+                    reporte.HoraInicio = (!leer.IsDBNull(1)) ? leer.GetString("horaInicio") : "";
+                    reporte.HoraFin = (!leer.IsDBNull(2)) ? leer.GetString("horaFin") : "";
+                    reporte.NombreElemento = (!leer.IsDBNull(3)) ? leer.GetString("nombreElemento") : "";
+                    reporte.Comentario = (!leer.IsDBNull(4)) ? leer.GetString("comentarios") : "";
+                    reporte.NombrePatron = (!leer.IsDBNull(5)) ? leer.GetString("idPatron") : "";
+                    reporte.NombreEstacion = (!leer.IsDBNull(6)) ? leer.GetString("estacion") : "";
+                    elementosReporte.Add(reporte);
+>>>>>>> 2fd20b1b3f9dc1f582828af596faac96e5cf02fa
                 }
                 leer.Close();
                 comando.Dispose();
             }
+<<<<<<< HEAD
             return formatoObtenido;
         }
 
@@ -167,6 +195,11 @@ namespace SistemaDeRadio.DAO
             }
             return resultado;
         }
+=======
+            return elementosReporte;
+        }
+
+>>>>>>> 2fd20b1b3f9dc1f582828af596faac96e5cf02fa
 
     }
 }
