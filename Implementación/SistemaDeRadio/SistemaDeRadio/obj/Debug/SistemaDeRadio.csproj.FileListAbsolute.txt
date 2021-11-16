@@ -209,3 +209,8 @@ C:\Users\mario\source\repos\SrCapistro\SistemaRadio\Implementación\SistemaDeRad
 C:\Users\mario\source\repos\SrCapistro\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\bin\Debug\Syncfusion.Pdf.Base.dll
 C:\Users\mario\source\repos\SrCapistro\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\bin\Debug\Syncfusion.Compression.Base.xml
 C:\Users\mario\source\repos\SrCapistro\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\bin\Debug\Syncfusion.Pdf.Base.xml
+C:\Users\brand\source\repos\SistemaDeRadio\Implementación\SistemaDeRadio\SistemaDeRadio\bin\Debug\Syncfusion.Compression.Base.dll
+C:\Users\brand\source\repos\SistemaDeRadio\Implementación\SistemaDeRadio\SistemaDeRadio\bin\Debug\Syncfusion.Licensing.dll
+C:\Users\brand\source\repos\SistemaDeRadio\Implementación\SistemaDeRadio\SistemaDeRadio\bin\Debug\Syncfusion.Pdf.Base.dll
+C:\Users\brand\source\repos\SistemaDeRadio\Implementación\SistemaDeRadio\SistemaDeRadio\bin\Debug\Syncfusion.Compression.Base.xml
+C:\Users\brand\source\repos\SistemaDeRadio\Implementación\SistemaDeRadio\SistemaDeRadio\bin\Debug\Syncfusion.Pdf.Base.xml
