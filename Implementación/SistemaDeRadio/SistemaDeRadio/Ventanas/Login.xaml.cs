@@ -42,9 +42,9 @@ namespace SistemaDeRadio
             if(nombreUsuario.Length > 0 && contraseñaUsuario.Length > 0)
             {
                 Usuario userRespuesta = UsuarioDAO.obtenerLogin(nombreUsuario, contraseñaUsuario);
-                if(userRespuesta != null)
-                {
-                    MessageBox.Show("Bienvenido al sistema " + userRespuesta.NombreUsr + " Tipo: " + userRespuesta.TipoUsr);
+                if (userRespuesta != null)
+                { 
+                    MessageBox.Show("Bienvenido al sistema: " + userRespuesta.NombreUsr.ToUpper() + "\nTipo: " + userRespuesta.TipoUsr);
                     estacion = userRespuesta.EstacionUsr;
                     abrirVentanaPrincipal();
                 }

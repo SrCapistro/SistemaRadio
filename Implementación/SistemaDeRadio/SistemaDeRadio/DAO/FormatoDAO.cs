@@ -41,6 +41,36 @@ namespace SistemaDeRadio.DAO
             return resultado;
         }
 
+        public static int actualizarFormato(List<Formato> formato, int idHorario)
+        {
+            int resultado = 0;
+            MySqlConnection conn = null;
+
+            conn = ConexionBD.getConnetion();
+            if (conn != null)
+            {
+                int tamañoLista = formato.Count();
+                int contador = 0;
+                while (contador < tamañoLista)
+                {
+                    string consulta = "UPDATE mus_formato set nombreElemento = @nombreElemento, comentarios = @comentarios WHERE idHorarioPrograma = @idHorarioPrograma " +
+                        "AND ordenElementos = @ordenElementos;";
+                    MySqlCommand comando = new MySqlCommand(consulta, conn);
+                    comando.Parameters.Clear();
+                    comando.Parameters.AddWithValue("@nombreElemento", formato[contador].NombreElemento);
+                    comando.Parameters.AddWithValue("@comentarios", formato[contador].Comentarios);
+                    comando.Parameters.AddWithValue("@idHorarioPrograma", idHorario);
+                    comando.Parameters.AddWithValue("@ordenElementos", contador);
+                    comando.ExecuteNonQuery();
+                    contador++;
+                }
+                conn.Close();
+                resultado = contador;
+
+            }
+            return resultado;
+        }
+        
         public static string obtenerPatronDeUnFormato(int idHorario)
         {
             string patron = "";
@@ -94,5 +124,49 @@ namespace SistemaDeRadio.DAO
             }
             return elementosFormato;
         }
+
+        public static List<Formato> obtenerFormatoDeProgramaEnOrden(int idHorarioPrograma, string nombrePatron)
+        {
+            List<Formato> formatoObtenido = new List<Formato>();
+            MySqlConnection conn = null;
+
+            conn = ConexionBD.getConnetion();
+            if (conn != null)
+            {
+                string consulta = string.Format("SELECT nombreElemento, comentarios FROM mus_formato WHERE idHorarioPrograma = {0} and idPatron = '{1}' " +
+                    "ORDER BY ordenElementos;", idHorarioPrograma, nombrePatron);
+                MySqlCommand comando = new MySqlCommand(consulta, conn);
+                MySqlDataReader leer = comando.ExecuteReader();
+                while (leer.Read())
+                {
+                    Formato formato = new Formato();
+                    formato.NombreElemento = leer.GetString("nombreElemento");
+                    formato.Comentarios = leer.GetString("comentarios");
+                    formatoObtenido.Add(formato);
+                }
+                leer.Close();
+                comando.Dispose();
+            }
+            return formatoObtenido;
+        }
+
+        public static int desagendarFormato(int idHorario)
+        {
+            int resultado = 0;
+
+            MySqlConnection conn = null;
+
+            conn = ConexionBD.getConnetion();
+            if (conn != null)
+            {
+
+                string consulta = string.Format("DELETE FROM mus_formato WHERE idHorarioPrograma = {0}", idHorario);
+                MySqlCommand comando = new MySqlCommand(consulta, conn);
+                resultado = comando.ExecuteNonQuery();
+                conn.Close();
+            }
+            return resultado;
+        }
+
     }
 }

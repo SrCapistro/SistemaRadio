@@ -253,7 +253,7 @@ namespace SistemaDeRadio.DAO
             return programas;
         }
 
-        public static List<string> obtenerHorasInicioProgramadas(string diaProgramado)
+        public static List<string> obtenerHorasInicioProgramadas(string diaProgramado, string estacion)
         {
             List<string> horariosInicio = new List<string>();
             MySqlConnection conn = null;
@@ -261,7 +261,8 @@ namespace SistemaDeRadio.DAO
             conn = ConexionBD.getConnetion();
             if (conn != null)
             {
-                string consulta = string.Format("SELECT horaInicio FROM mus_horario WHERE diaProgramado = '{0}';", diaProgramado);
+                string consulta = string.Format("SELECT horaInicio FROM mus_horario h LEFT JOIN mus_programas p ON h.idPrograma = p.nombre WHERE diaProgramado = '{0}' " +
+                    "and p.estacion = '{1}' and p.estatus = 'Activo';", diaProgramado, estacion);
                 MySqlCommand comando = new MySqlCommand(consulta, conn);
                 MySqlDataReader leer = comando.ExecuteReader();
                 while (leer.Read())
@@ -297,6 +298,65 @@ namespace SistemaDeRadio.DAO
             }
 
             return horariosFin;
+        }
+
+        public static int actualizarPrograma(string horaInicio, string horaFin, string diaProgramado, string idPrograma, int idHorario)
+        {
+            int resultado = 0;
+            MySqlConnection conn = null;
+
+            conn = ConexionBD.getConnetion();
+            if (conn != null)
+            {
+
+                string consulta = "UPDATE mus_horario set horaInicio = @horaInicio, horaFin = @horaFin, diaProgramado = @diaProgramado, idPrograma = @idPrograma " +
+                    "WHERE idHorario = @idHorario;";
+                MySqlCommand comando = new MySqlCommand(consulta, conn);
+                comando.Parameters.AddWithValue("@horaInicio", horaInicio);
+                comando.Parameters.AddWithValue("@horaFin", horaFin);
+                comando.Parameters.AddWithValue("@diaProgramado", diaProgramado);
+                comando.Parameters.AddWithValue("@idPrograma", idPrograma);
+                comando.Parameters.AddWithValue("@idHorario", idHorario);
+                resultado = comando.ExecuteNonQuery();
+                conn.Close();
+            }
+            return resultado;
+        }
+
+        public static int desagendarPrograma(int idHorario)
+        {
+            int resultado = 0;
+
+            MySqlConnection conn = null;
+
+            conn = ConexionBD.getConnetion();
+            if (conn != null)
+            {
+
+                string consulta = string.Format("DELETE FROM mus_horario WHERE idHorario = {0}", idHorario);
+                MySqlCommand comando = new MySqlCommand(consulta, conn);
+                resultado = comando.ExecuteNonQuery();
+                conn.Close();
+            }
+            return resultado;
+        }
+
+        public static int inHabilitarPrograma(string nombrePrograma)
+        {
+            int resultado = 0;
+
+            MySqlConnection conn = null;
+
+            conn = ConexionBD.getConnetion();
+            if (conn != null)
+            {
+
+                string consulta = string.Format("UPDATE mus_programas set estatus = 'Inactivo' WHERE nombre = '{0}'", nombrePrograma);
+                MySqlCommand comando = new MySqlCommand(consulta, conn);
+                resultado = comando.ExecuteNonQuery();
+                conn.Close();
+            }
+            return resultado;
         }
     }
 }

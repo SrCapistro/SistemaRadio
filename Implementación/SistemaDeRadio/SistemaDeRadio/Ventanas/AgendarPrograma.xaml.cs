@@ -234,7 +234,7 @@ namespace SistemaDeRadio.Ventanas
             List<string> horasFin = new List<string>();
             try
             {
-                horasInicio = ProgramaDAO.obtenerHorasInicioProgramadas(diaProgramado);
+                horasInicio = ProgramaDAO.obtenerHorasInicioProgramadas(diaProgramado, PantallaPrincipal.estacion);
                 horasFin = ProgramaDAO.obtenerHorasFinProgramadas(diaProgramado);
                 for(int i = 0; i < horasInicio.Count; i++)
                 {
@@ -384,7 +384,7 @@ namespace SistemaDeRadio.Ventanas
                 }
                 else
                 {
-                MessageBox.Show("Para editar una celda primero seleccionela", "ATENCIÓN");
+                    MessageBox.Show("Para editar una celda primero seleccionela", "ATENCIÓN");
                 }
             }
             else
