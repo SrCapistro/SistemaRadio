@@ -102,29 +102,15 @@ namespace SistemaDeRadio.Ventanas
 
                 elementosReporte = FormatoDAO.obtenerElementosParaReporteDelDia(PantallaPrincipal.estacion, fechaHoy);
 
-
-                //Create a new PDF document.
                 PdfDocument doc = new PdfDocument();
-                //Add a page.
                 PdfPage page = doc.Pages.Add();
-                //Create a PdfGrid.
                 PdfGrid pdfGrid = new PdfGrid();
 
-                //AQUI LO DEL NUEVO CODIGO
                 PdfGraphics graphics = page.Graphics;
-
-                //Set the standard font
                 PdfFont font = new PdfStandardFont(PdfFontFamily.TimesRoman, 30);
+                graphics.DrawString("Reporte de Programación del Día - " + fechaHoy, font, PdfBrushes.Blue, new PointF(0, 0));
 
-                //Draw the text
-                graphics.DrawString("Reporte de Programación del Día - " +  fechaHoy, font, PdfBrushes.Blue, new PointF(0, 0));
-
-                //ACA ACABA
-
-
-                //Create a DataTable.
                 DataTable dataTable = new DataTable();
-                //Add columns to the DataTable
                 dataTable.Columns.Add("Nombre Programa");
                 dataTable.Columns.Add("Hora Inicio");
                 dataTable.Columns.Add("Hora Fin");
@@ -132,22 +118,17 @@ namespace SistemaDeRadio.Ventanas
                 dataTable.Columns.Add("Comentarios");
                 dataTable.Columns.Add("Patron");
 
-                //Add rows to the DataTable.
-
-
                 foreach (ReporteProgramacionDelDia reporteR in elementosReporte)
                 {
                     dataTable.Rows.Add(reporteR.NombrePrograma, reporteR.HoraInicio, reporteR.HoraFin, reporteR.NombreElemento, reporteR.Comentario, reporteR.NombrePatron);
                 }
 
-                //Assign data source.
                 pdfGrid.DataSource = dataTable;
-                //Draw grid to the page of PDF document.
                 pdfGrid.Draw(page, new PointF(20, 50));
-                                
-                //Save the document.
-                doc.Save("ReporteP2.pdf");
-                //close the document
+
+                Random r = new Random();
+                String archivoAux = "ReporteProgramacionDelDia" + r.Next(0, 10000) + ".pdf";
+                doc.Save(archivoAux);
                 doc.Close(true);
 
                 MessageBox.Show("Reporte generado exitosamente!", "Mensaje de Confirmación");
