@@ -90,6 +90,9 @@
     <Compile Include="Ventanas\PatronesRegistrados.xaml.cs">
       <DependentUpon>PatronesRegistrados.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Ventanas\RegistrarCancion.xaml.cs">
+      <DependentUpon>RegistrarCancion.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Ventanas\VisualizarCronograma.xaml.cs">
       <DependentUpon>VisualizarCronograma.xaml</DependentUpon>
     </Compile>
@@ -126,6 +129,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Ventanas\PatronesRegistrados.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ventanas\RegistrarCancion.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

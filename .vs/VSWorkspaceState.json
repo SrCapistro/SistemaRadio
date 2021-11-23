@@ -1,11 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\Implementación",
-    "\\Implementación\\SistemaDeRadio",
-    "\\Implementación\\SistemaDeRadio\\SistemaDeRadio",
-    "\\Implementación\\SistemaDeRadio\\SistemaDeRadio\\Ventanas"
+    ""
   ],
-  "SelectedNode": "\\Implementación\\SistemaDeRadio\\SistemaDeRadio\\Ventanas\\Agenda.xaml.cs",
+  "SelectedNode": "\\SistemaDeRadio.sln",
   "PreviewInSolutionExplorer": false
 }

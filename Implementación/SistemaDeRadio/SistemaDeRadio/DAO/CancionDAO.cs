@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using System.Data.SqlClient;
 using SistemaDeRadio.POCO;
 using System;
 using System.Collections.Generic;
@@ -103,8 +104,6 @@ namespace SistemaDeRadio.DAO
             return esUltimo;
         }
 
-
-
         public static int contarCancionesLinea(long categoriaID, long generoID)
         {
             int numeroCanciones = 0;
@@ -133,6 +132,38 @@ namespace SistemaDeRadio.DAO
             }
 
             return numeroCanciones;
+        }
+
+        public static void agregarCancion(string nombre, long categoria, long genero, string clave, string dias, long artista)
+        {
+            MySqlConnection conn = null;
+            try
+            {
+                conn = ConexionBD.getConnetion();
+                if (conn != null)
+                {
+                    MySqlCommand command;
+                    MySqlDataReader dataReader;
+                    String query = String.Format("INSERT INTO mus_canciones " +
+                        "(CAN_TITULO, CAN_CATEGORIA, CAN_GENERO, CAN_CLAVE, CAN_DIAS, CAN_CANTANTE) " +
+                        "VALUES('{0}', '{1}', '{2}', '{3}', '{4}', '{5}');", nombre, categoria, genero, clave, dias, artista);
+                    command = new MySqlCommand(query, conn);
+                    dataReader = command.ExecuteReader();
+                    dataReader.Close();
+                    command.Dispose();
+                }
+            } catch (Exception e)
+            {
+                Console.WriteLine("\nExcepción en CancionDAO en método agregarCancion():");
+                Console.WriteLine(e.Message);
+                Console.WriteLine("----------------------------------------------------------------\n");
+            } finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
         }
     }
 }

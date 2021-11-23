@@ -1,0 +1,44 @@
+﻿<Window x:Class="SistemaDeRadio.Ventanas.RegistrarCancion"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SistemaDeRadio.Ventanas"
+        mc:Ignorable="d"
+        Title="RegistrarCancion" Height="572.869" Width="826.959">
+    <Grid>
+        <StackPanel HorizontalAlignment="Left" Height="81" VerticalAlignment="Top" Width="819" Background="#FF14213D">
+            <Label Content="Registrar canción" FontSize="50" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center"/>
+        </StackPanel>
+        <Button x:Name="btnRegresar" Content="Regresar" HorizontalAlignment="Left" Margin="10,483,0,0" VerticalAlignment="Top" Width="125" Background="#FF8C0000" Foreground="White" FontFamily="Arial" FontSize="18" FontWeight="Bold" Height="49" Click="btnRegresar_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="7"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Label x:Name="lbNombreCancion" HorizontalAlignment="Left" Margin="40,110,0,0" VerticalAlignment="Top" FontSize="25" Width="387" Height="56">
+            <Label Content="Escribe el nombre de la canción:"/>
+        </Label>
+        <Button x:Name="btnRegistrar" Content="Registrar" HorizontalAlignment="Left" Margin="330,409,0,0" VerticalAlignment="Top" Width="186" Height="49" Background="#FF14213D" Foreground="White" FontFamily="Arial" FontWeight="Bold" FontSize="25" Click="btnRegistrar_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="7"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <TextBox x:Name="tbNombre" HorizontalAlignment="Left" Height="50" Margin="40,166,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="387"/>
+        <Label x:Name="lbCategoria" HorizontalAlignment="Left" Margin="473,241,0,0" VerticalAlignment="Top" FontSize="25" Width="283" Height="56">
+            <Label Content="Selecciona la categoría:"/>
+        </Label>
+        <ComboBox x:Name="cbCategoria" HorizontalAlignment="Left" Margin="478,300,0,0" VerticalAlignment="Top" Width="278" Height="43"/>
+        <Label x:Name="lbArtista" HorizontalAlignment="Left" Margin="40,241,0,0" VerticalAlignment="Top" FontSize="25" Width="283" Height="56">
+            <Label Content="Selecciona el artista:"/>
+        </Label>
+        <ComboBox x:Name="cbArtista" HorizontalAlignment="Left" Margin="45,302,0,0" VerticalAlignment="Top" Width="382" Height="41" RenderTransformOrigin="0.734,0.644"/>
+        <Label x:Name="lbGenero" HorizontalAlignment="Left" Margin="473,110,0,0" VerticalAlignment="Top" FontSize="25" Width="283" Height="56">
+            <Label Content="Selecciona el género:"/>
+        </Label>
+        <ComboBox x:Name="cbGenero" HorizontalAlignment="Left" Margin="478,166,0,0" VerticalAlignment="Top" Width="278" Height="43"/>
+    </Grid>
+</Window>

@@ -233,3 +233,4 @@ C:\Users\luzit\Source\Repos\SistemaRadio\Implementación\SistemaDeRadio\SistemaD
 C:\Users\luzit\Source\Repos\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\SistemaDeRadio.csproj.CopyComplete
 C:\Users\luzit\Source\Repos\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\SistemaDeRadio.exe
 C:\Users\luzit\Source\Repos\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\SistemaDeRadio.pdb
+C:\Users\luzit\Source\Repos\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\Ventanas\RegistrarCancion.g.cs
