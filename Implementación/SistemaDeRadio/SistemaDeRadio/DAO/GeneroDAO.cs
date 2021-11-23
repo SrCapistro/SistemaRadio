@@ -85,5 +85,38 @@ namespace SistemaDeRadio.DAO
             }
             return generosRegistrados;
         }
+
+        public static void agregarGenero(string nombre)
+        {
+            MySqlConnection conn = null;
+            try
+            {
+                conn = ConexionBD.getConnetion();
+                if (conn != null)
+                {
+                    MySqlCommand command;
+                    MySqlDataReader dataReader;
+                    String query = String.Format("INSERT INTO mus_generos (GNR_NOMBRE) VALUES('{0}');", nombre);
+                    command = new MySqlCommand(query, conn);
+                    dataReader = command.ExecuteReader();
+                    dataReader.Close();
+                    command.Dispose();
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("\nExcepción en GeneroDAO en método agregarGenero():");
+                Console.WriteLine(e.Message);
+                Console.WriteLine("----------------------------------------------------------------\n");
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+        }
+
     }
 }

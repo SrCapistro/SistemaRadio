@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\ASUS\Source\Repos\SrCapistro\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\
+C:\Users\luzit\Source\Repos\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\
 SistemaDeRadio
 none
 false
 DEBUG;TRACE
-C:\Users\ASUS\Source\Repos\SrCapistro\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\App.xaml
-10-1431149767
+C:\Users\luzit\Source\Repos\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\App.xaml
+111091944259
 
-33-1674223467
-122-413173447
-Ventanas\Agenda.xaml;Ventanas\AgendarPrograma.xaml;Ventanas\GestionarPrograma.xaml;Ventanas\Login.xaml;Ventanas\MenuCanciones.xaml;Ventanas\PantallaPrincipal.xaml;Ventanas\PatronCusom.xaml;Ventanas\PatronesRegistrados.xaml;Ventanas\VisualizarCronograma.xaml;Ventanas\VisualizarInfoProgramaActivo.xaml;
+36-1444051098
+18-412521302
+Ventanas\Agenda.xaml;Ventanas\AgendarPrograma.xaml;Ventanas\GestionarPrograma.xaml;Ventanas\Login.xaml;Ventanas\MenuCanciones.xaml;Ventanas\PantallaPrincipal.xaml;Ventanas\PatronCusom.xaml;Ventanas\PatronesRegistrados.xaml;Ventanas\RegistrarCancion.xaml;Ventanas\VisualizarCronograma.xaml;Ventanas\VisualizarInfoProgramaActivo.xaml;
 
 True
 

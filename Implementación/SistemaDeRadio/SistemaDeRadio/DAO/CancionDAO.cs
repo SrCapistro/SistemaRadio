@@ -185,5 +185,107 @@ namespace SistemaDeRadio.DAO
             }
             return seBorro;
         }
+
+        public static void agregarCancion(string nombre, long categoria, long genero, string clave, string dias, long artista)
+        {
+            MySqlConnection conn = null;
+            try
+            {
+                conn = ConexionBD.getConnetion();
+                if (conn != null)
+                {
+                    MySqlCommand command;
+                    MySqlDataReader dataReader;
+                    String query = String.Format("INSERT INTO mus_canciones " +
+                        "(CAN_TITULO, CAN_CATEGORIA, CAN_GENERO, CAN_CLAVE, CAN_DIAS, CAN_CANTANTE) " +
+                        "VALUES('{0}', '{1}', '{2}', '{3}', '{4}', '{5}');", nombre, categoria, genero, clave, dias, artista);
+                    command = new MySqlCommand(query, conn);
+                    dataReader = command.ExecuteReader();
+                    dataReader.Close();
+                    command.Dispose();
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("\nExcepción en CancionDAO en método agregarCancion():");
+                Console.WriteLine(e.Message);
+                Console.WriteLine("----------------------------------------------------------------\n");
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+        }
+
+        public static void modificarCancion(string nombre, long categoria, long genero,  long artista, long cancionID)
+        {
+            MySqlConnection conn = null;
+            try
+            {
+                conn = ConexionBD.getConnetion();
+                if (conn != null)
+                {
+                    MySqlCommand command;
+                    MySqlDataReader dataReader;
+                    String query = String.Format("UPDATE mus_canciones " +
+                        "SET CAN_TITULO = '{0}', CAN_CATEGORIA = '{1}', CAN_GENERO = '{2}', CAN_CANTANTE = '{3}' " +
+                        "WHERE CAN_ID = '{4}'", nombre, categoria, genero, artista, cancionID);
+                    command = new MySqlCommand(query, conn);
+                    dataReader = command.ExecuteReader();
+                    dataReader.Close();
+                    command.Dispose();
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("\nExcepción en CancionDAO en método modificarCancion():");
+                Console.WriteLine(e.Message);
+                Console.WriteLine("----------------------------------------------------------------\n");
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+        }
+
+        public static void eliminarCancion(long cancionID)
+        {
+            MySqlConnection conn = null;
+            try
+            {
+                conn = ConexionBD.getConnetion();
+                if (conn != null)
+                {
+                    MySqlCommand command;
+                    MySqlDataReader dataReader;
+                    String query = String.Format("DELETE FROM mus_canciones " +
+                        "WHERE CAN_ID = '{0}'", cancionID);
+                    command = new MySqlCommand(query, conn);
+                    dataReader = command.ExecuteReader();
+                    dataReader.Close();
+                    command.Dispose();
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("\nExcepción en CancionDAO en método eliminarCancion():");
+                Console.WriteLine(e.Message);
+                Console.WriteLine("----------------------------------------------------------------\n");
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+        }
+
     }
 }
