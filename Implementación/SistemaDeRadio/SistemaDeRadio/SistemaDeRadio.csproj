@@ -96,6 +96,9 @@
     <Compile Include="Ventanas\GestionarPrograma.xaml.cs">
       <DependentUpon>GestionarPrograma.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Ventanas\MenuCanciones.xaml.cs">
+      <DependentUpon>MenuCanciones.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Ventanas\PantallaPrincipal.xaml.cs">
       <DependentUpon>PantallaPrincipal.xaml</DependentUpon>
     </Compile>
@@ -136,6 +139,10 @@
       <DependentUpon>Login.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Ventanas\MenuCanciones.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Ventanas\PantallaPrincipal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
