@@ -23,5 +23,17 @@ namespace SistemaDeRadio.Ventanas
         {
             InitializeComponent();
         }
+
+        private void btnRegresar_Click(object sender, RoutedEventArgs e)
+        {
+            MenuCanciones menuCanciones = new MenuCanciones();
+            menuCanciones.Show();
+            this.Close();
+        }
+
+        private void btnRegistrar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

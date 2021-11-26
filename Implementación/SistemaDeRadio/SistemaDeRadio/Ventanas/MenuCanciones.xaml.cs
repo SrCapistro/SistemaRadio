@@ -35,5 +35,37 @@ namespace SistemaDeRadio.Ventanas
             pantallaPrincipal.Show();
             this.Close();
         }
+
+        private void btnBuscarCancion_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnEliminar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnModificarCancion_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnRegistrarCancion_Click(object sender, RoutedEventArgs e)
+        {
+            RegistrarCancion registrarCancion = new RegistrarCancion();
+            registrarCancion.Show();
+            this.Close();
+        }
+
+        private void btnGenerarReporteCanciones_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnGenerarReporteCancionesSinUso_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -36,42 +36,42 @@
         </StackPanel>
         <Label Content="Menú Canciones " Foreground="White" FontSize="40" HorizontalAlignment="Center" Padding="13" FontWeight="ExtraBold" Margin="226,0,212,435" Width="354" Grid.Column="1"/>
         <TextBox HorizontalAlignment="Left" Height="42" Margin="107,89,0,0" TextWrapping="Wrap" Text="nombre cancion/ artista" VerticalAlignment="Top" Width="403" TextChanged="TextBox_TextChanged" RenderTransformOrigin="0.407,0.452" Grid.Column="1"/>
-        <Button x:Name="btnBuscarCancion" Background="#FF14213D" FontSize="18" Content="Buscar Cancion " Foreground="White" FontWeight="Bold" HorizontalAlignment="Center" Margin="535,89,55,405"  Width="202" Click="btnCronograma_Click" Grid.Column="1">
+        <Button x:Name="btnBuscarCancion" Background="#FF14213D" FontSize="18" Content="Buscar Cancion " Foreground="White" FontWeight="Bold" HorizontalAlignment="Center" Margin="535,89,55,405"  Width="202" Click="btnBuscarCancion_Click" Grid.Column="1">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="10"/>
                 </Style>
             </Button.Resources>
         </Button>
-        <Button x:Name="btnEliminarCancion" Background="#FFC53C3C" FontSize="18" Content="Eliminar Cancion " Foreground="White" FontWeight="Bold" HorizontalAlignment="Center" Margin="535,301,55,193"  Width="202" Click="btnCronograma_Click" Grid.Column="1">
+        <Button x:Name="btnEliminarCancion" Background="#FFC53C3C" FontSize="18" Content="Eliminar Cancion " Foreground="White" FontWeight="Bold" HorizontalAlignment="Center" Margin="535,301,55,193"  Width="202" Click="btnEliminar_Click" Grid.Column="1">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="10"/>
                 </Style>
             </Button.Resources>
         </Button>
-        <Button x:Name="btnModificarCancion" Background="#FF14213D" FontSize="18" Content="Modificar Cancion " Foreground="White" FontWeight="Bold" HorizontalAlignment="Center" Margin="293,301,297,193"  Width="202" Click="btnCronograma_Click" Grid.Column="1">
+        <Button x:Name="btnModificarCancion" Background="#FF14213D" FontSize="18" Content="Modificar Cancion " Foreground="White" FontWeight="Bold" HorizontalAlignment="Center" Margin="293,301,297,193"  Width="202" Click="btnModificarCancion_Click" Grid.Column="1">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="10"/>
                 </Style>
             </Button.Resources>
         </Button>
-        <Button x:Name="btnRegistrarCancion" Background="#FF14213D" FontSize="18" Content="Registrar Cancion " Foreground="White" FontWeight="Bold" HorizontalAlignment="Center" Margin="48,301,542,193"  Width="202" Click="btnCronograma_Click" Grid.Column="1">
+        <Button x:Name="btnRegistrarCancion" Background="#FF14213D" FontSize="18" Content="Registrar Cancion " Foreground="White" FontWeight="Bold" HorizontalAlignment="Center" Margin="48,301,542,193"  Width="202" Click="btnRegistrarCancion_Click" Grid.Column="1">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="10"/>
                 </Style>
             </Button.Resources>
         </Button>
-        <Button x:Name="btnGenerarReporteCanciones" Background="#FF14213D" FontSize="18" Content="Generar Reporte de Canciones " Foreground="White" FontWeight="Bold" HorizontalAlignment="Center" Margin="226,362,250,132"  Width="316" Click="btnCronograma_Click" Grid.Column="1" RenderTransformOrigin="0.551,0.559">
+        <Button x:Name="btnGenerarReporteCanciones" Background="#FF14213D" FontSize="18" Content="Generar Reporte de Canciones " Foreground="White" FontWeight="Bold" HorizontalAlignment="Center" Margin="226,362,250,132"  Width="316" Click="btnGenerarReporteCanciones_Click" Grid.Column="1" RenderTransformOrigin="0.551,0.559">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="10"/>
                 </Style>
             </Button.Resources>
         </Button>
-        <Button x:Name="btnGenerarReporteCancionesNoOcupadas" Background="#FF14213D" FontSize="18" Content="Generar Reporte de Canciones sin Uso " Foreground="White" FontWeight="Bold" HorizontalAlignment="Center" Margin="209,407,228,87"  Width="355" Click="btnCronograma_Click" Grid.Column="1">
+        <Button x:Name="btnGenerarReporteCancionesNoOcupadas" Background="#FF14213D" FontSize="18" Content="Generar Reporte de Canciones sin Uso " Foreground="White" FontWeight="Bold" HorizontalAlignment="Center" Margin="209,407,228,87"  Width="355" Click="btnGenerarReporteCancionesSinUso_Click" Grid.Column="1">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="10"/>

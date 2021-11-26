@@ -99,7 +99,7 @@ namespace SistemaDeRadio.Ventanas
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void btnMenuCanciones_Click(object sender, RoutedEventArgs e)
         {
             MenuCanciones menuCanciones = new MenuCanciones();
             menuCanciones.Show();
