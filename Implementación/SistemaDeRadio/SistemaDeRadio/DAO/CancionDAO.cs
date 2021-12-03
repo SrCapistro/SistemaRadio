@@ -287,5 +287,27 @@ namespace SistemaDeRadio.DAO
             }
         }
 
+        public static List<Cancion> buscarCancionesPorNombre(string cadenaDeBusqueda)
+        {
+            List<Cancion> canciones = new List<Cancion>();
+            MySqlConnection conn = null;
+            conn = ConexionBD.getConnetion();
+            if (conn != null)
+            {
+                String consulta = string.Format("SELECT CAN_TITULO as Titulo from mus_canciones WHERE CAN_TITULO LIKE '%{0}%' LIMIT 5;", cadenaDeBusqueda);
+                MySqlCommand comando = new MySqlCommand(consulta, conn);
+                MySqlDataReader leer = comando.ExecuteReader();
+                while (leer.Read())
+                {
+                    Cancion cancion = new Cancion();
+                    cancion.CancionTitulo = (!leer.IsDBNull(0)) ? leer.GetString("Titulo") : "";
+                    canciones.Add(cancion);
+                }
+                conn.Close();
+                comando.Dispose();
+            }
+            return canciones;
+        }
+
     }
 }

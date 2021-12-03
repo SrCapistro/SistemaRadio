@@ -27,6 +27,8 @@ namespace SistemaDeRadio.Ventanas
         List<string> diasSemana;
         List<Formato> elementosFormato;
         List<Formato> elementosFormatoAuxiliar;
+        List<Cancion> cancionesBuscadas;
+        List<Formato> listaAuxiliarBusqueda;
 
         string programaSeleccion;
         string horaInicioSeleccion;
@@ -160,7 +162,14 @@ namespace SistemaDeRadio.Ventanas
                             {
                                 Formato formato = new Formato();
                                 formato.NombreElemento = elementosFormato[contador].NombreElemento;
-                                formato.Comentarios = elementosFormato[contador].Comentarios;
+                                if(elementosFormato[contador].Comentarios == null)
+                                {
+                                    formato.Comentarios = " ";
+                                }
+                                else
+                                {
+                                    formato.Comentarios = elementosFormato[contador].Comentarios;
+                                }
                                 formato.OrdenElementos = contador;
                                 elemetosActualizar.Add(formato);
                                 contador++;
@@ -327,7 +336,7 @@ namespace SistemaDeRadio.Ventanas
             string elementoSeleccionado = cbElementos.Text;
             if(elementoSeleccionado != "")
             {
-                if(seleccionTabla > 0)
+                if(seleccionTabla >= 0)
                 {
                     int contador = 0;
                     while(contador < elementosFormato.Count)
@@ -371,7 +380,7 @@ namespace SistemaDeRadio.Ventanas
             string comentario = txtComentario.Text;
             if (comentario != "")
             {
-                if (seleccionTabla > 0)
+                if (seleccionTabla >= 0)
                 {
                     int contador = 0;
                     while (contador < elementosFormato.Count)
@@ -415,6 +424,70 @@ namespace SistemaDeRadio.Ventanas
         private void btnRegresar_Click(object sender, RoutedEventArgs e)
         {
             abrirAgenda(diaSeleccionado);
+        }
+
+        private void busqueda(object sender, TextChangedEventArgs e)
+        {
+            cancionesBuscadas = new List<Cancion>();
+            dg_cancionesEncontradas.CanUserAddRows = false;
+            dg_cancionesEncontradas.IsReadOnly = true;
+
+            try
+            {
+                cancionesBuscadas = CancionDAO.buscarCancionesPorNombre(txt_buscarCanciones.Text);
+                dg_cancionesEncontradas.ItemsSource = cancionesBuscadas;
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine("Error en búsqueda: " + exc.Message);
+                MessageBox.Show("Error al realizar la búsqueda", "ATENCIÓN");
+            }
+        }
+
+        private void btn_agregarCancion_Click(object sender, RoutedEventArgs e)
+        {
+            listaAuxiliarBusqueda = new List<Formato>();
+            int seleccionTablaBusqueda = dg_cancionesEncontradas.SelectedIndex;
+            if (seleccionTablaBusqueda >= 0)
+            {
+                string nombreCancionSeleccionada = cancionesBuscadas[seleccionTablaBusqueda].CancionTitulo;
+                int seleccionTablaListaCanciones = dgFormatoPrograma.SelectedIndex;
+                if (seleccionTablaListaCanciones >= 0)
+                {
+                    int contador = 0;
+                    while (contador < elementosFormato.Count)
+                    {
+                        Formato cancionesAuxiliar = new Formato();
+                        cancionesAuxiliar.NombreElemento = elementosFormato[contador].NombreElemento;
+                        cancionesAuxiliar.Comentarios = elementosFormato[contador].Comentarios;
+                        listaAuxiliarBusqueda.Add(cancionesAuxiliar);
+                        contador++;
+                    }
+
+                    listaAuxiliarBusqueda[seleccionTablaListaCanciones].NombreElemento = nombreCancionSeleccionada;
+                    dgFormatoPrograma.ItemsSource = listaAuxiliarBusqueda;
+
+                    int contador2 = 0;
+                    elementosFormato.Clear();
+                    while (contador2 < listaAuxiliarBusqueda.Count)
+                    {
+                        Formato cancionesAuxiliar2 = new Formato();
+                        cancionesAuxiliar2.NombreElemento = listaAuxiliarBusqueda[contador2].NombreElemento;
+                        cancionesAuxiliar2.Comentarios = listaAuxiliarBusqueda[contador2].Comentarios;
+                        elementosFormato.Add(cancionesAuxiliar2);
+                        contador2++;
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("Debe seleccionar en que parte del formato desea agregar la canción", "ATENCIÓN");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar una de las canciones encontradas", "ATENCIÓN");
+            }
         }
     }
 }

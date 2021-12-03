@@ -30,7 +30,9 @@ namespace SistemaDeRadio.Ventanas
         List<Patron> patrones;
         List<ListaCanciones> canciones;
         List<ListaCanciones> auxiliar;
+        List<ListaCanciones> listaAuxiliarBusqueda;
         List<string> diasSemana;
+        List<Cancion> cancionesBuscadas;
         public AgendarPrograma()
         {
             InitializeComponent();
@@ -183,7 +185,14 @@ namespace SistemaDeRadio.Ventanas
                                         formato.IdHorarioPrograma = programaAgendado;
                                         formato.NombrePatron = patron;
                                         formato.NombreElemento = canciones[contador].NombreCancion;
-                                        formato.Comentarios = canciones[contador].Comentarios;
+                                        if(canciones[contador].Comentarios == null)
+                                        {
+                                            formato.Comentarios = " ";
+                                        }
+                                        else
+                                        {
+                                            formato.Comentarios = canciones[contador].Comentarios;
+                                        }
                                         formato.OrdenElementos = contador;
                                         formatos.Add(formato);
                                         contador++;
@@ -442,7 +451,7 @@ namespace SistemaDeRadio.Ventanas
 
         private void btnRegresar_Click(object sender, RoutedEventArgs e)
         {
-            string fecha = DateTime.Now.ToString("yyyy-MM-dd");
+            string fecha = DateTime.Now.ToString("dddd");
             abrirAgenda(fecha);
         }
 
@@ -451,5 +460,69 @@ namespace SistemaDeRadio.Ventanas
             agendarPrograma();
         }
 
+        private void busqueda(object sender, TextChangedEventArgs e)
+        {
+            cancionesBuscadas = new List<Cancion>();
+            dg_cancionesEncontradas.CanUserAddRows = false;
+            dg_cancionesEncontradas.IsReadOnly = true;
+
+            try
+            {
+                cancionesBuscadas = CancionDAO.buscarCancionesPorNombre(txt_buscarCanciones.Text);
+                dg_cancionesEncontradas.ItemsSource = cancionesBuscadas;
+            }
+            catch(Exception exc)
+            {
+                Console.WriteLine("Error en búsqueda: " + exc.Message);
+                MessageBox.Show("Error al realizar la búsqueda", "ATENCIÓN");
+            }
+            
+        }
+
+        private void btn_agregarCancion_Click(object sender, RoutedEventArgs e)
+        {
+            listaAuxiliarBusqueda = new List<ListaCanciones>();
+            int seleccionTablaBusqueda = dg_cancionesEncontradas.SelectedIndex;
+            if(seleccionTablaBusqueda >= 0)
+            {
+                string nombreCancionSeleccionada = cancionesBuscadas[seleccionTablaBusqueda].CancionTitulo;
+                int seleccionTablaListaCanciones = dgListaCanciones.SelectedIndex;
+                if(seleccionTablaListaCanciones >= 0)
+                {
+                    int contador = 0;
+                    while (contador < canciones.Count)
+                    {
+                        ListaCanciones cancionesAuxiliar = new ListaCanciones();
+                        cancionesAuxiliar.NombreCancion = canciones[contador].NombreCancion;
+                        cancionesAuxiliar.Comentarios = canciones[contador].Comentarios;
+                        listaAuxiliarBusqueda.Add(cancionesAuxiliar);
+                        contador++;
+                    }
+                  
+                    listaAuxiliarBusqueda[seleccionTablaListaCanciones].NombreCancion = nombreCancionSeleccionada;
+                    dgListaCanciones.ItemsSource = listaAuxiliarBusqueda;
+
+                    int contador2 = 0;
+                    canciones.Clear();
+                    while (contador2 < listaAuxiliarBusqueda.Count)
+                    {
+                        ListaCanciones cancionesAuxiliar2 = new ListaCanciones();
+                        cancionesAuxiliar2.NombreCancion = listaAuxiliarBusqueda[contador2].NombreCancion;
+                        cancionesAuxiliar2.Comentarios = listaAuxiliarBusqueda[contador2].Comentarios;
+                        canciones.Add(cancionesAuxiliar2);
+                        contador2++;
+                    }
+                    
+                }
+                else
+                {
+                    MessageBox.Show("Debe seleccionar en que parte del formato desea agregar la canción", "ATENCIÓN");
+                }    
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar una de las canciones encontradas", "ATENCIÓN");
+            }
+        }
     }
 }

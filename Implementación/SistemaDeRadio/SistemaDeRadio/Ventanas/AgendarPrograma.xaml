@@ -50,5 +50,14 @@
         <Label Content="Agrega un comentario" HorizontalAlignment="Left" Margin="62,544,0,0" VerticalAlignment="Top"/>
         <Button x:Name="btnAgregarComentario" Content="+" HorizontalAlignment="Left" Margin="397,570,0,0" VerticalAlignment="Top" Width="26" Height="64" Background="#FF14213D" Foreground="White" FontFamily="Arial" FontSize="24" FontWeight="Bold" Click="btnAgregarComentario_Click_1"/>
         <ComboBox x:Name="cbDiaSemana" HorizontalAlignment="Left" Margin="603,167,0,0" VerticalAlignment="Top" Width="260"/>
+        <TextBox x:Name="txt_buscarCanciones" HorizontalAlignment="Left" Height="23" Margin="541,503,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="271" TextChanged="busqueda"/>
+        <DataGrid x:Name="dg_cancionesEncontradas" HorizontalAlignment="Left" Height="100" Margin="541,534,0,0" VerticalAlignment="Top" Width="171">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Titulo" Binding= "{Binding CancionTitulo}" Width="171"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="btn_agregarCancion" Content="Agregar" HorizontalAlignment="Left" Margin="717,534,0,0" VerticalAlignment="Top" Width="95" FontFamily="Arial" FontSize="18" FontWeight="Bold" Background="#FF14213D" Foreground="White" Click="btn_agregarCancion_Click"/>
+        <Label Content="Agregar canción" HorizontalAlignment="Left" Margin="541,477,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.193,-0.211" Width="104"/>
+        <Label Content="Formato" HorizontalAlignment="Left" Margin="62,208,0,0" VerticalAlignment="Top" Width="182"/>
     </Grid>
 </Window>

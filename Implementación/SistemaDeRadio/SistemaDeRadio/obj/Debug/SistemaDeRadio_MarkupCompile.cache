@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\ASUS\Source\Repos\SrCapistro\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\
+C:\Users\brand\source\repos\RadioSystem\Implementación\SistemaDeRadio\SistemaDeRadio\obj\Debug\
 SistemaDeRadio
 none
 false
 DEBUG;TRACE
-C:\Users\ASUS\Source\Repos\SrCapistro\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\App.xaml
+C:\Users\brand\source\repos\RadioSystem\Implementación\SistemaDeRadio\SistemaDeRadio\App.xaml
 111091944259
 
 36-1444051098
-442117296942
+44-729920046
 Ventanas\Agenda.xaml;Ventanas\AgendarPrograma.xaml;Ventanas\GestionarPrograma.xaml;Ventanas\Login.xaml;Ventanas\MenuCanciones.xaml;Ventanas\PantallaPrincipal.xaml;Ventanas\PatronCusom.xaml;Ventanas\PatronesRegistrados.xaml;Ventanas\RegistrarCancion.xaml;Ventanas\VisualizarCronograma.xaml;Ventanas\VisualizarInfoProgramaActivo.xaml;
 
 False
