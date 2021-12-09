@@ -1,5 +1,18 @@
 ﻿
 
+<<<<<<< HEAD
+FC:\Users\ASUS\source\repos\SrCapistro\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\Ventanas\Agenda.xaml;;
+FC:\Users\ASUS\source\repos\SrCapistro\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\Ventanas\AgendarPrograma.xaml;;
+FC:\Users\ASUS\source\repos\SrCapistro\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\Ventanas\GestionarPrograma.xaml;;
+FC:\Users\ASUS\source\repos\SrCapistro\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\Ventanas\Login.xaml;;
+FC:\Users\ASUS\source\repos\SrCapistro\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\Ventanas\MenuCanciones.xaml;;
+FC:\Users\ASUS\source\repos\SrCapistro\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\Ventanas\PantallaPrincipal.xaml;;
+FC:\Users\ASUS\source\repos\SrCapistro\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\Ventanas\PatronCusom.xaml;;
+FC:\Users\ASUS\source\repos\SrCapistro\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\Ventanas\PatronesRegistrados.xaml;;
+FC:\Users\ASUS\source\repos\SrCapistro\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\Ventanas\RegistrarCancion.xaml;;
+FC:\Users\ASUS\source\repos\SrCapistro\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\Ventanas\VisualizarCronograma.xaml;;
+FC:\Users\ASUS\source\repos\SrCapistro\SistemaRadio\Implementación\SistemaDeRadio\SistemaDeRadio\Ventanas\VisualizarInfoProgramaActivo.xaml;;
+=======
 FC:\Users\brand\source\repos\RadioSystem\Implementación\SistemaDeRadio\SistemaDeRadio\Ventanas\Agenda.xaml;;
 FC:\Users\brand\source\repos\RadioSystem\Implementación\SistemaDeRadio\SistemaDeRadio\Ventanas\AgendarPrograma.xaml;;
 FC:\Users\brand\source\repos\RadioSystem\Implementación\SistemaDeRadio\SistemaDeRadio\Ventanas\GestionarPrograma.xaml;;
@@ -11,4 +24,5 @@ FC:\Users\brand\source\repos\RadioSystem\Implementación\SistemaDeRadio\SistemaD
 FC:\Users\brand\source\repos\RadioSystem\Implementación\SistemaDeRadio\SistemaDeRadio\Ventanas\RegistrarCancion.xaml;;
 FC:\Users\brand\source\repos\RadioSystem\Implementación\SistemaDeRadio\SistemaDeRadio\Ventanas\VisualizarCronograma.xaml;;
 FC:\Users\brand\source\repos\RadioSystem\Implementación\SistemaDeRadio\SistemaDeRadio\Ventanas\VisualizarInfoProgramaActivo.xaml;;
+>>>>>>> ddd737cf10eef125dbbbd6529f01da2dee089445
 

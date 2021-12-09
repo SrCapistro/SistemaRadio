@@ -85,7 +85,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <DataGrid Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="144" Margin="48,136,0,0" VerticalAlignment="Top" Width="689">
+        <DataGrid x:Name="dg_canciones" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="144" Margin="48,136,0,0" VerticalAlignment="Top" Width="689">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="                       Nombre" Binding= "{Binding NombreElemento}" Width="200"/>
                 <DataGridTextColumn Header="         Categoria" Binding= "{Binding Comentarios}" Width="120"/>
