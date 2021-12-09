@@ -9,6 +9,8 @@ using MySql.Data.MySqlClient;
 using SistemaDeRadio.DAO;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,19 +32,31 @@ namespace SistemaDeRadio.Ventanas
     /// </summary>
     public partial class MenuCanciones : Window
     {
-        List<ListaCancionesDAO> canciones;
+        //List<ListaCancionesDAO> canciones;
         public MenuCanciones()
         {
             InitializeComponent();
-            canciones = new List<ListaCancionesDAO>();
+          //  canciones = new List<ListaCancionesDAO>();
             llenarTabla();
         }
 
         private void llenarTabla()
         {
-            
+            try
+            {
+                dg_canciones.ItemsSource = null;
+                dg_canciones.AutoGenerateColumns = true;
+                dg_canciones.ItemsSource = ListaCancionesDAO.obtenerCanciones();
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error: " + e.Message);
+                MessageBox.Show("Error en la Base de datos", "ATENCIÓN");
+            }
 
         }
+
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -58,7 +72,31 @@ namespace SistemaDeRadio.Ventanas
 
         private void btnBuscarCancion_Click(object sender, RoutedEventArgs e)
         {
+            if (tbNombreCancion.Text.Length == 0)
+            {
+                MessageBox.Show("Debe de ingresar el titulo de alguna cancion", "Campos faltantes");
+                llenarTabla();
+            }
+            else
+            {
+                String titulo = tbNombreCancion.Text.ToString();
+                CancionDAO.buscarCancionesPorNombre(titulo);
 
+                try
+                {
+                    dg_canciones.ItemsSource = null;
+                    dg_canciones.AutoGenerateColumns = true;
+                    dg_canciones.ItemsSource = CancionDAO.buscarCancionesPorNombre(titulo);
+                    //ListaCancionesDAO.obtenerCancionesPorNombre(titulo)
+
+                }
+                catch (Exception ex)
+                {
+                Console.WriteLine("Error: " + ex.Message);
+                MessageBox.Show("Error en la Base de datos", "ATENCIÓN");
+                }
+            }
+            
         }
 
         private void btnEliminar_Click(object sender, RoutedEventArgs e)

@@ -35,7 +35,7 @@
 
         </StackPanel>
         <Label Content="Menú Canciones " Foreground="White" FontSize="40" HorizontalAlignment="Center" Padding="13" FontWeight="ExtraBold" Margin="226,0,212,435" Width="354" Grid.Column="1"/>
-        <TextBox HorizontalAlignment="Left" Height="42" Margin="107,89,0,0" TextWrapping="Wrap" Text="nombre cancion/ artista" VerticalAlignment="Top" Width="403" TextChanged="TextBox_TextChanged" RenderTransformOrigin="0.407,0.452" Grid.Column="1"/>
+        <TextBox x:Name="tbNombreCancion" HorizontalAlignment="Left" Height="42" Margin="107,89,0,0" TextWrapping="Wrap" Text="nombre cancion" VerticalAlignment="Top" Width="403" TextChanged="TextBox_TextChanged" RenderTransformOrigin="0.407,0.452" Grid.Column="1"/>
         <Button x:Name="btnBuscarCancion" Background="#FF14213D" FontSize="18" Content="Buscar Cancion " Foreground="White" FontWeight="Bold" HorizontalAlignment="Center" Margin="535,89,55,405"  Width="202" Click="btnBuscarCancion_Click" Grid.Column="1">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -85,13 +85,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <DataGrid x:Name="dg_canciones" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="144" Margin="48,136,0,0" VerticalAlignment="Top" Width="689">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="                       Nombre" Binding= "{Binding NombreElemento}" Width="200"/>
-                <DataGridTextColumn Header="         Categoria" Binding= "{Binding Comentarios}" Width="120"/>
-                <DataGridTextColumn Header="          Genero" Binding= "{Binding Comentarios}" Width="120"/>
-                <DataGridTextColumn Header="                               Artista" Binding= "{Binding Comentarios}" Width="300"/>
-            </DataGrid.Columns>
-        </DataGrid>
+        <DataGrid x:Name="dg_canciones" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="144" Margin="48,136,0,0" VerticalAlignment="Top" Width="689"/>
+        
     </Grid>
 </Window>

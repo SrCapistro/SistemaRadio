@@ -37,5 +37,96 @@ namespace SistemaDeRadio.DAO
             }
             return canciones;
         }
+
+        public static List<Cancion> obtenerCancionesPorNombre(string nombre)
+        {
+            List<Cancion> cancionesRegistradas = new List<Cancion>();
+            MySqlConnection conn = null;
+            MySqlDataReader reader = null;
+            try
+            {
+                conn = ConexionBD.getConnetion();
+                if (conn != null)
+                {
+                    String query = String.Format("SELECT FROM mus_canciones WHERE CAN_TITULO = '{0}';", nombre);
+                    MySqlCommand command = new MySqlCommand(query, conn);
+                    reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        Cancion cancion = new Cancion();
+                        cancion.CancionID = (long)reader["CAN_ID"];
+                        cancion.CancionTitulo = reader.GetString(1);
+                        cancion.CancionCategoria = (long)reader["CAN_CATEGORIA"];
+                        cancion.CancionGenero = (long)reader["CAN_GENERO"];
+                        cancion.CancionClave = reader.GetString(4);
+                        cancion.CancionDias = reader.GetString(5);
+                        cancion.CancionAutor = (long)reader["CAN_CANTANTE"];
+                        cancionesRegistradas.Add(cancion);
+                    }
+                    command.Dispose();
+                    reader.Close();
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("\nExcepción en CancionDAO en método obtenerCancionesPorNombre():");
+                Console.WriteLine(e.Message);
+                Console.WriteLine("----------------------------------------------------------------\n");
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+            return cancionesRegistradas;
+        }
+
+        public static List<Cancion> obtenerCanciones()
+        {
+            List<Cancion> canciones = new List<Cancion>();
+            MySqlConnection conn = null;
+            MySqlDataReader reader = null;
+            try
+            {
+                conn = ConexionBD.getConnetion();
+                if (conn != null)
+                {
+                    String query = String.Format("SELECT * FROM mus_canciones;");
+                    MySqlCommand command = new MySqlCommand(query, conn);
+                    reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        Cancion cancion = new Cancion();
+                        cancion.CancionID = (long)reader["CAN_ID"];
+                        cancion.CancionTitulo = reader.GetString(1);
+                        cancion.CancionCategoria = (long)reader["CAN_CATEGORIA"];
+                        cancion.CancionGenero = (long)reader["CAN_GENERO"];
+                        cancion.CancionClave = reader.GetString(4);
+                        cancion.CancionDias = reader.GetString(5);
+                        cancion.CancionAutor = (long)reader["CAN_CANTANTE"];
+                        canciones.Add(cancion);
+                    }
+                    command.Dispose();
+                    reader.Close();
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("\nExcepción en CancionDAO en método obtenerTodasLasCanciones():");
+                Console.WriteLine(e.Message);
+                Console.WriteLine("----------------------------------------------------------------\n");
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+            return canciones;
+        }
+
     }
 }

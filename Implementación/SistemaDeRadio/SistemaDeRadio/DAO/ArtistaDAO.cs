@@ -88,24 +88,82 @@ namespace SistemaDeRadio.DAO
                 conn = ConexionBD.getConnetion();
                 if (conn != null)
                 {
+<<<<<<< HEAD
+                    String query = "SELECT FROM mus_cantantes WHERE CNT_ESTADO = 'Inhabilitado';";
+=======
                     String query = "SELECT * FROM mus_cantantes;";
+>>>>>>> 4e8db1803dba787a78041a6cf58e6ec9094b282f
                     MySqlCommand command = new MySqlCommand(query, conn);
                     reader = command.ExecuteReader();
                     while (reader.Read())
                     {
                         Artista artista = new Artista();
                         artista.ArtistaID = (long)reader["CNT_ID"];
+<<<<<<< HEAD
+                        artista.ArtistaNombre = reader.GetString(1);
+                        artista.ArtistaEstado = reader.GetString(2);
+=======
                         artista.ArtistaNombre = reader["CNT_NOMBRE"].ToString();
                         artista.ArtistaEstado = reader["CNT_ESTADO"].ToString();
+>>>>>>> 4e8db1803dba787a78041a6cf58e6ec9094b282f
                         artistasRegistradas.Add(artista);
                     }
                     command.Dispose();
                     reader.Close();
                 }
             }
+<<<<<<< HEAD
+            catch (NullReferenceException e)
+            {
+                Console.WriteLine("\nExcepción en ArtistaDAO en método obtenerArtistas():");
+                Console.WriteLine(e.Message);
+                Console.WriteLine("----------------------------------------------------------------\n");
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+            return artistasRegistradas;
+        }
+
+        public static List<Artista> obtenerArtistaPorNombre(string nombre)
+        {
+            List<Artista> artistasRegistradas = new List<Artista>();
+            MySqlConnection conn = null;
+            MySqlDataReader reader = null;
+            try
+            {
+                conn = ConexionBD.getConnetion();
+                if (conn != null)
+                {
+                    String query = String.Format("SELECT FROM mus_cantantes WHERE CNT_NOMBRE = '{0}';", nombre);
+                    MySqlCommand command = new MySqlCommand(query, conn);
+                    reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        Artista artista = new Artista();
+                        artista.ArtistaID = (long)reader["CNT_ID"];
+                        artista.ArtistaNombre = reader.GetString(1);
+                        artista.ArtistaEstado = reader.GetString(2);
+                        artistasRegistradas.Add(artista);
+                    }
+                    command.Dispose();
+                    reader.Close();
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("\nExcepción en ArtistaDAO en método obtenerArtistasPorNombre():");
+                Console.WriteLine(e.Message);
+                Console.WriteLine("----------------------------------------------------------------\n");
+=======
             catch (NullReferenceException ex)
             {
                 Console.WriteLine(ex.StackTrace);
+>>>>>>> 4e8db1803dba787a78041a6cf58e6ec9094b282f
             }
             finally
             {

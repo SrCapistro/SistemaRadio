@@ -286,9 +286,15 @@ namespace SistemaDeRadio.DAO
                 }
             }
         }
+<<<<<<< HEAD
+// <<<<<<< HEAD
+        
+// =======
+=======
 //<<<<<<< HEAD
         
 //=======
+>>>>>>> 4e8db1803dba787a78041a6cf58e6ec9094b282f
 
         public static List<Cancion> buscarCancionesPorNombre(string cadenaDeBusqueda)
         {
@@ -297,7 +303,7 @@ namespace SistemaDeRadio.DAO
             conn = ConexionBD.getConnetion();
             if (conn != null)
             {
-                String consulta = string.Format("SELECT CAN_TITULO as Titulo from mus_canciones WHERE CAN_TITULO LIKE '%{0}%' LIMIT 5;", cadenaDeBusqueda);
+                String consulta = string.Format("SELECT CAN_ID, CAN_TITULO as Titulo from mus_canciones WHERE CAN_TITULO LIKE '%{0}%' LIMIT 5;", cadenaDeBusqueda);
                 MySqlCommand comando = new MySqlCommand(consulta, conn);
                 MySqlDataReader leer = comando.ExecuteReader();
                 while (leer.Read())
