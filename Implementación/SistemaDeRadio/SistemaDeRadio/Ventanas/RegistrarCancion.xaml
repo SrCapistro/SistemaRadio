@@ -31,14 +31,14 @@
         <Label x:Name="lbCategoria" HorizontalAlignment="Left" Margin="473,241,0,0" VerticalAlignment="Top" FontSize="25" Width="283" Height="56">
             <Label Content="Selecciona la categoría:"/>
         </Label>
-        <ComboBox x:Name="cbCategoria" HorizontalAlignment="Left" Margin="478,300,0,0" VerticalAlignment="Top" Width="278" Height="43"/>
+        <ComboBox x:Name="cbCategoria" HorizontalAlignment="Left" Margin="478,300,0,0" VerticalAlignment="Top" Width="278" Height="43" SelectionChanged="cbCategoriaSelectionChanged"/>
         <Label x:Name="lbArtista" HorizontalAlignment="Left" Margin="40,241,0,0" VerticalAlignment="Top" FontSize="25" Width="283" Height="56">
             <Label Content="Selecciona el artista:"/>
         </Label>
-        <ComboBox x:Name="cbArtista" HorizontalAlignment="Left" Margin="45,302,0,0" VerticalAlignment="Top" Width="382" Height="41" RenderTransformOrigin="0.734,0.644"/>
+        <ComboBox x:Name="cbArtista" HorizontalAlignment="Left" Margin="45,302,0,0" VerticalAlignment="Top" Width="382" Height="41" RenderTransformOrigin="0.734,0.644" SelectionChanged="cbArtistaSelectionChanged"/>
         <Label x:Name="lbGenero" HorizontalAlignment="Left" Margin="473,110,0,0" VerticalAlignment="Top" FontSize="25" Width="283" Height="56">
             <Label Content="Selecciona el género:"/>
         </Label>
-        <ComboBox x:Name="cbGenero" HorizontalAlignment="Left" Margin="478,166,0,0" VerticalAlignment="Top" Width="278" Height="43"/>
+        <ComboBox x:Name="cbGenero" HorizontalAlignment="Left" Margin="478,166,0,0" VerticalAlignment="Top" Width="278" Height="43" SelectionChanged="cbGeneroSelectionChanged"/>
     </Grid>
 </Window>

@@ -78,5 +78,44 @@ namespace SistemaDeRadio.DAO
             }
         }
 
+        public static List<Artista> obtenerArtistas()
+        {
+            List<Artista> artistasRegistradas = new List<Artista>();
+            MySqlConnection conn = null;
+            MySqlDataReader reader = null;
+            try
+            {
+                conn = ConexionBD.getConnetion();
+                if (conn != null)
+                {
+                    String query = "SELECT * FROM mus_cantantes;";
+                    MySqlCommand command = new MySqlCommand(query, conn);
+                    reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        Artista artista = new Artista();
+                        artista.ArtistaID = (long)reader["CNT_ID"];
+                        artista.ArtistaNombre = reader["CNT_NOMBRE"].ToString();
+                        artista.ArtistaEstado = reader["CNT_ESTADO"].ToString();
+                        artistasRegistradas.Add(artista);
+                    }
+                    command.Dispose();
+                    reader.Close();
+                }
+            }
+            catch (NullReferenceException ex)
+            {
+                Console.WriteLine(ex.StackTrace);
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+            return artistasRegistradas;
+        }
+
     }
 }

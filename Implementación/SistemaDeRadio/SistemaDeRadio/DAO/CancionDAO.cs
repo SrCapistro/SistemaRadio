@@ -286,9 +286,9 @@ namespace SistemaDeRadio.DAO
                 }
             }
         }
-<<<<<<< HEAD
+//<<<<<<< HEAD
         
-=======
+//=======
 
         public static List<Cancion> buscarCancionesPorNombre(string cadenaDeBusqueda)
         {
@@ -312,6 +312,6 @@ namespace SistemaDeRadio.DAO
             return canciones;
         }
 
->>>>>>> ddd737cf10eef125dbbbd6529f01da2dee089445
+//>>>>>>> ddd737cf10eef125dbbbd6529f01da2dee089445
     }
 }
